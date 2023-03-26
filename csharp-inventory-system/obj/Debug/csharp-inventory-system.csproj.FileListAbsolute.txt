@@ -1,0 +1,10 @@
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.csproj.AssemblyReference.cache
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.csproj.SuggestedBindingRedirects.cache
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Properties.Resources.resources
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.csproj.GenerateResource.cache
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.csproj.CoreCompileInputs.cache
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debug\csharp-inventory-system.exe.config
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debug\csharp-inventory-system.exe
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debug\csharp-inventory-system.pdb
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.exe
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.pdb
