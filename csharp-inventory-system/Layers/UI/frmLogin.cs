@@ -1,12 +1,16 @@
 ﻿using csharp_inventory_system.Interfaces;
 using csharp_inventory_system.Layers.BLL;
 using csharp_inventory_system.Layers.Entities;
+using csharp_inventory_system.Properties;
+using csharp_inventory_system.Util;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +19,8 @@ namespace csharp_inventory_system.Layers.UI
 {
     public partial class frmLogin : Form
     {
+        private static readonly ILog _MyLogControlEventos = log4net.LogManager.GetLogger("MyControlEventos");
+        private int contador = 0;
         public frmLogin()
         {
             InitializeComponent();
@@ -46,10 +52,39 @@ namespace csharp_inventory_system.Layers.UI
                     return;
                 }
                 oUser = _BLLUser.Login(this.txtLogin.Text, this.txtPassword.Text);
+                if (oUser == null)
+                {
+                    ++contador;
+                    MessageBox.Show("Error en el acceso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (contador == 3)
+                    {
+                        MessageBox.Show("Se equivocó en 3 ocasiones, el Sistema se Cerrará por seguridad", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.DialogResult = DialogResult.Cancel;
+                        Application.Exit();
+                    }
+                }
+                else
+                {
+                    //Settings.Default.Login = this.txtLogin.Text.Trim();
+                    //Settings.Default.Password = this.txtPassword.Text.Trim();
+                    //Settings.Default.Nombre = oUsuario.Nombre;
+                    //Settings.Default.RolId = oUsuario.IdRol.ToString();
+
+                    ////EfectoConexionNoAsync();
+                    //bool respuesta = await EfectoConexion();
+
+                    //// Log de errores
+                    //_MyLogControlEventos.InfoFormat("Entró a la aplicación :{0}", Settings.Default.Nombre);
+                    this.DialogResult = DialogResult.OK;
+                }
             }
-            
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
-
-
 }
