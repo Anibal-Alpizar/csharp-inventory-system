@@ -8,3 +8,4 @@ C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debu
 C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debug\csharp-inventory-system.pdb
 C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.exe
 C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.pdb
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.frmLogin.resources
