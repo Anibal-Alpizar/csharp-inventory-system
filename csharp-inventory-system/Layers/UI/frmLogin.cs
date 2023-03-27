@@ -1,19 +1,14 @@
-﻿using csharp_inventory_system.Interfaces;
+﻿using log4net;
+using System;
+using System.Reflection;
+using System.Text;
+using System.Windows.Forms;
+using System.Threading.Tasks;
+using csharp_inventory_system.Interfaces;
 using csharp_inventory_system.Layers.BLL;
 using csharp_inventory_system.Layers.Entities;
 using csharp_inventory_system.Properties;
 using csharp_inventory_system.Util;
-using log4net;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace csharp_inventory_system.Layers.UI
 {
@@ -65,16 +60,12 @@ namespace csharp_inventory_system.Layers.UI
                 }
                 else
                 {
-                    //Settings.Default.Login = this.txtLogin.Text.Trim();
-                    //Settings.Default.Password = this.txtPassword.Text.Trim();
-                    //Settings.Default.Nombre = oUsuario.Nombre;
-                    //Settings.Default.RolId = oUsuario.IdRol.ToString();
-
-                    ////EfectoConexionNoAsync();
-                    //bool respuesta = await EfectoConexion();
-
-                    //// Log de errores
-                    //_MyLogControlEventos.InfoFormat("Entró a la aplicación :{0}", Settings.Default.Nombre);
+                    Settings.Default.Login = this.txtLogin.Text.Trim();
+                    Settings.Default.Password = this.txtPassword.Text.Trim();
+                    Settings.Default.Nombre = oUser.Nombre;
+                    Settings.Default.RolId = oUser.IdRol.ToString();
+                    bool respuesta = await EfectoConexion();
+                    _MyLogControlEventos.InfoFormat("Entaplicación :{0}", Settings.Default.Nombre);
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -85,6 +76,20 @@ namespace csharp_inventory_system.Layers.UI
                 _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async Task<bool> EfectoConexion()
+        {
+            toolStripPbBarra.Visible = true;
+            for (int i = 0; i < 10; i++)
+            {
+                await Task.Delay(100);
+                //Thread.Sleep(100);
+                this.toolStripPbBarra.Value += 10;
+                this.sttBarraInferior.Refresh();
+            }
+            return true;
+
         }
     }
 }

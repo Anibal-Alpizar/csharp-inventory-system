@@ -10,10 +10,8 @@
 
 namespace csharp_inventory_system.Properties
 {
-
-
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
     {
 
@@ -24,6 +22,78 @@ namespace csharp_inventory_system.Properties
             get
             {
                 return defaultInstance;
+            }
+        }
+
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=inventariodb;User ID=sa;Password=123456")]
+        public string ElectronicsConnectionString
+        {
+            get
+            {
+                return ((string)(this["ElectronicsConnectionString"]));
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Login
+        {
+            get
+            {
+                return ((string)(this["Login"]));
+            }
+            set
+            {
+                this["Login"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Password
+        {
+            get
+            {
+                return ((string)(this["Password"]));
+            }
+            set
+            {
+                this["Password"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Nombre
+        {
+            get
+            {
+                return ((string)(this["Nombre"]));
+            }
+            set
+            {
+                this["Nombre"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RolId
+        {
+            get
+            {
+                return ((string)(this["RolId"]));
+            }
+            set
+            {
+                this["RolId"] = value;
             }
         }
     }

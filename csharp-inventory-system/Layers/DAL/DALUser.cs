@@ -26,7 +26,7 @@ namespace csharp_inventory_system.Layers.DAL
             User oUser = null;
             try
             {
-                command.CommandText = @"select * from Usuario with (rowlock) where Login = @pLogin and Password = @pPassword";
+                command.CommandText = @"select * from Usuario where Login = @pLogin and Passwords = @pPassword";
                 command.Parameters.AddWithValue("@pLogin", pLogin);
                 command.Parameters.AddWithValue("@pPassword", pPassword);
                 command.CommandType = CommandType.Text;
@@ -39,7 +39,7 @@ namespace csharp_inventory_system.Layers.DAL
                         oUser = new User();
                         oUser.Login = reader["Login"].ToString();
                         oUser.IdRol = int.Parse(reader["IdRol"].ToString());
-                        oUser.Password = reader["Password"].ToString();
+                        oUser.Password = reader["Passwords"].ToString();
                         oUser.Nombre = reader["Nombre"].ToString();
                         oUser.Estado = bool.Parse(reader["Estado"].ToString());
                     }
