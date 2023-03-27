@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using csharp_inventory_system.Interfaces;
 using csharp_inventory_system.Layers.BLL;
 using csharp_inventory_system.Layers.Entities;
-using csharp_inventory_system.Properties;
 using csharp_inventory_system.Util;
 
 namespace csharp_inventory_system.Layers.UI
@@ -60,12 +59,8 @@ namespace csharp_inventory_system.Layers.UI
                 }
                 else
                 {
-                    Settings.Default.Login = this.txtLogin.Text.Trim();
-                    Settings.Default.Password = this.txtPassword.Text.Trim();
-                    Settings.Default.Nombre = oUser.Nombre;
-                    Settings.Default.RolId = oUser.IdRol.ToString();
                     bool respuesta = await EfectoConexion();
-                    _MyLogControlEventos.InfoFormat("Entaplicación :{0}", Settings.Default.Nombre);
+                    _MyLogControlEventos.InfoFormat("Entaplicación :{0}" /*Settings.Default.Nombre*/ );
                     this.DialogResult = DialogResult.OK;
                 }
             }

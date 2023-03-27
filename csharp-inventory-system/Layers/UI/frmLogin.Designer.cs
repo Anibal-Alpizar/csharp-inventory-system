@@ -47,7 +47,7 @@
             // btnSalir
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Location = new System.Drawing.Point(462, 224);
+            this.btnSalir.Location = new System.Drawing.Point(183, 110);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(119, 53);
             this.btnSalir.TabIndex = 6;
@@ -58,7 +58,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(312, 224);
+            this.btnAceptar.Location = new System.Drawing.Point(33, 110);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(119, 53);
             this.btnAceptar.TabIndex = 5;
@@ -76,7 +76,7 @@
             this.tlpPanel.Controls.Add(this.label2, 0, 1);
             this.tlpPanel.Controls.Add(this.txtLogin, 1, 0);
             this.tlpPanel.Controls.Add(this.txtPassword, 1, 1);
-            this.tlpPanel.Location = new System.Drawing.Point(312, 147);
+            this.tlpPanel.Location = new System.Drawing.Point(33, 33);
             this.tlpPanel.Name = "tlpPanel";
             this.tlpPanel.RowCount = 2;
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -109,6 +109,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(128, 20);
             this.txtLogin.TabIndex = 2;
+            this.txtLogin.Text = "Admin";
             // 
             // txtPassword
             // 
@@ -117,6 +118,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(128, 20);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.Text = "123456";
             // 
             // epError
             // 
@@ -126,9 +128,9 @@
             // 
             this.sttBarraInferior.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripPbBarra});
-            this.sttBarraInferior.Location = new System.Drawing.Point(0, 425);
+            this.sttBarraInferior.Location = new System.Drawing.Point(0, 199);
             this.sttBarraInferior.Name = "sttBarraInferior";
-            this.sttBarraInferior.Size = new System.Drawing.Size(847, 22);
+            this.sttBarraInferior.Size = new System.Drawing.Size(350, 22);
             this.sttBarraInferior.TabIndex = 7;
             this.sttBarraInferior.Text = "statusStrip1";
             // 
@@ -142,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 447);
+            this.ClientSize = new System.Drawing.Size(350, 221);
             this.Controls.Add(this.sttBarraInferior);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAceptar);
