@@ -26,7 +26,7 @@ namespace csharp_inventory_system.Layers.DAL
             User oUser = null;
             try
             {
-                command.CommandText = @"select * from Usuario where Login = @pLogin and Passwords = @pPassword";
+                command.CommandText = @"select * from Usuario with (rowlock) where Login = @pLogin and Passwords = @pPassword";
                 command.Parameters.AddWithValue("@pLogin", pLogin);
                 command.Parameters.AddWithValue("@pPassword", pPassword);
                 command.CommandType = CommandType.Text;
