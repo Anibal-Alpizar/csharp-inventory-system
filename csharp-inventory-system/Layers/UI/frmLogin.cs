@@ -8,6 +8,7 @@ using csharp_inventory_system.Interfaces;
 using csharp_inventory_system.Layers.BLL;
 using csharp_inventory_system.Layers.Entities;
 using csharp_inventory_system.Util;
+using System.Drawing;
 
 namespace csharp_inventory_system.Layers.UI
 {
@@ -22,8 +23,9 @@ namespace csharp_inventory_system.Layers.UI
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            Close();
+            //this.DialogResult = DialogResult.Cancel;
+            //Close();
+            Application.Exit();
         }
 
         private async void btnAceptar_Click(object sender, EventArgs e)
@@ -62,6 +64,7 @@ namespace csharp_inventory_system.Layers.UI
                     bool respuesta = await EfectoConexion();
                     _MyLogControlEventos.InfoFormat("Entaplicación :{0}" /*Settings.Default.Nombre*/ );
                     this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("Bienvenida Tia Kattia");
                 }
             }
             catch (Exception er)
@@ -85,6 +88,69 @@ namespace csharp_inventory_system.Layers.UI
             }
             return true;
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLogin_TextChanged(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    //if (txtLogin.Text == "")
+            //    //{
+            //    //    txtLogin.Text = "Digite el User";
+            //    //    return;
+            //    //}
+            //    txtLogin.ForeColor = Color.Black;
+            //    panel5.Visible = false;
+            //}
+            //catch 
+            //{
+
+               
+            //}
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (txtPassword.Text == "")
+                //{
+                //    txtLogin.Text = "123456789";
+                //    return;
+                //}
+                txtLogin.ForeColor = Color.Black;
+                panel5.Visible= false;
+            }
+            catch
+            {
+
+
+            }
+        }
+
+        private void txtLogin_Click(object sender, EventArgs e)
+        {
+            txtLogin.SelectAll();
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            txtPassword.SelectAll();
+        }
+
+        private void btnAceptar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAceptar.ForeColor= Color.Black;
+        }
+
+        private void btnAceptar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAceptar.ForeColor = Color.Black;
         }
     }
 }
