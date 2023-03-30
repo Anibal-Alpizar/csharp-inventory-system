@@ -65,6 +65,9 @@ namespace csharp_inventory_system.Layers.UI
                     _MyLogControlEventos.InfoFormat("Entaplicación :{0}" /*Settings.Default.Nombre*/ );
                     this.DialogResult = DialogResult.OK;
                     MessageBox.Show("Bienvenida Tia Kattia");
+                    frmPrincipal frm = new frmPrincipal();
+                    frm.Show();
+                    this.Hide();
                 }
             }
             catch (Exception er)

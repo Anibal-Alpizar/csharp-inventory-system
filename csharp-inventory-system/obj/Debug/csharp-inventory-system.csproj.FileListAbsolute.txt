@@ -80,3 +80,4 @@ C:\Users\ale-b\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-
 C:\Users\ale-b\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.csproj.CopyComplete
 C:\Users\ale-b\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.exe
 C:\Users\ale-b\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.pdb
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.frmPrincipal.resources
