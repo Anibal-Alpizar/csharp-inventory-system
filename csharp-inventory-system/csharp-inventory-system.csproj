@@ -109,6 +109,12 @@
     <Compile Include="Layers\UI\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmMantenimientoAlimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmMantenimientoAlimentos.Designer.cs">
+      <DependentUpon>frmMantenimientoAlimentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layers\UI\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Mantenimientos\frmMantenimientoAlimentos.resx">
+      <DependentUpon>frmMantenimientoAlimentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -163,5 +172,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

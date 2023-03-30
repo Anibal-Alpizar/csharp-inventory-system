@@ -8,15 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace csharp_inventory_system.Layers.UI
+namespace csharp_inventory_system.Layers.UI.Mantenimientos
 {
-    public partial class frmPrincipal : Form
+    public partial class frmMantenimientoAlimentos : Form
     {
-        public frmPrincipal()
+        public frmMantenimientoAlimentos()
         {
             InitializeComponent();
         }
-
         Panel p = new Panel();
         private void btnMouseEnter(Object sender, EventArgs e)
         {
@@ -24,7 +23,7 @@ namespace csharp_inventory_system.Layers.UI
             pMenu.Controls.Add(p);
             p.BackColor = Color.Aqua;
             p.Size = new Size(140, 5);
-            p.Location = new Point(btn.Location.X, btn.Location.Y+40);
+            p.Location = new Point(btn.Location.X, btn.Location.Y + 40);
         }
 
         private void btnMouseLeave(Object sender, EventArgs e)
@@ -37,7 +36,9 @@ namespace csharp_inventory_system.Layers.UI
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+       
+
+        private void button3_Click_1(object sender, EventArgs e)
         {
             if (!pInventarios.Visible)
             {
@@ -49,15 +50,9 @@ namespace csharp_inventory_system.Layers.UI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
-          
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
