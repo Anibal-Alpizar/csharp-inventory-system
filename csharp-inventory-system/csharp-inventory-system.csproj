@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumeraciones\Enumeraciones.cs" />
     <Compile Include="Interfaces\IBLLUser.cs" />
     <Compile Include="Interfaces\IDALUser.cs" />
     <Compile Include="Layers\BLL\BLLUser.cs" />

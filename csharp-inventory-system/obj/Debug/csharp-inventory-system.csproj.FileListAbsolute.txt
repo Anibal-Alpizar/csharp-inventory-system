@@ -124,3 +124,4 @@ C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug
 C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.exe
 C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.pdb
 C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Mantenimientos.frmMantenimientoAlimentos.resources
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Mantenimientos.frmMantenimientoAlimentos.resources

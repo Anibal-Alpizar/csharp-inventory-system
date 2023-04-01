@@ -1,9 +1,13 @@
-﻿using System;
+﻿using csharp_inventory_system.Layers.UI.Mantenimientos;
+using csharp_inventory_system.Util;
+using log4net;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +16,7 @@ namespace csharp_inventory_system.Layers.UI
 {
     public partial class frmPrincipal : Form
     {
+        private static readonly ILog _MyLogControlEventos = log4net.LogManager.GetLogger("MyControlEventos");
         public frmPrincipal()
         {
             InitializeComponent();
@@ -57,7 +62,21 @@ namespace csharp_inventory_system.Layers.UI
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            frmMantenimientoAlimentos ofrmMantenimientosAlimentos;
+            try
+            {
+                ofrmMantenimientosAlimentos = new frmMantenimientoAlimentos();
+                //ofrmMantenimientosAlimentos.MdiParent = this;
+                ofrmMantenimientosAlimentos.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
