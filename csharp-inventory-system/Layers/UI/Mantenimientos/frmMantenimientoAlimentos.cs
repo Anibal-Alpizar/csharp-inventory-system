@@ -75,12 +75,30 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
         private void CambiarEstado(EstadoMantenimiento estado)
         {
-            // limpiar todo
+            this.txtProducto.Clear();
+            this.txtPrecioUnitario.Clear();
+            this.txtEntrante.Clear();
+            this.txtSaliente.Clear();
 
+            this.txtProducto.Enabled = false;
+            this.txtPrecioUnitario.Enabled = false;
+            this.txtEntrante.Enabled = false;
+            this.txtSaliente.Enabled = false;
+
+            btnAceptar.Enabled = false;
+            btnCancelar.Enabled = false;
+            this.cmbUnidadMedida.Enabled = false;
+
+            if(cmbUnidadMedida.Items.Count > 0) this.cmbUnidadMedida.SelectedIndex = 0;
+           
             switch (estado)
             {
                 case EstadoMantenimiento.Nuevo:
-                    // habilitar 
+                    this.txtProducto.Enabled = true;
+                    this.txtPrecioUnitario.Enabled = true;
+                    this.txtEntrante.Enabled = true;
+                    this.txtSaliente.Enabled = true;
+                    txtProducto.Focus();
                     break;
 
                 case EstadoMantenimiento.Editar:
@@ -89,8 +107,8 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
                 case EstadoMantenimiento.Borrar:
                     // habilitar
-
                     break;
+
                 case EstadoMantenimiento.Ninguno: break;
             }
         }
@@ -98,6 +116,26 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         private void toolStripBtnNuevo_Click(object sender, EventArgs e)
         {
             this.CambiarEstado(EstadoMantenimiento.Nuevo);
+        }
+
+        private void frmMantenimientoAlimentos_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                CargarDatos();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void CargarDatos()
+        {
+
         }
     }
 }

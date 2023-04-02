@@ -93,6 +93,7 @@
     <Compile Include="Interfaces\IDALUser.cs" />
     <Compile Include="Layers\BLL\BLLUser.cs" />
     <Compile Include="Layers\DAL\DALUser.cs" />
+    <Compile Include="Layers\Entities\BodegaProducto.cs" />
     <Compile Include="Layers\Entities\User.cs" />
     <Compile Include="Layers\Persistencia\DataBase.cs" />
     <Compile Include="Layers\Persistencia\FactoryConexion.cs" />
