@@ -1,4 +1,7 @@
-﻿using csharp_inventory_system.Util;
+﻿using csharp_inventory_system.Interfaces;
+using csharp_inventory_system.Layers.BLL;
+using csharp_inventory_system.Layers.Entities;
+using csharp_inventory_system.Util;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -73,6 +76,10 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
         }
 
+        /// <summary>
+        /// Cambia el estado del proceso
+        /// </summary>
+        /// <param name="estado">Enum del proceso</param>
         private void CambiarEstado(EstadoMantenimiento estado)
         {
             this.txtProducto.Clear();
@@ -89,8 +96,8 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             btnCancelar.Enabled = false;
             this.cmbUnidadMedida.Enabled = false;
 
-            if(cmbUnidadMedida.Items.Count > 0) this.cmbUnidadMedida.SelectedIndex = 0;
-           
+            if (cmbUnidadMedida.Items.Count > 0) this.cmbUnidadMedida.SelectedIndex = 0;
+
             switch (estado)
             {
                 case EstadoMantenimiento.Nuevo:
@@ -136,6 +143,56 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         private async void CargarDatos()
         {
 
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            BodegaProducto oBodegaProducto = null;
+            BLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
+            try
+            {
+                if (txtProducto.Text.Length > 0)
+                {
+                    MessageBox.Show("El nombre del prodcuto es un dato requerido!", "Atención");
+                    return;
+                }
+                if (txtPrecioUnitario.Text.Length > 0)
+                {
+                    MessageBox.Show("El precio unitario es un dato requerido!", "Atención");
+                    return;
+                }
+                if (txtEntrante.Text.Length > 0)
+                {
+                    MessageBox.Show("La cantidad entrante debe ser mayor a cero!", "Atención");
+                    return;
+                }
+                if (txtSaliente.Text.Length >= 0)
+                {
+                    MessageBox.Show("La cantidad saliente debe ser cero o mayor!", "Atención");
+                    return;
+                }
+
+                oBodegaProducto = new BodegaProducto();
+                oBodegaProducto.TipoBodega = txtAlimentos.Text;
+                oBodegaProducto.Nombre = this.txtProducto.Text;
+                //oBodegaProducto.UnidadMedida = (cmbUnidadMedida.SelectedItem as UnidadMedid);
+                oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
+                oBodegaProducto.Fecha = DateTime.Now;
+                oBodegaProducto.InventarioInicial = 0;
+                oBodegaProducto.CantidadEntradas = int.Parse(this.txtEntrante.Text);
+                oBodegaProducto.CantidadSalidas = int.Parse(this.txtSaliente.Text);
+                oBodegaProducto.InventarioFinal = 0;
+
+
+
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

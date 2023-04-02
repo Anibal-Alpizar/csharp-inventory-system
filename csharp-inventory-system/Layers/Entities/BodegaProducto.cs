@@ -8,8 +8,8 @@ namespace csharp_inventory_system.Layers.Entities
 {
     public class BodegaProducto
     {
-        public int Id { get; set; }
-        public int IdTipoBodega { get; set; }
+        public double IdBodegaProducto { get; set; }
+        public string TipoBodega { get; set; }
         public string Nombre { get; set; }
         public string UnidadMedida { get; set; }
         public double Precio{ get; set; }
