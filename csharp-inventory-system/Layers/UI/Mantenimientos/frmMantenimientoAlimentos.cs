@@ -148,7 +148,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             BodegaProducto oBodegaProducto = null;
-            BLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
+            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
             try
             {
                 if (txtProducto.Text.Length > 0)
@@ -173,9 +173,10 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 }
 
                 oBodegaProducto = new BodegaProducto();
+
                 oBodegaProducto.TipoBodega = txtAlimentos.Text;
                 oBodegaProducto.Nombre = this.txtProducto.Text;
-                //oBodegaProducto.UnidadMedida = (cmbUnidadMedida.SelectedItem as UnidadMedid);
+                oBodegaProducto.UnidadMedida = "P";
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
                 oBodegaProducto.Fecha = DateTime.Now;
                 oBodegaProducto.InventarioInicial = 0;
@@ -183,7 +184,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.CantidadSalidas = int.Parse(this.txtSaliente.Text);
                 oBodegaProducto.InventarioFinal = 0;
 
-
+                oBodegaProducto = _IBLLBodegaProducto.SaveBodegaProducto(oBodegaProducto);
 
             }
             catch (Exception er)

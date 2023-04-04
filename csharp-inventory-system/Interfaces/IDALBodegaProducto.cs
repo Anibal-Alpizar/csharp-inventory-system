@@ -10,5 +10,7 @@ namespace csharp_inventory_system.Interfaces
     public interface IDALBodegaProducto
     {
         BodegaProducto GetBodegaProductoById(double pId);
+        BodegaProducto SaveBodegaProducto(BodegaProducto pBodegaProducto);
+        BodegaProducto UpdateBodegaProducto(BodegaProducto pBodegaProducto);
     }
 }

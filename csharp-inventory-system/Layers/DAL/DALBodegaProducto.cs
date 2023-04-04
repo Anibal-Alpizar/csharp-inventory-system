@@ -39,7 +39,16 @@ namespace csharp_inventory_system.Layers.DAL
                     DataRow dr = ds.Tables[0].Rows[0];
                     oBodegaProducto = new BodegaProducto()
                     {
-
+                        IdBodegaProducto = double.Parse(dr["IdBodegaProducto"].ToString()),
+                        TipoBodega = dr["TipoBodega"].ToString(),
+                        Nombre = dr["Nombre"].ToString(),
+                        UnidadMedida = dr["UnidadMedida"].ToString(),
+                        Precio = double.Parse(dr["Precio"].ToString()),
+                        Fecha = DateTime.Parse(dr["Fecha"].ToString()),
+                        InventarioInicial = int.Parse(dr["InventarioInicial"].ToString()),
+                        CantidadEntradas = int.Parse(dr["CantidadEntradas"].ToString()),
+                        CantidadSalidas = int.Parse(dr["CantidadSalidas"].ToString()),
+                        InventarioFinal = int.Parse(dr["CantidadFinal"].ToString())
                     };
                 }
                 return oBodegaProducto;
@@ -60,6 +69,16 @@ namespace csharp_inventory_system.Layers.DAL
                     throw;
                 }
             }
+        }
+
+        public BodegaProducto SaveBodegaProducto(BodegaProducto pBodegaProducto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BodegaProducto UpdateBodegaProducto(BodegaProducto pBodegaProducto)
+        {
+            throw new NotImplementedException();
         }
     }
 }
