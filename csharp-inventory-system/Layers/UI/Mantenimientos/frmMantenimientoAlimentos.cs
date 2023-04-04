@@ -151,22 +151,22 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
             try
             {
-                if (txtProducto.Text.Length > 0)
+                if (txtProducto.Text == null)
                 {
                     MessageBox.Show("El nombre del prodcuto es un dato requerido!", "Atención");
                     return;
                 }
-                if (txtPrecioUnitario.Text.Length > 0)
+                if (txtPrecioUnitario == null)
                 {
                     MessageBox.Show("El precio unitario es un dato requerido!", "Atención");
                     return;
                 }
-                if (txtEntrante.Text.Length > 0)
-                {
+                if (txtEntrante == null)
+                {                       
                     MessageBox.Show("La cantidad entrante debe ser mayor a cero!", "Atención");
                     return;
                 }
-                if (txtSaliente.Text.Length >= 0)
+                if (txtSaliente == null)
                 {
                     MessageBox.Show("La cantidad saliente debe ser cero o mayor!", "Atención");
                     return;
