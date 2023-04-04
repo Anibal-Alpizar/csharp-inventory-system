@@ -168,7 +168,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
             try
             {
-                if (txtProducto.Text == null)
+                if (txtProducto.Text == "")
                 {
                     MessageBox.Show("El nombre del producto es un dato requerido!", "Atención");
                     return;
