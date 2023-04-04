@@ -105,6 +105,9 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.txtPrecioUnitario.Enabled = true;
                     this.txtEntrante.Enabled = true;
                     this.txtSaliente.Enabled = true;
+                    this.cmbUnidadMedida.Enabled = true;
+                    this.btnAceptar.Enabled = true;
+                    this.btnCancelar.Enabled = true;
                     txtProducto.Focus();
                     break;
 
@@ -181,7 +184,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
                 oBodegaProducto.TipoBodega = txtAlimentos.Text;
                 oBodegaProducto.Nombre = this.txtProducto.Text;
-                oBodegaProducto.UnidadMedida = "P";
+                oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
                 oBodegaProducto.Fecha = DateTime.Now;
                 oBodegaProducto.InventarioInicial = 0;
