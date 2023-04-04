@@ -140,9 +140,14 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             }
         }
 
-        private async void CargarDatos()
+        private void CargarDatos()
         {
-
+            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
+            this.CambiarEstado(EstadoMantenimiento.Ninguno);
+            dgvDatos.AutoGenerateColumns = false;
+            dgvDatos.RowTemplate.Height = 100;
+            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvDatos.DataSource = _IBLLBodegaProducto.GetAllProductos();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -153,7 +158,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             {
                 if (txtProducto.Text == null)
                 {
-                    MessageBox.Show("El nombre del prodcuto es un dato requerido!", "Atención");
+                    MessageBox.Show("El nombre del producto es un dato requerido!", "Atención");
                     return;
                 }
                 if (txtPrecioUnitario == null)

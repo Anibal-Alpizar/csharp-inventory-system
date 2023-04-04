@@ -11,6 +11,12 @@ namespace csharp_inventory_system.Layers.BLL
 {
     public class BLLBodegaProducto : IBLLBodegaProducto
     {
+        public List<BodegaProducto> GetAllProductos()
+        {
+            IDALBodegaProducto _IDALProducto = new DALBodegaProducto();
+            return _IDALProducto.GetAllProductos();
+        }
+
         public BodegaProducto SaveBodegaProducto(BodegaProducto pProduct)
         {
             IDALBodegaProducto _IDALProducto = new DALBodegaProducto();

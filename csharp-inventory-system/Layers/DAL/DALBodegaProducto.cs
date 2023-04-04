@@ -18,6 +18,53 @@ namespace csharp_inventory_system.Layers.DAL
     {
         private static readonly ILog _MyLogControlEventos = LogManager.GetLogger("MyControlEventos");
 
+        public List<BodegaProducto> GetAllProductos()
+        {
+            DataSet ds = null;
+            List<BodegaProducto> lista = new List<BodegaProducto>();
+            SqlCommand command = new SqlCommand();
+            string sql = @"SELECT BodegaProducto.TipoBodega, BodegaProducto.Nombre, BodegaProducto.CantidadFinal FROM BodegaProducto WHERE TipoBodega = 'Alimentos'";
+            try
+            {
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    ds = db.ExecuteReader(command, "query");
+                }
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach(DataRow dr in ds.Tables[0].Rows)
+                    {
+                        BodegaProducto oBodegaProducto = new BodegaProducto()
+                        {
+                            TipoBodega = dr["TipoBodega"].ToString(),
+                            Nombre = dr["Nombre"].ToString(),
+                            InventarioFinal = int.Parse(dr["CantidadFinal"].ToString())
+                        };
+                        lista.Add(oBodegaProducto);
+                    }
+                }
+                return lista;
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                if (er is SqlException)
+                {
+                    msg.AppendFormat("{0}\n", UtilError.CreateSQLExceptionsErrorDetails(MethodBase.GetCurrentMethod(), command, er as SqlException));
+                    _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                    throw new CustomException(UtilError.GetCustomErrorByNumber(er as SqlException));
+                }
+                else
+                {
+                    msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                    _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                    throw;
+                }
+            }
+        }
+
         public BodegaProducto GetBodegaProductoById(double pId)
         {
             DataSet ds = null;

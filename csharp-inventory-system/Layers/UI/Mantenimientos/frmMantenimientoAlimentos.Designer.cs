@@ -49,15 +49,15 @@
             this.txtAlimentos = new System.Windows.Forms.TextBox();
             this.txtProducto = new System.Windows.Forms.TextBox();
             this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.txtSaliente = new System.Windows.Forms.TextBox();
+            this.txtEntrante = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbUnidadMedida = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
@@ -67,10 +67,9 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.txtSaliente = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtEntrante = new System.Windows.Forms.TextBox();
-            this.cmbUnidadMedida = new System.Windows.Forms.ComboBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -330,6 +329,28 @@
             this.txtPrecioUnitario.Size = new System.Drawing.Size(243, 24);
             this.txtPrecioUnitario.TabIndex = 4;
             // 
+            // dtpFechaIngreso
+            // 
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(135, 155);
+            this.dtpFechaIngreso.Name = "dtpFechaIngreso";
+            this.dtpFechaIngreso.Size = new System.Drawing.Size(243, 24);
+            this.dtpFechaIngreso.TabIndex = 7;
+            this.dtpFechaIngreso.Value = new System.DateTime(2023, 4, 1, 0, 0, 0, 0);
+            // 
+            // txtSaliente
+            // 
+            this.txtSaliente.Location = new System.Drawing.Point(135, 185);
+            this.txtSaliente.Name = "txtSaliente";
+            this.txtSaliente.Size = new System.Drawing.Size(243, 24);
+            this.txtSaliente.TabIndex = 15;
+            // 
+            // txtEntrante
+            // 
+            this.txtEntrante.Location = new System.Drawing.Point(135, 125);
+            this.txtEntrante.Name = "txtEntrante";
+            this.txtEntrante.Size = new System.Drawing.Size(243, 24);
+            this.txtEntrante.TabIndex = 17;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -339,13 +360,22 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Cantidad entrante";
             // 
-            // dtpFechaIngreso
+            // label8
             // 
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(135, 155);
-            this.dtpFechaIngreso.Name = "dtpFechaIngreso";
-            this.dtpFechaIngreso.Size = new System.Drawing.Size(243, 24);
-            this.dtpFechaIngreso.TabIndex = 7;
-            this.dtpFechaIngreso.Value = new System.DateTime(2023, 4, 1, 0, 0, 0, 0);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 182);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(120, 18);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Cantidad saliente";
+            // 
+            // cmbUnidadMedida
+            // 
+            this.cmbUnidadMedida.FormattingEnabled = true;
+            this.cmbUnidadMedida.Location = new System.Drawing.Point(135, 63);
+            this.cmbUnidadMedida.Name = "cmbUnidadMedida";
+            this.cmbUnidadMedida.Size = new System.Drawing.Size(243, 26);
+            this.cmbUnidadMedida.TabIndex = 18;
             // 
             // btnAceptar
             // 
@@ -375,37 +405,12 @@
             this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
-            this.Column4});
+            this.Column3});
             this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatos.Location = new System.Drawing.Point(0, 25);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.Size = new System.Drawing.Size(966, 394);
             this.dgvDatos.TabIndex = 3;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "IdCliente";
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Nombre";
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Apellido1";
-            this.Column3.HeaderText = "Apellido1";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Apellido2";
-            this.Column4.HeaderText = "Apellido2";
-            this.Column4.Name = "Column4";
             // 
             // tspPrincipal
             // 
@@ -519,36 +524,23 @@
             this.button6.Text = "Alimentos";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // txtSaliente
+            // Column1
             // 
-            this.txtSaliente.Location = new System.Drawing.Point(135, 185);
-            this.txtSaliente.Name = "txtSaliente";
-            this.txtSaliente.Size = new System.Drawing.Size(243, 24);
-            this.txtSaliente.TabIndex = 15;
+            this.Column1.DataPropertyName = "TipoBodega";
+            this.Column1.HeaderText = "Tipo Bodega";
+            this.Column1.Name = "Column1";
             // 
-            // label8
+            // Column2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 182);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(120, 18);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Cantidad saliente";
+            this.Column2.DataPropertyName = "Nombre";
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
             // 
-            // txtEntrante
+            // Column3
             // 
-            this.txtEntrante.Location = new System.Drawing.Point(135, 125);
-            this.txtEntrante.Name = "txtEntrante";
-            this.txtEntrante.Size = new System.Drawing.Size(243, 24);
-            this.txtEntrante.TabIndex = 17;
-            // 
-            // cmbUnidadMedida
-            // 
-            this.cmbUnidadMedida.FormattingEnabled = true;
-            this.cmbUnidadMedida.Location = new System.Drawing.Point(135, 63);
-            this.cmbUnidadMedida.Name = "cmbUnidadMedida";
-            this.cmbUnidadMedida.Size = new System.Drawing.Size(243, 26);
-            this.cmbUnidadMedida.TabIndex = 18;
+            this.Column3.DataPropertyName = "InventarioFinal";
+            this.Column3.HeaderText = "CantidadFinal";
+            this.Column3.Name = "Column3";
             // 
             // frmMantenimientoAlimentos
             // 
@@ -614,13 +606,12 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TextBox txtSaliente;
         private System.Windows.Forms.TextBox txtEntrante;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbUnidadMedida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
