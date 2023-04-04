@@ -65,15 +65,15 @@ namespace csharp_inventory_system.Layers.DAL
             }
         }
 
-        public BodegaProducto GetBodegaProductoById(double pId)
+        public BodegaProducto GetBodegaProductoById(string pId)
         {
             DataSet ds = null;
             BodegaProducto oBodegaProducto = null;
-            string sql = @" select * from [BodegaProducto] where IdBodegaProducto = @IdBodegaProducto";
+            string sql = @" select * from [BodegaProducto] where Nombre = @Nombre";
             SqlCommand command = new SqlCommand();
             try
             {
-                command.Parameters.AddWithValue("@IdBodegaProducto", pId);
+                command.Parameters.AddWithValue("@Nombre", pId);
                 command.CommandText = sql;
                 command.CommandType = CommandType.Text;
 
@@ -86,7 +86,7 @@ namespace csharp_inventory_system.Layers.DAL
                     DataRow dr = ds.Tables[0].Rows[0];
                     oBodegaProducto = new BodegaProducto()
                     {
-                        IdBodegaProducto = double.Parse(dr["IdBodegaProducto"].ToString()),
+                       //IdBodegaProducto = double.Parse(dr["IdBodegaProducto"].ToString()),
                         TipoBodega = dr["TipoBodega"].ToString(),
                         Nombre = dr["Nombre"].ToString(),
                         UnidadMedida = dr["UnidadMedida"].ToString(),
@@ -122,8 +122,7 @@ namespace csharp_inventory_system.Layers.DAL
         {
             BodegaProducto oBodegaProducto = null;
             string sql = @"INSERT INTO [dbo].[BodegaProducto]
-                                  ([IdBodegaProducto],
-                                  [TipoBodega],
+                                  ([TipoBodega],
                                   [Nombre],
                                   [UnidadMedida],
                                   [Precio],
@@ -134,8 +133,7 @@ namespace csharp_inventory_system.Layers.DAL
                                   [CantidadFinal]
                                   )
                                 VALUES
-                                  (@IdBodegaProducto, 
-                                   @TipoBodega,
+                                  (@TipoBodega,
                                    @Nombre,
                                    @UnidadMedida,
                                    @Precio,
@@ -149,7 +147,7 @@ namespace csharp_inventory_system.Layers.DAL
             double rows = 0;
             try
             {
-                command.Parameters.AddWithValue("@IdBodegaProducto", pBodegaProducto.IdBodegaProducto);
+                //command.Parameters.AddWithValue("@IdBodegaProducto", pBodegaProducto.IdBodegaProducto);
                 command.Parameters.AddWithValue("@TipoBodega", pBodegaProducto.TipoBodega);
                 command.Parameters.AddWithValue("@Nombre", pBodegaProducto.Nombre);
                 command.Parameters.AddWithValue("@UnidadMedida", pBodegaProducto.UnidadMedida);
@@ -167,7 +165,7 @@ namespace csharp_inventory_system.Layers.DAL
                 }
                 if (rows > 0)
                 {
-                    oBodegaProducto = GetBodegaProductoById(pBodegaProducto.IdBodegaProducto);
+                    oBodegaProducto = GetBodegaProductoById(pBodegaProducto.Nombre);
                 }
                 return oBodegaProducto; 
             }

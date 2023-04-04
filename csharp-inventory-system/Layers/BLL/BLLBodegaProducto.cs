@@ -21,7 +21,7 @@ namespace csharp_inventory_system.Layers.BLL
         {
             IDALBodegaProducto _IDALProducto = new DALBodegaProducto();
             BodegaProducto oBodegaProducto = null;
-            if (_IDALProducto.GetBodegaProductoById(pProduct.IdBodegaProducto) == null)
+            if (_IDALProducto.GetBodegaProductoById(pProduct.Nombre) == null)
                 oBodegaProducto = _IDALProducto.SaveBodegaProducto(pProduct);
             else
                 oBodegaProducto = _IDALProducto.UpdateBodegaProducto(pProduct);
