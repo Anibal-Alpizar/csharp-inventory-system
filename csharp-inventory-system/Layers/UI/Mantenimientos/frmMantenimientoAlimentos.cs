@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -145,12 +146,20 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
         private void CargarDatos()
         {
-            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
-            this.CambiarEstado(EstadoMantenimiento.Ninguno);
+            SqlConnection conn = new SqlConnection("Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456");
+            string query = "SELECT Nombre FROM BodegaProducto WHERE TipoBodega = 'Alimentos'";
+            DataTable dt = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+            adapter.Fill(dt);
+            cmbProductos.DisplayMember = "Nombre";
+            cmbProductos.ValueMember = "Nombre";
+            cmbProductos.DataSource = dt;
             dgvDatos.AutoGenerateColumns = false;
-            dgvDatos.RowTemplate.Height = 100;
+            dgvDatos.RowTemplate.Height = 50;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvDatos.DataSource = _IBLLBodegaProducto.GetAllProductos();
+            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
+            dgvDatos.DataSource = _IBLLBodegaProducto.GetAllProductos();
+            CambiarEstado(EstadoMantenimiento.Ninguno);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -170,7 +179,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     return;
                 }
                 if (txtEntrante == null)
-                {                       
+                {
                     MessageBox.Show("La cantidad entrante debe ser mayor a cero!", "Atención");
                     return;
                 }
@@ -188,7 +197,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
                 oBodegaProducto.Fecha = DateTime.Now;
-                oBodegaProducto.InventarioInicial = 0;
+                oBodegaProducto.InventarioInicial = int.Parse(this.txtPrecioUnitario.Text) * int.Parse(this.txtEntrante.Text);
                 oBodegaProducto.CantidadEntradas = int.Parse(this.txtEntrante.Text);
                 oBodegaProducto.CantidadSalidas = int.Parse(this.txtSaliente.Text);
                 oBodegaProducto.InventarioFinal = 0;
@@ -202,6 +211,35 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
                 _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.CambiarEstado(EstadoMantenimiento.Ninguno);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DataRowView selectedRow = (DataRowView)cmbProductos.SelectedItem;
+            string nombreProducto = selectedRow["Nombre"].ToString();
+            string connectionString = "Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456"; 
+            string query = $"SELECT SUM(CantidadFinal) FROM BodegaProducto WHERE TipoBodega='Alimentos' AND Nombre='{nombreProducto}'";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    this.txtResultado.Text = result.ToString();
+                }
+                else
+                {
+                    this.txtResultado.Text = "0";
+                }
             }
         }
     }

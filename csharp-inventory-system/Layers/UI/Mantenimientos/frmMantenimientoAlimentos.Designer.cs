@@ -58,9 +58,6 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
@@ -70,6 +67,14 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.txtResultado = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbProductos = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -91,7 +96,7 @@
             this.pMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pMenu.Location = new System.Drawing.Point(0, 0);
             this.pMenu.Name = "pMenu";
-            this.pMenu.Size = new System.Drawing.Size(976, 40);
+            this.pMenu.Size = new System.Drawing.Size(1055, 40);
             this.pMenu.TabIndex = 0;
             // 
             // button1
@@ -103,7 +108,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(931, 0);
+            this.button1.Location = new System.Drawing.Point(1010, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 40);
             this.button1.TabIndex = 11;
@@ -194,7 +199,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(971, 40);
+            this.panel2.Location = new System.Drawing.Point(1050, 40);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(5, 424);
             this.panel2.TabIndex = 2;
@@ -205,13 +210,17 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(5, 459);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(966, 5);
+            this.panel3.Size = new System.Drawing.Size(1045, 5);
             this.panel3.TabIndex = 3;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.btnBuscar);
+            this.panel4.Controls.Add(this.cmbProductos);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.txtResultado);
             this.panel4.Controls.Add(this.tlpPanel);
             this.panel4.Controls.Add(this.btnAceptar);
             this.panel4.Controls.Add(this.btnCancelar);
@@ -221,7 +230,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(5, 40);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(966, 419);
+            this.panel4.Size = new System.Drawing.Size(1045, 419);
             this.panel4.TabIndex = 4;
             this.panel4.MouseEnter += new System.EventHandler(this.btnMouseEnter);
             this.panel4.MouseLeave += new System.EventHandler(this.btnMouseLeave);
@@ -246,7 +255,7 @@
             this.tlpPanel.Controls.Add(this.label8, 0, 7);
             this.tlpPanel.Controls.Add(this.cmbUnidadMedida, 1, 2);
             this.tlpPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tlpPanel.Location = new System.Drawing.Point(530, 40);
+            this.tlpPanel.Location = new System.Drawing.Point(518, 40);
             this.tlpPanel.Name = "tlpPanel";
             this.tlpPanel.RowCount = 8;
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -387,9 +396,9 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(694, 293);
+            this.btnAceptar.Location = new System.Drawing.Point(902, 192);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(89, 81);
+            this.btnAceptar.Size = new System.Drawing.Size(66, 65);
             this.btnAceptar.TabIndex = 12;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -399,13 +408,14 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(789, 293);
+            this.btnCancelar.Location = new System.Drawing.Point(974, 192);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(91, 81);
+            this.btnCancelar.Size = new System.Drawing.Size(68, 65);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dgvDatos
             // 
@@ -413,30 +423,13 @@
             this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4});
             this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatos.Location = new System.Drawing.Point(0, 25);
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.Size = new System.Drawing.Size(966, 394);
+            this.dgvDatos.Size = new System.Drawing.Size(1045, 394);
             this.dgvDatos.TabIndex = 3;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "TipoBodega";
-            this.Column1.HeaderText = "Tipo Bodega";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Nombre";
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "InventarioFinal";
-            this.Column3.HeaderText = "CantidadFinal";
-            this.Column3.Name = "Column3";
             // 
             // tspPrincipal
             // 
@@ -447,7 +440,7 @@
             this.toolStripBtnSalir});
             this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(966, 25);
+            this.tspPrincipal.Size = new System.Drawing.Size(1045, 25);
             this.tspPrincipal.TabIndex = 2;
             // 
             // toolStripBtnNuevo
@@ -550,11 +543,72 @@
             this.button6.Text = "Alimentos";
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // txtResultado
+            // 
+            this.txtResultado.Enabled = false;
+            this.txtResultado.Location = new System.Drawing.Point(711, 328);
+            this.txtResultado.Name = "txtResultado";
+            this.txtResultado.Size = new System.Drawing.Size(138, 20);
+            this.txtResultado.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(519, 274);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(264, 25);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Total de disponibilidad de:";
+            // 
+            // cmbProductos
+            // 
+            this.cmbProductos.FormattingEnabled = true;
+            this.cmbProductos.Location = new System.Drawing.Point(789, 278);
+            this.cmbProductos.Name = "cmbProductos";
+            this.cmbProductos.Size = new System.Drawing.Size(152, 21);
+            this.cmbProductos.TabIndex = 19;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(875, 305);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(66, 65);
+            this.btnBuscar.TabIndex = 20;
+            this.btnBuscar.Text = "Calcular";
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "TipoBodega";
+            this.Column1.HeaderText = "Tipo Bodega";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Nombre";
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "InventarioInicial";
+            this.Column3.HeaderText = "InventarioInicial";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "UnidadMedida";
+            this.Column4.HeaderText = "UnidadMedida";
+            this.Column4.Name = "Column4";
+            // 
             // frmMantenimientoAlimentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 464);
+            this.ClientSize = new System.Drawing.Size(1055, 464);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -618,8 +672,13 @@
         private System.Windows.Forms.TextBox txtEntrante;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbUnidadMedida;
+        private System.Windows.Forms.ComboBox cmbProductos;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtResultado;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
