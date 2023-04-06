@@ -103,6 +103,7 @@
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.btnAceptar.ForeColor = System.Drawing.Color.Cyan;
+            this.epError.SetIconAlignment(this.btnAceptar, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.btnAceptar.Location = new System.Drawing.Point(195, 276);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(226, 38);

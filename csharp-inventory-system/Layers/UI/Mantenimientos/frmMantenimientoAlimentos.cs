@@ -133,6 +133,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         {
             try
             {
+                //AjustarDatagrid();
                 CargarDatos();
             }
             catch (Exception er)
@@ -142,6 +143,17 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void AjustarDatagrid()
+        {
+            var height = dgvDatos.ColumnHeadersHeight;
+            foreach (DataGridViewRow item in dgvDatos.Rows)
+            {
+                height += item.Height;
+            }
+
+            dgvDatos.Height = height;
         }
 
         private void CargarDatos()
@@ -155,7 +167,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             cmbProductos.ValueMember = "Nombre";
             cmbProductos.DataSource = dt;
             dgvDatos.AutoGenerateColumns = false;
-            dgvDatos.RowTemplate.Height = 50;
+            //dgvDatos.RowTemplate.Height =50 ;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
             dgvDatos.DataSource = _IBLLBodegaProducto.GetAllProductos();
@@ -241,6 +253,48 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.txtResultado.Text = "0";
                 }
             }
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        
+
+        private void btnAceptar_MouseEnter_1(object sender, EventArgs e)
+        {
+            btnAceptar.ForeColor = Color.Black;
+        }
+
+        private void btnAceptar_MouseLeave_1(object sender, EventArgs e)
+        {
+            btnAceptar.ForeColor = Color.Black;
+        }
+
+        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancelar.ForeColor = Color.Black;
+        }
+
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.ForeColor = Color.Black;
+        }
+
+        private void btnBuscar_MouseEnter(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.Black;
+        }
+
+        private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.Black;
         }
     }
 }
