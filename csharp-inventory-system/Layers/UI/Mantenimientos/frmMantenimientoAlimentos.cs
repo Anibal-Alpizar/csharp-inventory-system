@@ -296,5 +296,10 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         {
             btnBuscar.ForeColor = Color.Black;
         }
+
+        private void pMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

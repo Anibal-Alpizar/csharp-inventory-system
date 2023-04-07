@@ -121,6 +121,18 @@
     <Compile Include="Layers\UI\Mantenimientos\frmMantenimientoAlimentos.Designer.cs">
       <DependentUpon>frmMantenimientoAlimentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmMantenimientoAseoPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmMantenimientoAseoPersonal.Designer.cs">
+      <DependentUpon>frmMantenimientoAseoPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmMantenimientoLimpieza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Mantenimientos\frmMantenimientoLimpieza.Designer.cs">
+      <DependentUpon>frmMantenimientoLimpieza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -136,6 +148,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layers\UI\Mantenimientos\frmMantenimientoAlimentos.resx">
       <DependentUpon>frmMantenimientoAlimentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Mantenimientos\frmMantenimientoAseoPersonal.resx">
+      <DependentUpon>frmMantenimientoAseoPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Mantenimientos\frmMantenimientoLimpieza.resx">
+      <DependentUpon>frmMantenimientoLimpieza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
