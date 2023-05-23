@@ -13,5 +13,8 @@ namespace csharp_inventory_system.Interfaces
         BodegaProducto SaveBodegaProducto(BodegaProducto pBodegaProducto);
         BodegaProducto UpdateBodegaProducto(BodegaProducto pBodegaProducto);
         List<BodegaProducto> GetAllProductos();
+
+        List<BodegaProducto> GetAllProductosLimpieza();
+        List<BodegaProducto> GetAllProductosAseoPersonal();
     }
 }
