@@ -62,6 +62,7 @@ namespace csharp_inventory_system.Layers.UI
 
         private void button6_Click(object sender, EventArgs e)
         {
+            //
             frmMantenimientoAlimentos ofrmMantenimientosAlimentos;
             try
             {
@@ -86,6 +87,7 @@ namespace csharp_inventory_system.Layers.UI
 
         private void button7_Click(object sender, EventArgs e)
         {
+            //
             frmMantenimientoAseoPersonal ofrmMantenimientoAseoPersonal;
             try
             {

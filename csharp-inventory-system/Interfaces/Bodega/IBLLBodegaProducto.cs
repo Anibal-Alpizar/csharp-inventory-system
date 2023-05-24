@@ -11,8 +11,7 @@ namespace csharp_inventory_system.Interfaces
     {
         BodegaProducto SaveBodegaProducto(BodegaProducto product);
         List<BodegaProducto> GetAllProductos();
-        List<BodegaProducto> GetAllProductosLimpieza();
-        List<BodegaProducto> GetAllProductosAseoPersonal();
-
+        //List<BodegaProducto> GetAllProductosLimpieza();
+        //List<BodegaProducto> GetAllProductosAseoPersonal();
     }
 }

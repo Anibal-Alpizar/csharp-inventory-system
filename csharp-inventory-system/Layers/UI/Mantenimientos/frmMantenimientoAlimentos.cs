@@ -169,7 +169,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             dgvDatos.AutoGenerateColumns = false;
             //dgvDatos.RowTemplate.Height =50 ;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
+            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaAlimentos();
             dgvDatos.DataSource = _IBLLBodegaProducto.GetAllProductos();
             CambiarEstado(EstadoMantenimiento.Ninguno);
         }
@@ -177,7 +177,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             BodegaProducto oBodegaProducto = null;
-            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
+            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaAlimentos();
             try
             {
                 if (txtProducto.Text == "")
@@ -298,6 +298,11 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         }
 
         private void pMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void toolStripBtnEditar_Click(object sender, EventArgs e)
         {
 
         }

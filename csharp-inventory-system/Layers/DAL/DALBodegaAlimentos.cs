@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace csharp_inventory_system.Layers.DAL
 {
-    public class DALBodegaProducto : IDALBodegaProducto
+    public class DALBodegaAlimentos : IDALBodegaProducto
     {
         private static readonly ILog _MyLogControlEventos = LogManager.GetLogger("MyControlEventos");
 

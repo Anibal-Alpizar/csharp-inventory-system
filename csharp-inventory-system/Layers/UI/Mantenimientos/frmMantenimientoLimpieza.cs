@@ -1,5 +1,7 @@
 ﻿using csharp_inventory_system.Interfaces;
+using csharp_inventory_system.Interfaces.Bodega;
 using csharp_inventory_system.Layers.BLL;
+using csharp_inventory_system.Layers.BLL.Bodega;
 using csharp_inventory_system.Layers.Entities;
 using csharp_inventory_system.Util;
 using log4net;
@@ -145,7 +147,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             dgvDatos.AutoGenerateColumns = false;
             //dgvDatos.RowTemplate.Height =50 ;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
+            IBLLBodegaLimpieza _IBLLBodegaProducto = new BLLBodegaLimpieza();
             dgvDatos.DataSource = _IBLLBodegaProducto.GetAllProductosLimpieza();
             CambiarEstado(EstadoMantenimiento.Ninguno);
         }
@@ -153,7 +155,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             BodegaProducto oBodegaProducto = null;
-            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaProducto();
+            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaAlimentos();
             try
             {
                 if (txtProducto.Text == "")
@@ -180,7 +182,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto = new BodegaProducto();
 
                 //oBodegaProducto.IdBodegaProducto
-                oBodegaProducto.TipoBodega = txtAlimentos.Text;
+               // oBodegaProducto.TipoBodega = txtAlimentos.Text;
                 oBodegaProducto.Nombre = this.txtProducto.Text;
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);

@@ -608,6 +608,7 @@
             this.toolStripBtnEditar.Name = "toolStripBtnEditar";
             this.toolStripBtnEditar.Size = new System.Drawing.Size(41, 22);
             this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
             // 
             // toolStripBtnBorrar
             // 

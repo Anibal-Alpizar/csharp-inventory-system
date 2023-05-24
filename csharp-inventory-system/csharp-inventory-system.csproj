@@ -89,13 +89,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumeraciones\Enumeraciones.cs" />
-    <Compile Include="Interfaces\IBLLBodegaProducto.cs" />
+    <Compile Include="Interfaces\Bodega\IBLLBodegaAseoPersonal.cs" />
+    <Compile Include="Interfaces\Bodega\IBLLBodegaLimpieza.cs" />
+    <Compile Include="Interfaces\Bodega\IBLLBodegaProducto.cs" />
     <Compile Include="Interfaces\IBLLUser.cs" />
     <Compile Include="Interfaces\IDALBodegaProducto.cs" />
     <Compile Include="Interfaces\IDALUser.cs" />
-    <Compile Include="Layers\BLL\BLLBodegaProducto.cs" />
+    <Compile Include="Layers\BLL\Bodega\BLLBodegaAlimentos.cs" />
     <Compile Include="Layers\BLL\BLLUser.cs" />
-    <Compile Include="Layers\DAL\DALBodegaProducto.cs" />
+    <Compile Include="Layers\BLL\Bodega\BLLBodegaAseoPersonal.cs" />
+    <Compile Include="Layers\BLL\Bodega\BLLBodegaLimpieza.cs" />
+    <Compile Include="Layers\DAL\DALBodegaAlimentos.cs" />
     <Compile Include="Layers\DAL\DALUser.cs" />
     <Compile Include="Layers\Entities\BodegaProducto.cs" />
     <Compile Include="Layers\Entities\User.cs" />
