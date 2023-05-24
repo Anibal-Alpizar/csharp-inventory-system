@@ -49,5 +49,10 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         {
             Application.Exit();
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

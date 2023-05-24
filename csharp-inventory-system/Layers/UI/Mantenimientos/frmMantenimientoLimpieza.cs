@@ -181,8 +181,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
                 oBodegaProducto = new BodegaProducto();
 
-                //oBodegaProducto.IdBodegaProducto
-               // oBodegaProducto.TipoBodega = txtAlimentos.Text;
+                oBodegaProducto.TipoBodega = txtAlimentos.Text;
                 oBodegaProducto.Nombre = this.txtProducto.Text;
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
