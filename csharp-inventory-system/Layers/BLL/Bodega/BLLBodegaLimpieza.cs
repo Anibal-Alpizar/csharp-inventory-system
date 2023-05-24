@@ -1,6 +1,7 @@
 ﻿using csharp_inventory_system.Interfaces;
 using csharp_inventory_system.Interfaces.Bodega;
 using csharp_inventory_system.Layers.DAL;
+using csharp_inventory_system.Layers.DAL.Bodega;
 using csharp_inventory_system.Layers.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace csharp_inventory_system.Layers.BLL.Bodega
     {
         public List<BodegaProducto> GetAllProductosLimpieza()
         {
-            IDALBodegaProducto _IDALProducto = new DALBodegaAlimentos();
+            IDALBodegaLimpieza _IDALProducto = new DALBodegaLimpieza();
             return _IDALProducto.GetAllProductosLimpieza();
         }
     }
