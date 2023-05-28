@@ -120,8 +120,6 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
                     throw;
                 }
             }
-
-
         }
 
         public async Task<BodegaProducto> SaveProductoLimpieza(BodegaProducto pBodegaProducto)
