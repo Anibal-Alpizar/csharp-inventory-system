@@ -55,6 +55,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtAlimentos = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -78,7 +79,6 @@
             this.pInventarios = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.txtAlimentos = new System.Windows.Forms.TextBox();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tspPrincipal.SuspendLayout();
@@ -229,40 +229,45 @@
             this.toolStripBtnSalir});
             this.tspPrincipal.Location = new System.Drawing.Point(5, 40);
             this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(1045, 25);
+            this.tspPrincipal.Size = new System.Drawing.Size(1045, 55);
             this.tspPrincipal.TabIndex = 6;
             // 
             // toolStripBtnNuevo
             // 
+            this.toolStripBtnNuevo.Image = global::csharp_inventory_system.Properties.Resources.document_new_4;
             this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(46, 22);
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(94, 52);
             this.toolStripBtnNuevo.Text = "&Nuevo";
             this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
             // 
             // toolStripBtnEditar
             // 
+            this.toolStripBtnEditar.Image = global::csharp_inventory_system.Properties.Resources.document_edit;
             this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(41, 22);
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(89, 52);
             this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
             // 
             // toolStripBtnBorrar
             // 
+            this.toolStripBtnBorrar.Image = global::csharp_inventory_system.Properties.Resources.trash_empty_3;
             this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(43, 22);
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(91, 52);
             this.toolStripBtnBorrar.Text = "&Borrar";
             // 
             // toolStripBtnSalir
             // 
+            this.toolStripBtnSalir.Image = global::csharp_inventory_system.Properties.Resources.window_close_2;
             this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(33, 22);
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(81, 52);
             this.toolStripBtnSalir.Text = "&Salir";
             // 
             // panel4
@@ -270,9 +275,9 @@
             this.panel4.Controls.Add(this.dgvDatos);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(5, 65);
+            this.panel4.Location = new System.Drawing.Point(5, 95);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1045, 555);
+            this.panel4.Size = new System.Drawing.Size(1045, 525);
             this.panel4.TabIndex = 7;
             // 
             // dgvDatos
@@ -286,7 +291,6 @@
             this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvDatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick;
@@ -379,8 +383,17 @@
             this.panel5.ForeColor = System.Drawing.Color.White;
             this.panel5.Location = new System.Drawing.Point(646, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(399, 555);
+            this.panel5.Size = new System.Drawing.Size(399, 525);
             this.panel5.TabIndex = 22;
+            // 
+            // txtAlimentos
+            // 
+            this.txtAlimentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlimentos.Location = new System.Drawing.Point(152, 25);
+            this.txtAlimentos.Name = "txtAlimentos";
+            this.txtAlimentos.Size = new System.Drawing.Size(243, 22);
+            this.txtAlimentos.TabIndex = 20;
+            this.txtAlimentos.Text = "Limpieza";
             // 
             // panel6
             // 
@@ -390,7 +403,7 @@
             this.panel6.Controls.Add(this.cmbProductos);
             this.panel6.Controls.Add(this.txtResultado);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 318);
+            this.panel6.Location = new System.Drawing.Point(0, 288);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(399, 237);
             this.panel6.TabIndex = 19;
@@ -496,7 +509,7 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.Color.Cyan;
-            this.btnCancelar.Location = new System.Drawing.Point(270, 275);
+            this.btnCancelar.Location = new System.Drawing.Point(255, 257);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(125, 25);
             this.btnCancelar.TabIndex = 13;
@@ -515,7 +528,7 @@
             this.btnAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.ForeColor = System.Drawing.Color.Cyan;
-            this.btnAceptar.Location = new System.Drawing.Point(35, 275);
+            this.btnAceptar.Location = new System.Drawing.Point(21, 257);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(125, 25);
             this.btnAceptar.TabIndex = 12;
@@ -655,15 +668,6 @@
             this.button6.Text = "Alimentos";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // txtAlimentos
-            // 
-            this.txtAlimentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlimentos.Location = new System.Drawing.Point(152, 25);
-            this.txtAlimentos.Name = "txtAlimentos";
-            this.txtAlimentos.Size = new System.Drawing.Size(243, 22);
-            this.txtAlimentos.TabIndex = 20;
-            this.txtAlimentos.Text = "Limpieza";
             // 
             // frmMantenimientoLimpieza
             // 

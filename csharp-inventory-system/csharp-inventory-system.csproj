@@ -190,6 +190,12 @@
   <ItemGroup>
     <None Include="Resources\flecha.png" />
     <None Include="Resources\Sin título.png" />
+    <Content Include="Resources\dialog-cancel-4.png" />
+    <Content Include="Resources\dialog-ok.png" />
+    <Content Include="Resources\document-edit.png" />
+    <Content Include="Resources\document-new-4.png" />
+    <Content Include="Resources\trash-empty-3.png" />
+    <Content Include="Resources\window-close-2.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

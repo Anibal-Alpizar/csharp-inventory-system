@@ -18,5 +18,16 @@ namespace csharp_inventory_system.Layers.BLL.Bodega
             IDALBodegaLimpieza _IDALProducto = new DALBodegaLimpieza();
             return _IDALProducto.GetAllProductosLimpieza();
         }
+
+        public Task<BodegaProducto> SaveBodegaLimpieza(BodegaProducto bodegaProducto)
+        {
+            IDALBodegaLimpieza _DALLBodegaLimpieza = new DALBodegaLimpieza();
+            Task<BodegaProducto> oBodegaLimpieza = null;
+            if (_DALLBodegaLimpieza.GetProductoLimpiezaById(bodegaProducto.Nombre) == null)
+                oBodegaLimpieza = _DALLBodegaLimpieza.SaveProductoLimpieza(bodegaProducto);
+            else
+                oBodegaLimpieza = _DALLBodegaLimpieza.UpdateProductoLimpieza(bodegaProducto);
+            return oBodegaLimpieza;
+        }
     }
 }

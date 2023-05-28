@@ -5,6 +5,7 @@ using csharp_inventory_system.Layers.BLL.Bodega;
 using csharp_inventory_system.Layers.Entities;
 using csharp_inventory_system.Util;
 using log4net;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,7 +102,14 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     break;
 
                 case EstadoMantenimiento.Editar:
-                    // habilitar
+                    this.txtProducto.Enabled = false;
+                    this.txtPrecioUnitario.Enabled = true;
+                    this.txtEntrante.Enabled = true;
+                    this.txtSaliente.Enabled = true;
+                    this.cmbUnidadMedida.Enabled = true;
+                    this.btnAceptar.Enabled = true;
+                    this.btnCancelar.Enabled = true;
+                    txtPrecioUnitario.Focus();
                     break;
 
                 case EstadoMantenimiento.Borrar:
@@ -152,35 +160,18 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             CambiarEstado(EstadoMantenimiento.Ninguno);
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private async void btnAceptar_Click(object sender, EventArgs e)
         {
-            BodegaProducto oBodegaProducto = null;
-            IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaAlimentos();
+            IBLLBodegaLimpieza _IBLLBodegaProducto = new BLLBodegaLimpieza();
             try
             {
-                if (txtProducto.Text == "")
+                BodegaProducto oBodegaProducto = new BodegaProducto();
+                if(string.IsNullOrEmpty(txtProducto.Text))
                 {
                     MessageBox.Show("El nombre del producto es un dato requerido!", "Atención");
+                    this.txtProducto.Focus();
                     return;
                 }
-                if (txtPrecioUnitario == null)
-                {
-                    MessageBox.Show("El precio unitario es un dato requerido!", "Atención");
-                    return;
-                }
-                if (txtEntrante == null)
-                {
-                    MessageBox.Show("La cantidad entrante debe ser mayor a cero!", "Atención");
-                    return;
-                }
-                if (txtSaliente == null)
-                {
-                    MessageBox.Show("La cantidad saliente debe ser cero o mayor!", "Atención");
-                    return;
-                }
-
-                oBodegaProducto = new BodegaProducto();
-
                 oBodegaProducto.TipoBodega = txtAlimentos.Text;
                 oBodegaProducto.Nombre = this.txtProducto.Text;
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
@@ -191,8 +182,10 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.CantidadSalidas = int.Parse(this.txtSaliente.Text);
                 oBodegaProducto.InventarioFinal = 0;
 
-                oBodegaProducto = _IBLLBodegaProducto.SaveBodegaProducto(oBodegaProducto);
+                oBodegaProducto = await _IBLLBodegaProducto.SaveBodegaLimpieza(oBodegaProducto);
 
+                if (oBodegaProducto != null)
+                    this.CargarDatos();
             }
             catch (Exception er)
             {
@@ -200,7 +193,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
                 _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }       
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -213,7 +206,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             DataRowView selectedRow = (DataRowView)cmbProductos.SelectedItem;
             string nombreProducto = selectedRow["Nombre"].ToString();
             string connectionString = "Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456";
-            string query = $"SELECT SUM(CantidadFinal) FROM BodegaProducto WHERE TipoBodega='Limpieza' AND Nombre='{nombreProducto}'";
+            string query = $"SELECT SUM(CantidadFinal)-1 FROM BodegaProducto WHERE TipoBodega='Limpieza' AND Nombre='{nombreProducto}'";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -260,6 +253,41 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         private void btnBuscar_MouseLeave(object sender, EventArgs e)
         {
             btnBuscar.ForeColor = Color.Black;
+        }
+
+        private void toolStripBtnEditar_Click(object sender, EventArgs e)
+        {
+            BodegaProducto oBodegaProducto = null;
+            try
+            {
+                if (this.dgvDatos.SelectedCells.Count > 0)
+                {
+                    // Obtener el índice de la celda seleccionada
+                    int rowIndex = this.dgvDatos.SelectedCells[0].RowIndex;
+                    // Obtener el objeto BodegaProducto de la fila correspondiente
+                    oBodegaProducto = this.dgvDatos.Rows[rowIndex].DataBoundItem as BodegaProducto;
+
+                    // Cambiar de estado
+                    this.CambiarEstado(EstadoMantenimiento.Editar);
+                    this.txtAlimentos.Text = oBodegaProducto.TipoBodega;
+                    this.txtProducto.Text = oBodegaProducto.Nombre;
+                    cmbProductos.SelectedIndex = cmbProductos.FindString(oBodegaProducto.IdBodegaProducto.ToString());
+                    this.txtPrecioUnitario.Text = oBodegaProducto.Precio.ToString();
+                    this.txtEntrante.Text = oBodegaProducto.CantidadEntradas.ToString();
+                    this.dtpFechaIngreso.Value = oBodegaProducto.Fecha;
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el registro !", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
