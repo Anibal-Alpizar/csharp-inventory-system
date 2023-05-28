@@ -145,16 +145,16 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             }
         }
 
-        private void AjustarDatagrid()
-        {
-            var height = dgvDatos.ColumnHeadersHeight;
-            foreach (DataGridViewRow item in dgvDatos.Rows)
-            {
-                height += item.Height;
-            }
+        //private void AjustarDatagrid()
+        //{
+        //    var height = dgvDatos.ColumnHeadersHeight;
+        //    foreach (DataGridViewRow item in dgvDatos.Rows)
+        //    {
+        //        height += item.Height;
+        //    }
 
-            dgvDatos.Height = height;
-        }
+        //    dgvDatos.Height = height;
+        //}
 
         private void CargarDatos()
         {
@@ -215,6 +215,8 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.InventarioFinal = 0;
 
                 oBodegaProducto = _IBLLBodegaProducto.SaveBodegaProducto(oBodegaProducto);
+
+                CargarDatos();
 
             }
             catch (Exception er)

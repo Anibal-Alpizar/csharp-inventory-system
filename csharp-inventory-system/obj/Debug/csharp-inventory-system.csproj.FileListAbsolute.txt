@@ -172,3 +172,5 @@ C:\Users\Estudiante\Desktop\csharp-inventory-system\csharp-inventory-system\obj\
 C:\Users\Estudiante\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.csproj.CopyComplete
 C:\Users\Estudiante\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.exe
 C:\Users\Estudiante\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.pdb
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Mantenimientos.frmMantenimientoAseoPersonal.resources
+C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Mantenimientos.frmMantenimientoLimpieza.resources
