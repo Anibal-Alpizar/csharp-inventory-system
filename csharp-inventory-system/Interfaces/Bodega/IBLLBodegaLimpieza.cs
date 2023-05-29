@@ -12,6 +12,6 @@ namespace csharp_inventory_system.Interfaces.Bodega
     {
         List<BodegaProducto> GetAllProductosLimpieza();
         Task<BodegaProducto> SaveBodegaLimpieza(BodegaProducto bodegaProducto);
-
+        Task<bool> DeleteBodegaProducto(string nombreProducto);
     }
 }

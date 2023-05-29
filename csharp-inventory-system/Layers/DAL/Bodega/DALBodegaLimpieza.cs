@@ -21,6 +21,43 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
 
         private static readonly ILog _MyLogControlEventos = LogManager.GetLogger("MyControlEventos");
 
+        public async Task<bool> DeleteProductoLimpieza(string nombre)
+        {
+            bool retorno = false;
+            double rows = 0d;
+            SqlCommand command = new SqlCommand();
+            try
+            {
+                string sql = @"DELETE FROM BodegaProducto WHERE TipoBodega = 'Limpieza' AND Nombre = @Nombre";
+                command.Parameters.AddWithValue("@Nombre", nombre);
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    rows = await db.ExecuteNonQueryAsync(command, IsolationLevel.ReadCommitted);
+                }
+                if (rows > 0)
+                    retorno = true;
+                return retorno;
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                if (er is SqlException)
+                {
+                    msg.AppendFormat("{0}\n", UtilError.CreateSQLExceptionsErrorDetails(MethodBase.GetCurrentMethod(), command, er as SqlException));
+                    _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                    throw new CustomException(UtilError.GetCustomErrorByNumber(er as SqlException));
+                }
+                else
+                {
+                    msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                    _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                    throw;
+                }
+            }
+        }
+
         public List<BodegaProducto> GetAllProductosLimpieza()
         {
             DataSet ds = null;

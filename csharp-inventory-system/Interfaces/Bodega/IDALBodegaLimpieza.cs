@@ -13,6 +13,7 @@ namespace csharp_inventory_system.Interfaces.Bodega
         BodegaProducto GetProductoLimpiezaById (string nombre);
         Task<BodegaProducto> SaveProductoLimpieza(BodegaProducto pBodegaProducto);
         Task<BodegaProducto> UpdateProductoLimpieza(BodegaProducto pBodegaProducto);
+        Task<bool> DeleteProductoLimpieza(string nombre);
 
     }
 }

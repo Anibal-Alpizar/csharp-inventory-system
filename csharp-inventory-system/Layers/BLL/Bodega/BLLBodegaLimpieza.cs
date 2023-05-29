@@ -13,6 +13,12 @@ namespace csharp_inventory_system.Layers.BLL.Bodega
 {
     public class BLLBodegaLimpieza : IBLLBodegaLimpieza
     {
+        public Task<bool> DeleteBodegaProducto(string nombreProducto)
+        {
+            IDALBodegaLimpieza _DALLBodegaLimpieza = new DALBodegaLimpieza();
+            return _DALLBodegaLimpieza.DeleteProductoLimpieza(nombreProducto);
+        }
+
         public List<BodegaProducto> GetAllProductosLimpieza()
         {
             IDALBodegaLimpieza _IDALProducto = new DALBodegaLimpieza();

@@ -260,6 +260,7 @@
             this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
             this.toolStripBtnBorrar.Size = new System.Drawing.Size(91, 52);
             this.toolStripBtnBorrar.Text = "&Borrar";
+            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
             // 
             // toolStripBtnSalir
             // 

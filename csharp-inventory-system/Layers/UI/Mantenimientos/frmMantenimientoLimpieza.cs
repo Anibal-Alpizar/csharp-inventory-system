@@ -113,9 +113,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     break;
 
                 case EstadoMantenimiento.Borrar:
-                    // habilitar
                     break;
-
                 case EstadoMantenimiento.Ninguno: break;
             }
         }
@@ -275,6 +273,35 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.txtPrecioUnitario.Text = oBodegaProducto.Precio.ToString();
                     this.txtEntrante.Text = oBodegaProducto.CantidadEntradas.ToString();
                     this.dtpFechaIngreso.Value = oBodegaProducto.Fecha;
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el registro !", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void toolStripBtnBorrar_Click(object sender, EventArgs e)
+        {
+            IBLLBodegaLimpieza _BLLBodegaLimpieza = new BLLBodegaLimpieza();
+            try
+            {
+                if (this.dgvDatos.SelectedCells.Count > 0)
+                {
+                    int rowIndex = this.dgvDatos.SelectedCells[0].RowIndex;
+                    BodegaProducto oBodegaProducto = this.dgvDatos.Rows[rowIndex].DataBoundItem as BodegaProducto;
+                    if (MessageBox.Show($"¿Seguro que desea borrar el registro {oBodegaProducto.Nombre.Trim()} {oBodegaProducto.Nombre.Trim()}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        _BLLBodegaLimpieza.DeleteBodegaProducto(oBodegaProducto.Nombre);
+                        this.CargarDatos();
+                    }
                 }
                 else
                 {
