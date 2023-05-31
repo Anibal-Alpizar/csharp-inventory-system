@@ -202,42 +202,46 @@
             this.toolStripBtnSalir});
             this.tspPrincipal.Location = new System.Drawing.Point(0, 40);
             this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(1055, 25);
+            this.tspPrincipal.Size = new System.Drawing.Size(1055, 55);
             this.tspPrincipal.TabIndex = 3;
             // 
             // toolStripBtnNuevo
             // 
+            this.toolStripBtnNuevo.Image = global::csharp_inventory_system.Properties.Resources.document_new_4;
             this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(46, 22);
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(94, 52);
             this.toolStripBtnNuevo.Text = "&Nuevo";
             this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
             // 
             // toolStripBtnEditar
             // 
+            this.toolStripBtnEditar.Image = global::csharp_inventory_system.Properties.Resources.document_edit;
             this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(41, 22);
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(89, 52);
             this.toolStripBtnEditar.Text = "&Editar";
             this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
             // 
             // toolStripBtnBorrar
             // 
+            this.toolStripBtnBorrar.Image = global::csharp_inventory_system.Properties.Resources.trash_empty_3;
             this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(43, 22);
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(91, 52);
             this.toolStripBtnBorrar.Text = "&Borrar";
             this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
             // 
             // toolStripBtnSalir
             // 
+            this.toolStripBtnSalir.Image = global::csharp_inventory_system.Properties.Resources.window_close_2;
             this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(33, 22);
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(81, 52);
             this.toolStripBtnSalir.Text = "&Salir";
             this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
@@ -245,18 +249,18 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 65);
+            this.panel1.Location = new System.Drawing.Point(0, 95);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 560);
+            this.panel1.Size = new System.Drawing.Size(5, 530);
             this.panel1.TabIndex = 4;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1050, 65);
+            this.panel2.Location = new System.Drawing.Point(1050, 95);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 560);
+            this.panel2.Size = new System.Drawing.Size(5, 530);
             this.panel2.TabIndex = 5;
             // 
             // panel3
@@ -273,9 +277,9 @@
             this.panel4.Controls.Add(this.dgvDatos);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(5, 65);
+            this.panel4.Location = new System.Drawing.Point(5, 95);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1045, 555);
+            this.panel4.Size = new System.Drawing.Size(1045, 525);
             this.panel4.TabIndex = 7;
             // 
             // dgvDatos
@@ -382,7 +386,7 @@
             this.panel5.ForeColor = System.Drawing.Color.White;
             this.panel5.Location = new System.Drawing.Point(646, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(399, 555);
+            this.panel5.Size = new System.Drawing.Size(399, 525);
             this.panel5.TabIndex = 22;
             // 
             // panel6
@@ -393,7 +397,7 @@
             this.panel6.Controls.Add(this.cmbProductos);
             this.panel6.Controls.Add(this.txtResultado);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 318);
+            this.panel6.Location = new System.Drawing.Point(0, 288);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(399, 237);
             this.panel6.TabIndex = 19;
