@@ -316,5 +316,10 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void toolStripBtnSalir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

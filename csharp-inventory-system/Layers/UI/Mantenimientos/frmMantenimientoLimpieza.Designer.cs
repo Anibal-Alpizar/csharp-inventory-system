@@ -270,6 +270,7 @@
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
             this.toolStripBtnSalir.Size = new System.Drawing.Size(81, 52);
             this.toolStripBtnSalir.Text = "&Salir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
             // panel4
             // 

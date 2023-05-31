@@ -11,13 +11,23 @@ using System.Threading.Tasks;
 
 namespace csharp_inventory_system.Layers.BLL.Bodega
 {
-    public class BLLBodegaAseoPersonal
+    public class BLLBodegaAseoPersonal : IBLLBodegaAseoPersonal
     {
         public List<BodegaProducto> GetAllProductosAseoPersonal()
         {
-            IDALBodegaAseoPersonal _IDALBodegaAseoPersona = new DALBodegaAseoPersonal();
-            //return _IDALBodegaAseoPersona.GetAllProductosAseoPersonal();
-            return null;
+            IDALBodegaAseoPersonal _IDALProducto = new DALBodegaAseoPersonal();
+            return _IDALProducto.GetAllProductosAseoPersonal();
+        }
+
+        public Task<BodegaProducto> SaveBodegaAseoPersonal(BodegaProducto bodegaProducto)
+        {
+            IDALBodegaAseoPersonal _DALLBodegaAseoPersonal = new DALBodegaAseoPersonal();
+            Task<BodegaProducto> oBodegaAseoPersonal = null;
+            if (_DALLBodegaAseoPersonal.GetProductoAseoPersonalById(bodegaProducto.Nombre) == null)
+                oBodegaAseoPersonal = _DALLBodegaAseoPersonal.SaveProductoAseoPersonal(bodegaProducto);
+            else
+                oBodegaAseoPersonal = _DALLBodegaAseoPersonal.UpdateProductoAseoPersonal(bodegaProducto);
+            return oBodegaAseoPersonal;
         }
     }
 }

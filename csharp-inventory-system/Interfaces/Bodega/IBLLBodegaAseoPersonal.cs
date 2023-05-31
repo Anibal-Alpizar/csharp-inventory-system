@@ -10,5 +10,6 @@ namespace csharp_inventory_system.Interfaces.Bodega
     public interface IBLLBodegaAseoPersonal
     {
         List<BodegaProducto> GetAllProductosAseoPersonal();
+        Task<BodegaProducto> SaveBodegaAseoPersonal(BodegaProducto bodegaProducto);
     }
 }

@@ -212,6 +212,7 @@
             this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
             this.toolStripBtnNuevo.Size = new System.Drawing.Size(46, 22);
             this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
             // 
             // toolStripBtnEditar
             // 
@@ -220,6 +221,7 @@
             this.toolStripBtnEditar.Name = "toolStripBtnEditar";
             this.toolStripBtnEditar.Size = new System.Drawing.Size(41, 22);
             this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
             // 
             // toolStripBtnBorrar
             // 
@@ -228,6 +230,7 @@
             this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
             this.toolStripBtnBorrar.Size = new System.Drawing.Size(43, 22);
             this.toolStripBtnBorrar.Text = "&Borrar";
+            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
             // 
             // toolStripBtnSalir
             // 
@@ -236,6 +239,7 @@
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
             this.toolStripBtnSalir.Size = new System.Drawing.Size(33, 22);
             this.toolStripBtnSalir.Text = "&Salir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
             // panel1
             // 
@@ -670,6 +674,7 @@
             this.Name = "frmMantenimientoAseoPersonal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMantenimientoAseoPersonal";
+            this.Load += new System.EventHandler(this.frmMantenimientoAseoPersonal_Load);
             this.pMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tspPrincipal.ResumeLayout(false);
