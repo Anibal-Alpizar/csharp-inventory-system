@@ -308,5 +308,60 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         {
 
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoAseoPersonal ofrmMantenimientoAseoPersonal;
+            try
+            {
+                ofrmMantenimientoAseoPersonal = new frmMantenimientoAseoPersonal();
+                ofrmMantenimientoAseoPersonal.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoLimpieza ofrmMantenimientoLimpieza;
+            try
+            {
+                ofrmMantenimientoLimpieza = new frmMantenimientoLimpieza();
+                ofrmMantenimientoLimpieza.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmPrincipal ofrmPrincipal;
+            try
+            {
+                ofrmPrincipal = new frmPrincipal();
+                ofrmPrincipal.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
     }
 }

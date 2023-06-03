@@ -192,6 +192,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Inicio";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
@@ -284,6 +285,8 @@
             // 
             // dgvDatos
             // 
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.AllowUserToDeleteRows = false;
             this.dgvDatos.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -320,6 +323,7 @@
             this.dgvDatos.EnableHeadersVisualStyles = false;
             this.dgvDatos.Location = new System.Drawing.Point(3, 0);
             this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowTemplate.Height = 40;
             this.dgvDatos.Size = new System.Drawing.Size(637, 489);
@@ -330,6 +334,7 @@
             this.Column1.DataPropertyName = "TipoBodega";
             this.Column1.HeaderText = "Tipo Bodega";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 130;
             // 
             // Column2
@@ -337,6 +342,7 @@
             this.Column2.DataPropertyName = "Nombre";
             this.Column2.HeaderText = "Nombre";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 130;
             // 
             // Column3
@@ -344,6 +350,7 @@
             this.Column3.DataPropertyName = "InventarioInicial";
             this.Column3.HeaderText = "InventarioInicial";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Width = 130;
             // 
             // Column4
@@ -351,6 +358,7 @@
             this.Column4.DataPropertyName = "UnidadMedida";
             this.Column4.HeaderText = "UnidadMedida";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 130;
             // 
             // Fecha
@@ -390,6 +398,7 @@
             // 
             // txtAlimentos
             // 
+            this.txtAlimentos.Enabled = false;
             this.txtAlimentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAlimentos.Location = new System.Drawing.Point(152, 25);
             this.txtAlimentos.Name = "txtAlimentos";
@@ -628,9 +637,9 @@
             this.pInventarios.BackColor = System.Drawing.Color.Teal;
             this.pInventarios.Controls.Add(this.button7);
             this.pInventarios.Controls.Add(this.button6);
-            this.pInventarios.Location = new System.Drawing.Point(295, 46);
+            this.pInventarios.Location = new System.Drawing.Point(295, 40);
             this.pInventarios.Name = "pInventarios";
-            this.pInventarios.Size = new System.Drawing.Size(140, 86);
+            this.pInventarios.Size = new System.Drawing.Size(140, 92);
             this.pInventarios.TabIndex = 23;
             this.pInventarios.Visible = false;
             // 
@@ -644,13 +653,14 @@
             this.button7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.Menu;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.Location = new System.Drawing.Point(0, 40);
+            this.button7.Location = new System.Drawing.Point(-3, 39);
             this.button7.Name = "button7";
             this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button7.Size = new System.Drawing.Size(140, 40);
             this.button7.TabIndex = 5;
             this.button7.Text = "Aseo  ";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -662,7 +672,7 @@
             this.button6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.Menu;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(0, 0);
+            this.button6.Location = new System.Drawing.Point(0, 3);
             this.button6.Name = "button6";
             this.button6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button6.Size = new System.Drawing.Size(140, 40);

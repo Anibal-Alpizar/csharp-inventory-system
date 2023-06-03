@@ -130,6 +130,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Inicio";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseEnter += new System.EventHandler(this.btnMouseEnter);
             this.button2.MouseLeave += new System.EventHandler(this.btnMouseLeave);
             // 
