@@ -332,7 +332,20 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
         private void toolStripBtnSalir_Click(object sender, EventArgs e)
         {
-
+            frmPrincipal ofrmPrincipal;
+            try
+            {
+                ofrmPrincipal = new frmPrincipal();
+                ofrmPrincipal.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
