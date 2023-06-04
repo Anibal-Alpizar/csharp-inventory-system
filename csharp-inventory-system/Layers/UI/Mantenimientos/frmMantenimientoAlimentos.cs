@@ -1,5 +1,7 @@
 ﻿using csharp_inventory_system.Interfaces;
+using csharp_inventory_system.Interfaces.Bodega;
 using csharp_inventory_system.Layers.BLL;
+using csharp_inventory_system.Layers.BLL.Bodega;
 using csharp_inventory_system.Layers.Entities;
 using csharp_inventory_system.Util;
 using log4net;
@@ -113,11 +115,17 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     break;
 
                 case EstadoMantenimiento.Editar:
-                    // habilitar
+                    this.txtProducto.Enabled = false;
+                    this.txtPrecioUnitario.Enabled = true;
+                    this.txtEntrante.Enabled = true;
+                    this.txtSaliente.Enabled = true;
+                    this.cmbUnidadMedida.Enabled = true;
+                    this.btnAceptar.Enabled = true;
+                    this.btnCancelar.Enabled = true;
+                    txtPrecioUnitario.Focus();
                     break;
 
                 case EstadoMantenimiento.Borrar:
-                    // habilitar
                     break;
 
                 case EstadoMantenimiento.Ninguno: break;
@@ -170,40 +178,22 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             //dgvDatos.RowTemplate.Height =50 ;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaAlimentos();
-            dgvDatos.DataSource = _IBLLBodegaProducto.GetAllProductos();
+            dgvDatos.DataSource = _IBLLBodegaProducto.GetAllProductosAlimentos();
             CambiarEstado(EstadoMantenimiento.Ninguno);
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private async void btnAceptar_Click(object sender, EventArgs e)
         {
-            BodegaProducto oBodegaProducto = null;
             IBLLBodegaProducto _IBLLBodegaProducto = new BLLBodegaAlimentos();
             try
             {
-                if (txtProducto.Text == "")
+                BodegaProducto oBodegaProducto = new BodegaProducto();
+                if (string.IsNullOrEmpty(txtProducto.Text))
                 {
                     MessageBox.Show("El nombre del producto es un dato requerido!", "Atención");
+                    this.txtProducto.Focus();
                     return;
                 }
-                if (txtPrecioUnitario == null)
-                {
-                    MessageBox.Show("El precio unitario es un dato requerido!", "Atención");
-                    return;
-                }
-                if (txtEntrante == null)
-                {
-                    MessageBox.Show("La cantidad entrante debe ser mayor a cero!", "Atención");
-                    return;
-                }
-                if (txtSaliente == null)
-                {
-                    MessageBox.Show("La cantidad saliente debe ser cero o mayor!", "Atención");
-                    return;
-                }
-
-                oBodegaProducto = new BodegaProducto();
-
-                //oBodegaProducto.IdBodegaProducto
                 oBodegaProducto.TipoBodega = txtAlimentos.Text;
                 oBodegaProducto.Nombre = this.txtProducto.Text;
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
@@ -214,10 +204,10 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.CantidadSalidas = int.Parse(this.txtSaliente.Text);
                 oBodegaProducto.InventarioFinal = 0;
 
-                oBodegaProducto = _IBLLBodegaProducto.SaveBodegaProducto(oBodegaProducto);
+                oBodegaProducto = await _IBLLBodegaProducto.SaveBodegaAlimentos(oBodegaProducto);
 
-                CargarDatos();
-
+                if (oBodegaProducto != null)
+                    this.CargarDatos();
             }
             catch (Exception er)
             {
@@ -306,7 +296,37 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
         private void toolStripBtnEditar_Click(object sender, EventArgs e)
         {
+            BodegaProducto oBodegaProducto = null;
+            try
+            {
+                if (this.dgvDatos.SelectedCells.Count > 0)
+                {
+                    // Obtener el índice de la celda seleccionada
+                    int rowIndex = this.dgvDatos.SelectedCells[0].RowIndex;
+                    // Obtener el objeto BodegaProducto de la fila correspondiente
+                    oBodegaProducto = this.dgvDatos.Rows[rowIndex].DataBoundItem as BodegaProducto;
 
+                    // Cambiar de estado
+                    this.CambiarEstado(EstadoMantenimiento.Editar);
+                    this.txtAlimentos.Text = oBodegaProducto.TipoBodega;
+                    this.txtProducto.Text = oBodegaProducto.Nombre;
+                    cmbProductos.SelectedIndex = cmbProductos.FindString(oBodegaProducto.IdBodegaProducto.ToString());
+                    this.txtPrecioUnitario.Text = oBodegaProducto.Precio.ToString();
+                    this.txtEntrante.Text = oBodegaProducto.CantidadEntradas.ToString();
+                    this.dtpFechaIngreso.Value = oBodegaProducto.Fecha;
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el registro !", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -362,6 +382,35 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
+        }
+
+        private void toolStripBtnBorrar_Click(object sender, EventArgs e)
+        {
+            IBLLBodegaProducto _BLLBodegaProducto = new BLLBodegaAlimentos();
+            try
+            {
+                if (this.dgvDatos.SelectedCells.Count > 0)
+                {
+                    int rowIndex = this.dgvDatos.SelectedCells[0].RowIndex;
+                    BodegaProducto oBodegaProducto = this.dgvDatos.Rows[rowIndex].DataBoundItem as BodegaProducto;
+                    if (MessageBox.Show($"¿Seguro que desea borrar el registro {oBodegaProducto.Nombre.Trim()} {oBodegaProducto.Nombre.Trim()}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        _BLLBodegaProducto.DeleteBodegaAlimentos(oBodegaProducto.Nombre);
+                        this.CargarDatos();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el registro !", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

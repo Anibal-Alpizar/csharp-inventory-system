@@ -9,9 +9,8 @@ namespace csharp_inventory_system.Interfaces
 {
     public interface IBLLBodegaProducto
     {
-        BodegaProducto SaveBodegaProducto(BodegaProducto product);
-        List<BodegaProducto> GetAllProductos();
-        //List<BodegaProducto> GetAllProductosLimpieza();
-        //List<BodegaProducto> GetAllProductosAseoPersonal();
+        List<BodegaProducto> GetAllProductosAlimentos();
+        Task<BodegaProducto> SaveBodegaAlimentos(BodegaProducto bodegaProducto);
+        Task<bool> DeleteBodegaAlimentos(string nombreProducto);
     }
 }

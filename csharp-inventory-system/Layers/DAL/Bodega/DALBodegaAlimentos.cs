@@ -1,4 +1,4 @@
-﻿  using csharp_inventory_system.Interfaces;
+﻿using csharp_inventory_system.Interfaces;
 using csharp_inventory_system.Layers.Entities;
 using csharp_inventory_system.Layers.Persistencia;
 using csharp_inventory_system.Util;
@@ -18,13 +18,51 @@ namespace csharp_inventory_system.Layers.DAL
     {
         private static readonly ILog _MyLogControlEventos = LogManager.GetLogger("MyControlEventos");
 
-        public List<BodegaProducto> GetAllProductos()
+        public async Task<bool> DeleteProductoAlimentos(string nombre)
+        {
+            bool retorno = false;
+            double rows = 0d;
+            SqlCommand command = new SqlCommand();
+            try
+            {
+                string sql = @"DELETE FROM BodegaProducto WHERE TipoBodega = 'Alimentos' AND Nombre = @Nombre";
+                command.Parameters.AddWithValue("@Nombre", nombre);
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    rows = await db.ExecuteNonQueryAsync(command, IsolationLevel.ReadCommitted);
+                }
+                if (rows > 0)
+                    retorno = true;
+                return retorno;
+
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                if (er is SqlException)
+                {
+                    msg.AppendFormat("{0}\n", UtilError.CreateSQLExceptionsErrorDetails(MethodBase.GetCurrentMethod(), command, er as SqlException));
+                    _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                    throw new CustomException(UtilError.GetCustomErrorByNumber(er as SqlException));
+                }
+                else
+                {
+                    msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                    _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                    throw;
+                }
+            }
+        }
+
+        public List<BodegaProducto> GetAllProductosAlimentos()
         {
             DataSet ds = null;
             List<BodegaProducto> lista = new List<BodegaProducto>();
             SqlCommand command = new SqlCommand();
             string sql = @"SELECT  BodegaProducto.TipoBodega, BodegaProducto.Nombre, 
-BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fecha
+                            BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fecha
                             FROM BodegaProducto WHERE TipoBodega = 'Alimentos'";
             try
             {
@@ -69,15 +107,16 @@ BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fe
             }
         }
 
-        public BodegaProducto GetBodegaProductoById(string pId)
+        public BodegaProducto GetProductoAlimentosById(string nombre)
         {
             DataSet ds = null;
             BodegaProducto oBodegaProducto = null;
-            string sql = @" select * from [BodegaProducto] where Nombre = @Nombre";
             SqlCommand command = new SqlCommand();
+
             try
             {
-                command.Parameters.AddWithValue("@Nombre", pId);
+                string sql = @"SELECT * from BodegaProducto WHERE TipoBodega = 'Alimentos' AND Nombre = @Nombre";
+                command.Parameters.AddWithValue("@Nombre", nombre);
                 command.CommandText = sql;
                 command.CommandType = CommandType.Text;
 
@@ -85,21 +124,17 @@ BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fe
                 {
                     ds = db.ExecuteReader(command, "query");
                 }
+
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     DataRow dr = ds.Tables[0].Rows[0];
                     oBodegaProducto = new BodegaProducto()
                     {
-                        //IdBodegaProducto = double.Parse(dr["IdBodegaProducto"].ToString()),
                         TipoBodega = dr["TipoBodega"].ToString(),
                         Nombre = dr["Nombre"].ToString(),
-                        UnidadMedida = dr["UnidadMedida"].ToString(),
-                        Precio = double.Parse(dr["Precio"].ToString()),
-                        Fecha = DateTime.Parse(dr["Fecha"].ToString()),
                         InventarioInicial = int.Parse(dr["InventarioInicial"].ToString()),
-                        CantidadEntradas = int.Parse(dr["CantidadEntradas"].ToString()),
-                        CantidadSalidas = int.Parse(dr["CantidadSalidas"].ToString()),
-                        InventarioFinal = int.Parse(dr["CantidadFinal"].ToString())
+                        UnidadMedida = dr["UnidadMedida"].ToString(),
+                        Fecha = DateTime.Parse(dr["Fecha"].ToString()),
                     };
                 }
                 return oBodegaProducto;
@@ -122,63 +157,46 @@ BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fe
             }
         }
 
-        public BodegaProducto SaveBodegaProducto(BodegaProducto pBodegaProducto)
+        public async Task<BodegaProducto> SaveProductoAlimentos(BodegaProducto pBodegaProducto)
         {
             BodegaProducto oBodegaProducto = null;
-            string sql = @"INSERT INTO [dbo].[BodegaProducto]
-                                  ([TipoBodega],
-                                  [Nombre],
-                                  [UnidadMedida],
-                                  [Precio],
-                                  [Fecha],
-                                  [InventarioInicial],
-                                  [CantidadEntradas],
-                                  [CantidadSalidas],
-                                  [CantidadFinal]
-                                  )
-                                VALUES
-                                  (@TipoBodega,
-                                   @Nombre,
-                                   @UnidadMedida,
-                                   @Precio,
-                                   @Fecha,
-                                   @InventarioInicial,
-                                   @CantidadEntradas,
-                                   @CantidadSalidas,
-                                   @CantidadFinal)";
-
-            SqlCommand command = new SqlCommand();
-            double rows = 0;
+            SqlCommand cmd = new SqlCommand();
+            string sql = @"INSERT INTO BodegaProducto (TipoBodega, Nombre, UnidadMedida, Precio, Fecha ,InventarioInicial, CantidadEntradas, CantidadSalidas, CantidadFinal)
+                            VALUES (@TipoBodega, @Nombre, @UnidadMedida, @Precio , @Fecha,@InventarioInicial, @CantidadEntrada, @CantidadSalida, @CantidadFinal)";
             try
             {
-                //command.Parameters.AddWithValue("@IdBodegaProducto", pBodegaProducto.IdBodegaProducto);
-                command.Parameters.AddWithValue("@TipoBodega", pBodegaProducto.TipoBodega);
-                command.Parameters.AddWithValue("@Nombre", pBodegaProducto.Nombre);
-                command.Parameters.AddWithValue("@UnidadMedida", pBodegaProducto.UnidadMedida);
-                command.Parameters.AddWithValue("@Precio", pBodegaProducto.Precio);
-                command.Parameters.AddWithValue("@Fecha", pBodegaProducto.Fecha);
-                command.Parameters.AddWithValue("@InventarioInicial", pBodegaProducto.InventarioInicial);
-                command.Parameters.AddWithValue("@CantidadEntradas", pBodegaProducto.CantidadEntradas);
-                command.Parameters.AddWithValue("@CantidadSalidas", pBodegaProducto.CantidadSalidas);
-                command.Parameters.AddWithValue("@CantidadFinal", pBodegaProducto.InventarioFinal);
-                command.CommandText = sql;
-                command.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@TipoBodega", pBodegaProducto.TipoBodega);
+                cmd.Parameters.AddWithValue("@Nombre", pBodegaProducto.Nombre);
+                cmd.Parameters.AddWithValue("@UnidadMedida", pBodegaProducto.UnidadMedida);
+                cmd.Parameters.AddWithValue("@Precio", pBodegaProducto.Precio);
+                cmd.Parameters.AddWithValue("@Fecha", pBodegaProducto.Fecha);
+                cmd.Parameters.AddWithValue("@InventarioInicial", pBodegaProducto.InventarioInicial);
+                cmd.Parameters.AddWithValue("@CantidadEntrada", pBodegaProducto.CantidadEntradas);
+                cmd.Parameters.AddWithValue("@CantidadSalida", pBodegaProducto.CantidadSalidas);
+                cmd.Parameters.AddWithValue("@CantidadFinal", pBodegaProducto.InventarioFinal);
+
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.Text;
+
+
                 using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
                 {
-                    rows = db.ExecuteNonQuery(command, IsolationLevel.ReadCommitted);
+                    var rows = await db.ExecuteNonQueryAsync(cmd, IsolationLevel.ReadCommitted);
+
+                    // Si devuelve filas quiere decir que se salvo entonces extraerlo
+                    if (rows > 0)
+                        oBodegaProducto = this.GetProductoAlimentosById(pBodegaProducto.Nombre);
                 }
-                if (rows > 0)
-                {
-                    oBodegaProducto = GetBodegaProductoById(pBodegaProducto.Nombre);
-                }
+
                 return oBodegaProducto;
+
             }
             catch (Exception er)
             {
                 StringBuilder msg = new StringBuilder();
                 if (er is SqlException)
                 {
-                    msg.AppendFormat("{0}\n", UtilError.CreateSQLExceptionsErrorDetails(MethodBase.GetCurrentMethod(), command, er as SqlException));
+                    msg.AppendFormat("{0}\n", UtilError.CreateSQLExceptionsErrorDetails(MethodBase.GetCurrentMethod(), cmd, er as SqlException));
                     _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
                     throw new CustomException(UtilError.GetCustomErrorByNumber(er as SqlException));
                 }
@@ -191,45 +209,35 @@ BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fe
             }
         }
 
-        public BodegaProducto UpdateBodegaProducto(BodegaProducto pBodegaProducto)
+        public async Task<BodegaProducto> UpdateProductoAlimentos(BodegaProducto pBodegaProducto)
         {
-            BodegaProducto oBodegaProducto = null;
-            string sql = @"
-                            UPDATE [dbo].[BodegaProducto]
-                               SET [TipoBodega] = @TipoBodega
-                                  ,[Nombre] = @Nombre
-                                  ,[UnidadMedida] = @UnidadMedida
-                                  ,[Precio] = @Precio
-                                  ,[Fecha] = @Fecha
-                                  ,[InventarioInicial] = @InventarioInicial
-                                  ,[CantidadEntradas] = @CantidadEntradas
-                                  ,[CantidadSalidas] = @CantidadSalidas
-                                  ,[CantidadFinal] = @CantidadFinal
-                             WHERE Nombre = @Nombre";
-            SqlCommand command = null;
-            double rows = 0;
+            string sql = @"UPDATE BodegaProducto SET TipoBodega = @TipoBodega, Nombre = @Nombre, UnidadMedida = @UnidadMedida, Precio = @Precio, Fecha = @Fecha, InventarioInicial = @InventarioInicial, CantidadEntradas = @CantidadEntrada, CantidadSalidas = @CantidadSalida, CantidadFinal = @CantidadFinal
+                            WHERE TipoBodega = 'Alimentos' AND Nombre = @Nombre";
+            int rows = 0;
+            SqlCommand cmd = new SqlCommand();
+            BodegaProducto oBodegaProducto = new BodegaProducto();
             try
             {
-                command = new SqlCommand();
-                command.Parameters.AddWithValue("@TipoBodega", pBodegaProducto.TipoBodega);
-                command.Parameters.AddWithValue("@Nombre", pBodegaProducto.Nombre);
-                command.Parameters.AddWithValue("@UnidadMedida", pBodegaProducto.UnidadMedida);
-                command.Parameters.AddWithValue("@Precio", pBodegaProducto.Precio);
-                command.Parameters.AddWithValue("@Fecha", pBodegaProducto.Fecha);
-                command.Parameters.AddWithValue("@InventarioInicial", pBodegaProducto.InventarioInicial);
-                command.Parameters.AddWithValue("@CantidadEntradas", pBodegaProducto.CantidadEntradas);
-                command.Parameters.AddWithValue("@CantidadSalidas", pBodegaProducto.CantidadSalidas);
-                command.Parameters.AddWithValue("@CantidadFinal", pBodegaProducto.InventarioFinal);
-                command.CommandText = sql;
-                command.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@TipoBodega", pBodegaProducto.TipoBodega);
+                cmd.Parameters.AddWithValue("@Nombre", pBodegaProducto.Nombre);
+                cmd.Parameters.AddWithValue("@UnidadMedida", pBodegaProducto.UnidadMedida);
+                cmd.Parameters.AddWithValue("@Precio", pBodegaProducto.Precio);
+                cmd.Parameters.AddWithValue("@Fecha", pBodegaProducto.Fecha);
+                cmd.Parameters.AddWithValue("@InventarioInicial", pBodegaProducto.InventarioInicial);
+                cmd.Parameters.AddWithValue("@CantidadEntrada", pBodegaProducto.CantidadEntradas);
+                cmd.Parameters.AddWithValue("@CantidadSalida", pBodegaProducto.CantidadSalidas);
+                cmd.Parameters.AddWithValue("@CantidadFinal", pBodegaProducto.InventarioFinal);
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.Text;
+
                 using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
                 {
-                    rows = db.ExecuteNonQuery(command, IsolationLevel.ReadCommitted);
+                    rows = await db.ExecuteNonQueryAsync(cmd, IsolationLevel.ReadCommitted);
                 }
+
                 if (rows > 0)
-                {
-                    oBodegaProducto = GetBodegaProductoById(pBodegaProducto.Nombre);
-                }
+                    oBodegaProducto = this.GetProductoAlimentosById(pBodegaProducto.Nombre);
+
                 return oBodegaProducto;
 
             }
@@ -238,7 +246,7 @@ BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fe
                 StringBuilder msg = new StringBuilder();
                 if (er is SqlException)
                 {
-                    msg.AppendFormat("{0}\n", UtilError.CreateSQLExceptionsErrorDetails(MethodBase.GetCurrentMethod(), command, er as SqlException));
+                    msg.AppendFormat("{0}\n", UtilError.CreateSQLExceptionsErrorDetails(MethodBase.GetCurrentMethod(), cmd, er as SqlException));
                     _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
                     throw new CustomException(UtilError.GetCustomErrorByNumber(er as SqlException));
                 }
@@ -249,6 +257,6 @@ BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fe
                     throw;
                 }
             }
-        } 
+        }
     }
 }

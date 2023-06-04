@@ -9,13 +9,10 @@ namespace csharp_inventory_system.Interfaces
 {
     public interface IDALBodegaAlimentos
     {
-        BodegaProducto GetBodegaProductoById(string pId);
-        BodegaProducto SaveBodegaProducto(BodegaProducto pBodegaProducto);
-        BodegaProducto UpdateBodegaProducto(BodegaProducto pBodegaProducto);
-        List<BodegaProducto> GetAllProductos();
-
-
-        //List<BodegaProducto> GetAllProductosLimpieza();
-        //List<BodegaProducto> GetAllProductosAseoPersonal();
+        List<BodegaProducto> GetAllProductosAlimentos();
+        BodegaProducto GetProductoAlimentosById(string nombre);
+        Task<BodegaProducto> SaveProductoAlimentos(BodegaProducto pBodegaProducto);
+        Task<BodegaProducto> UpdateProductoAlimentos(BodegaProducto pBodegaProducto);
+        Task<bool> DeleteProductoAlimentos(string nombre);
     }
 }
