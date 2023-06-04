@@ -227,12 +227,18 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         {
             DataRowView selectedRow = (DataRowView)cmbProductos.SelectedItem;
             string nombreProducto = selectedRow["Nombre"].ToString();
-            string connectionString = "Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456"; 
-            string query = $"SELECT SUM(CantidadFinal) FROM BodegaProducto WHERE TipoBodega='Alimentos' AND Nombre='{nombreProducto}'";
+            string connectionString = "Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456";
+            string query = $"SELECT (InventarioInicial + CantidadEntradas - CantidadSalidas) AS CantidadDisponible FROM BodegaProducto WHERE TipoBodega='Alimentos' AND Nombre=@nombreProducto";
+
+            //(InventarioInicial + CantidadEntradas - CantidadSalidas)
+            //InventarioInicial es el valor inicial del inventario para el producto en la bodega.
+            //CantidadEntradas es la cantidad total de entradas del producto en la bodega.
+            //CantidadSalidas es la cantidad total de salidas del producto de la bodega.
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
+                command.Parameters.AddWithValue("@nombreProducto", nombreProducto);
                 connection.Open();
                 object result = command.ExecuteScalar();
 
@@ -245,6 +251,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.txtResultado.Text = "0";
                 }
             }
+
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)

@@ -313,5 +313,36 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DataRowView selectedRow = (DataRowView)cmbProductos.SelectedItem;
+            string nombreProducto = selectedRow["Nombre"].ToString();
+            string connectionString = "Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456";
+            string query = $"SELECT (InventarioInicial + CantidadEntradas - CantidadSalidas) AS CantidadDisponible FROM BodegaProducto WHERE TipoBodega='Aseo_Personal' AND Nombre=@nombreProducto";
+
+            //(InventarioInicial + CantidadEntradas - CantidadSalidas)
+            //InventarioInicial es el valor inicial del inventario para el producto en la bodega.
+            //CantidadEntradas es la cantidad total de entradas del producto en la bodega.
+            //CantidadSalidas es la cantidad total de salidas del producto de la bodega.
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@nombreProducto", nombreProducto);
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    this.txtResultado.Text = result.ToString();
+                }
+                else
+                {
+                    this.txtResultado.Text = "0";
+                }
+            }
+
+        }
     }
 }

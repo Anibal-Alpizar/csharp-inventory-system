@@ -418,7 +418,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(399, 237);
             this.panel6.TabIndex = 19;
-            this.panel6.Visible = false;
             // 
             // label5
             // 
@@ -429,7 +428,6 @@
             this.label5.Size = new System.Drawing.Size(264, 25);
             this.label5.TabIndex = 17;
             this.label5.Text = "Total de disponibilidad de:";
-            this.label5.Visible = false;
             // 
             // btnBuscar
             // 
@@ -446,7 +444,6 @@
             this.btnBuscar.Text = "Calcular";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
             this.btnBuscar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
@@ -458,7 +455,6 @@
             this.cmbProductos.Name = "cmbProductos";
             this.cmbProductos.Size = new System.Drawing.Size(152, 21);
             this.cmbProductos.TabIndex = 19;
-            this.cmbProductos.Visible = false;
             // 
             // txtResultado
             // 
@@ -467,7 +463,6 @@
             this.txtResultado.Name = "txtResultado";
             this.txtResultado.Size = new System.Drawing.Size(152, 20);
             this.txtResultado.TabIndex = 16;
-            this.txtResultado.Visible = false;
             // 
             // txtSaliente
             // 
