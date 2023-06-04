@@ -217,23 +217,26 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             DataRowView selectedRow = (DataRowView)cmbProductos.SelectedItem;
             string nombreProducto = selectedRow["Nombre"].ToString();
             string connectionString = "Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456";
-            string query = $"SELECT SUM(CantidadFinal)-1 FROM BodegaProducto WHERE TipoBodega='Limpieza' AND Nombre='{nombreProducto}'";
+            string query = "SELECT (InventarioInicial + CantidadEntradas - CantidadSalidas) AS CantidadDisponible\r\nFROM BodegaProducto\r\nWHERE TipoBodega = 'Limpieza' AND Nombre = @nombreProducto";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
+                command.Parameters.AddWithValue("@nombreProducto", nombreProducto);
                 connection.Open();
                 object result = command.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
                 {
-                    this.txtResultado.Text = result.ToString();
+                    int cantidadDisponible = Convert.ToInt32(result) - 1;
+                    this.txtResultado.Text = cantidadDisponible.ToString();
                 }
                 else
                 {
                     this.txtResultado.Text = "0";
                 }
             }
+
         }
 
         private void btnAceptar_MouseEnter(object sender, EventArgs e)
