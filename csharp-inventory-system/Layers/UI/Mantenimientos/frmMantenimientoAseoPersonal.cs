@@ -168,17 +168,81 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
         private void toolStripBtnEditar_Click(object sender, EventArgs e)
         {
+            BodegaProducto oBodegaProducto = null;
+            try
+            {
+                if (this.dgvDatos.SelectedCells.Count > 0)
+                {
+                    // Obtener el índice de la celda seleccionada
+                    int rowIndex = this.dgvDatos.SelectedCells[0].RowIndex;
+                    // Obtener el objeto BodegaProducto de la fila correspondiente
+                    oBodegaProducto = this.dgvDatos.Rows[rowIndex].DataBoundItem as BodegaProducto;
 
+                    // Cambiar de estado
+                    this.CambiarEstado(EstadoMantenimiento.Editar);
+                    this.txtAlimentos.Text = oBodegaProducto.TipoBodega;
+                    this.txtProducto.Text = oBodegaProducto.Nombre;
+                    cmbProductos.SelectedIndex = cmbProductos.FindString(oBodegaProducto.IdBodegaProducto.ToString());
+                    this.txtPrecioUnitario.Text = oBodegaProducto.Precio.ToString();
+                    this.txtEntrante.Text = oBodegaProducto.CantidadEntradas.ToString();
+                    this.dtpFechaIngreso.Value = oBodegaProducto.Fecha;
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el registro !", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void toolStripBtnBorrar_Click(object sender, EventArgs e)
         {
-
+            IBLLBodegaAseoPersonal _BLLBodegaAseoPersonal = new BLLBodegaAseoPersonal();
+            try
+            {
+                if (this.dgvDatos.SelectedCells.Count > 0)
+                {
+                    int rowIndex = this.dgvDatos.SelectedCells[0].RowIndex;
+                    BodegaProducto oBodegaProducto = this.dgvDatos.Rows[rowIndex].DataBoundItem as BodegaProducto;
+                    if (MessageBox.Show($"¿Seguro que desea borrar el registro {oBodegaProducto.Nombre.Trim()} {oBodegaProducto.Nombre.Trim()}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        _BLLBodegaAseoPersonal.DeleteBodegaProducto(oBodegaProducto.Nombre);
+                        this.CargarDatos();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el registro !", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void toolStripBtnSalir_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                this.Close();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmMantenimientoAseoPersonal_Load(object sender, EventArgs e)
