@@ -49,11 +49,6 @@
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtAlimentos = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -79,6 +74,14 @@
             this.pInventarios = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tspPrincipal.SuspendLayout();
@@ -101,7 +104,7 @@
             this.pMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pMenu.Location = new System.Drawing.Point(0, 0);
             this.pMenu.Name = "pMenu";
-            this.pMenu.Size = new System.Drawing.Size(1055, 40);
+            this.pMenu.Size = new System.Drawing.Size(1386, 40);
             this.pMenu.TabIndex = 2;
             // 
             // button1
@@ -113,7 +116,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1010, 0);
+            this.button1.Location = new System.Drawing.Point(1341, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 40);
             this.button1.TabIndex = 11;
@@ -209,14 +212,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(5, 620);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1050, 5);
+            this.panel3.Size = new System.Drawing.Size(1381, 5);
             this.panel3.TabIndex = 4;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1050, 40);
+            this.panel2.Location = new System.Drawing.Point(1381, 40);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(5, 580);
             this.panel2.TabIndex = 5;
@@ -230,7 +233,7 @@
             this.toolStripBtnSalir});
             this.tspPrincipal.Location = new System.Drawing.Point(5, 40);
             this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(1045, 55);
+            this.tspPrincipal.Size = new System.Drawing.Size(1376, 55);
             this.tspPrincipal.TabIndex = 6;
             // 
             // toolStripBtnNuevo
@@ -280,13 +283,12 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(5, 95);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1045, 525);
+            this.panel4.Size = new System.Drawing.Size(1376, 525);
             this.panel4.TabIndex = 7;
             // 
             // dgvDatos
             // 
             this.dgvDatos.AllowUserToAddRows = false;
-            this.dgvDatos.AllowUserToDeleteRows = false;
             this.dgvDatos.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -311,7 +313,10 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Fecha});
+            this.Fecha,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -323,51 +328,10 @@
             this.dgvDatos.EnableHeadersVisualStyles = false;
             this.dgvDatos.Location = new System.Drawing.Point(3, 0);
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowTemplate.Height = 40;
-            this.dgvDatos.Size = new System.Drawing.Size(637, 489);
+            this.dgvDatos.Size = new System.Drawing.Size(956, 489);
             this.dgvDatos.TabIndex = 23;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "TipoBodega";
-            this.Column1.HeaderText = "Tipo Bodega";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 130;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Nombre";
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 130;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "InventarioInicial";
-            this.Column3.HeaderText = "InventarioInicial";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 130;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "UnidadMedida";
-            this.Column4.HeaderText = "UnidadMedida";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 130;
-            // 
-            // Fecha
-            // 
-            this.Fecha.DataPropertyName = "Fecha";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 130;
             // 
             // panel5
             // 
@@ -391,9 +355,9 @@
             this.panel5.Controls.Add(this.cmbUnidadMedida);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.ForeColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(646, 0);
+            this.panel5.Location = new System.Drawing.Point(965, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(399, 525);
+            this.panel5.Size = new System.Drawing.Size(411, 525);
             this.panel5.TabIndex = 22;
             // 
             // txtAlimentos
@@ -416,7 +380,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 288);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(399, 237);
+            this.panel6.Size = new System.Drawing.Size(411, 237);
             this.panel6.TabIndex = 19;
             // 
             // label5
@@ -681,11 +645,64 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "TipoBodega";
+            this.Column1.HeaderText = "Tipo Bodega";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 130;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Nombre";
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 130;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "InventarioInicial";
+            this.Column3.HeaderText = "InventarioInicial";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 130;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "UnidadMedida";
+            this.Column4.HeaderText = "UnidadMedida";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 130;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 130;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Precio";
+            this.Column5.HeaderText = "Precio";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "CantidadEntradas";
+            this.Column6.HeaderText = "Entradas";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "CantidadSalidas";
+            this.Column7.HeaderText = "Salidas";
+            this.Column7.Name = "Column7";
+            // 
             // frmMantenimientoLimpieza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 625);
+            this.ClientSize = new System.Drawing.Size(1386, 625);
             this.Controls.Add(this.pInventarios);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.tspPrincipal);
@@ -757,11 +774,14 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridView dgvDatos;
+        private System.Windows.Forms.TextBox txtAlimentos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.TextBox txtAlimentos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
