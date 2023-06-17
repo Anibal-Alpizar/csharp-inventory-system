@@ -75,8 +75,6 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         /// <summary>
@@ -199,7 +197,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
                 oBodegaProducto.Fecha = DateTime.Now;
-                oBodegaProducto.InventarioInicial = int.Parse(this.txtPrecioUnitario.Text) * int.Parse(this.txtEntrante.Text);
+                oBodegaProducto.InventarioInicial = (int)(oBodegaProducto.Precio * int.Parse(this.txtEntrante.Text));
                 oBodegaProducto.CantidadEntradas = int.Parse(this.txtEntrante.Text);
                 oBodegaProducto.CantidadSalidas = int.Parse(this.txtSaliente.Text);
                 oBodegaProducto.InventarioFinal = 0;
