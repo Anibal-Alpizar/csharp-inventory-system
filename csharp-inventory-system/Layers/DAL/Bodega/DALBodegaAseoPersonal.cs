@@ -62,7 +62,8 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
             List<BodegaProducto> lista = new List<BodegaProducto>();
             SqlCommand command = new SqlCommand();
             string sql = @"SELECT  BodegaProducto.TipoBodega, BodegaProducto.Nombre, 
-                            BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fecha
+                            BodegaProducto.UnidadMedida ,BodegaProducto.InventarioInicial, BodegaProducto.Fecha,
+                            BodegaProducto.Precio, BodegaProducto.CantidadEntradas, BodegaProducto.CantidadSalidas
                             FROM BodegaProducto WHERE TipoBodega = 'Aseo_Personal'";
             try
             {
@@ -83,6 +84,9 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
                             InventarioInicial = int.Parse(dr["InventarioInicial"].ToString()),
                             UnidadMedida = dr["UnidadMedida"].ToString(),
                             Fecha = DateTime.Parse(dr["Fecha"].ToString()),
+                            Precio = double.Parse(dr["Precio"].ToString()),
+                            CantidadEntradas = int.Parse(dr["CantidadEntradas"].ToString()),
+                            CantidadSalidas = int.Parse(dr["CantidadSalidas"].ToString()),
                         };
                         lista.Add(oBodegaProducto);
                     }

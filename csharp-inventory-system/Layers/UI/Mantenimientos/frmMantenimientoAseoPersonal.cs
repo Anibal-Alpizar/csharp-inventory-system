@@ -142,7 +142,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
                 oBodegaProducto.Fecha = DateTime.Now;
-                oBodegaProducto.InventarioInicial = int.Parse(this.txtPrecioUnitario.Text) * int.Parse(this.txtEntrante.Text);
+                oBodegaProducto.InventarioInicial = int.Parse(this.txtEntrante.Text);
                 oBodegaProducto.CantidadEntradas = int.Parse(this.txtEntrante.Text);
                 oBodegaProducto.CantidadSalidas = int.Parse(this.txtSaliente.Text);
                 oBodegaProducto.InventarioFinal = 0;
@@ -319,7 +319,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             DataRowView selectedRow = (DataRowView)cmbProductos.SelectedItem;
             string nombreProducto = selectedRow["Nombre"].ToString();
             string connectionString = "Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456";
-            string query = $"SELECT (InventarioInicial + CantidadEntradas - CantidadSalidas) AS CantidadDisponible FROM BodegaProducto WHERE TipoBodega='Aseo_Personal' AND Nombre=@nombreProducto";
+            string query = $"SELECT (InventarioInicial  - CantidadSalidas) AS CantidadDisponible FROM BodegaProducto WHERE TipoBodega='Aseo_Personal' AND Nombre=@nombreProducto";
 
             //(InventarioInicial + CantidadEntradas - CantidadSalidas)
             //InventarioInicial es el valor inicial del inventario para el producto en la bodega.
@@ -342,6 +342,11 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.txtResultado.Text = "0";
                 }
             }
+
+        }
+
+        private void pMenu_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
