@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoAlimentos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pMenu = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -43,7 +43,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pInventarios = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,30 +77,19 @@
             this.txtAlimentos = new System.Windows.Forms.TextBox();
             this.txtProducto = new System.Windows.Forms.TextBox();
             this.cmbUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
-            this.pInventarios = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            this.pInventarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tspPrincipal.SuspendLayout();
-            this.pInventarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // pMenu
@@ -148,6 +148,7 @@
             this.button5.TabIndex = 9;
             this.button5.Text = "Acerca De";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button3
             // 
@@ -180,6 +181,7 @@
             this.button4.TabIndex = 8;
             this.button4.Text = "Reportes";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -240,6 +242,17 @@
             this.panel4.MouseEnter += new System.EventHandler(this.btnMouseEnter);
             this.panel4.MouseLeave += new System.EventHandler(this.btnMouseLeave);
             // 
+            // pInventarios
+            // 
+            this.pInventarios.BackColor = System.Drawing.Color.Teal;
+            this.pInventarios.Controls.Add(this.button9);
+            this.pInventarios.Controls.Add(this.button7);
+            this.pInventarios.Location = new System.Drawing.Point(290, 3);
+            this.pInventarios.Name = "pInventarios";
+            this.pInventarios.Size = new System.Drawing.Size(140, 82);
+            this.pInventarios.TabIndex = 1;
+            this.pInventarios.Visible = false;
+            // 
             // button9
             // 
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -258,6 +271,127 @@
             this.button9.Text = "Limpieza ";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button7.Location = new System.Drawing.Point(-3, 6);
+            this.button7.Name = "button7";
+            this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button7.Size = new System.Drawing.Size(140, 40);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "Aseo  ";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // dgvDatos
+            // 
+            this.dgvDatos.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvDatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvDatos.ColumnHeadersHeight = 45;
+            this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Fecha,
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDatos.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvDatos.EnableHeadersVisualStyles = false;
+            this.dgvDatos.Location = new System.Drawing.Point(0, 58);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.RowHeadersVisible = false;
+            this.dgvDatos.RowTemplate.Height = 40;
+            this.dgvDatos.Size = new System.Drawing.Size(953, 550);
+            this.dgvDatos.TabIndex = 3;
+            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "TipoBodega";
+            this.Column1.HeaderText = "Tipo Bodega";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 130;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Nombre";
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 130;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "InventarioInicial";
+            this.Column3.HeaderText = "InventarioInicial";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 130;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "UnidadMedida";
+            this.Column4.HeaderText = "UnidadMedida";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 130;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 130;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Precio";
+            this.Column5.HeaderText = "Precio";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "CantidadEntradas";
+            this.Column6.HeaderText = "Entradas";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "CantidadSalidas";
+            this.Column7.HeaderText = "CantidadSalidas";
+            this.Column7.Name = "Column7";
             // 
             // panel5
             // 
@@ -521,108 +655,6 @@
             this.cmbUnidadMedida.Size = new System.Drawing.Size(243, 24);
             this.cmbUnidadMedida.TabIndex = 18;
             // 
-            // dgvDatos
-            // 
-            this.dgvDatos.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvDatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Firebrick;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvDatos.ColumnHeadersHeight = 45;
-            this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Fecha,
-            this.Column5,
-            this.Column6,
-            this.Column7});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDatos.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvDatos.EnableHeadersVisualStyles = false;
-            this.dgvDatos.Location = new System.Drawing.Point(0, 58);
-            this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.RowHeadersVisible = false;
-            this.dgvDatos.RowTemplate.Height = 40;
-            this.dgvDatos.Size = new System.Drawing.Size(953, 550);
-            this.dgvDatos.TabIndex = 3;
-            this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "TipoBodega";
-            this.Column1.HeaderText = "Tipo Bodega";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 130;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Nombre";
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 130;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "InventarioInicial";
-            this.Column3.HeaderText = "InventarioInicial";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 130;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "UnidadMedida";
-            this.Column4.HeaderText = "UnidadMedida";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 130;
-            // 
-            // Fecha
-            // 
-            this.Fecha.DataPropertyName = "Fecha";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 130;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Precio";
-            this.Column5.HeaderText = "Precio";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "CantidadEntradas";
-            this.Column6.HeaderText = "Entradas";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "CantidadSalidas";
-            this.Column7.HeaderText = "CantidadSalidas";
-            this.Column7.Name = "Column7";
-            // 
             // tspPrincipal
             // 
             this.tspPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -675,36 +707,6 @@
             this.toolStripBtnSalir.Text = "&Salir";
             this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
-            // pInventarios
-            // 
-            this.pInventarios.BackColor = System.Drawing.Color.Teal;
-            this.pInventarios.Controls.Add(this.button9);
-            this.pInventarios.Controls.Add(this.button7);
-            this.pInventarios.Location = new System.Drawing.Point(290, 3);
-            this.pInventarios.Name = "pInventarios";
-            this.pInventarios.Size = new System.Drawing.Size(140, 82);
-            this.pInventarios.TabIndex = 1;
-            this.pInventarios.Visible = false;
-            // 
-            // button7
-            // 
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.Menu;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.Location = new System.Drawing.Point(-3, 6);
-            this.button7.Name = "button7";
-            this.button7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button7.Size = new System.Drawing.Size(140, 40);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "Aseo  ";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // frmMantenimientoAlimentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -724,14 +726,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.pInventarios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tspPrincipal.ResumeLayout(false);
             this.tspPrincipal.PerformLayout();
-            this.pInventarios.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

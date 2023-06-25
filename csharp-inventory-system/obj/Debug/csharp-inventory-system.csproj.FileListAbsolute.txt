@@ -174,3 +174,5 @@ C:\Users\Estudiante\Desktop\csharp-inventory-system\csharp-inventory-system\obj\
 C:\Users\Estudiante\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp-inventory-system.pdb
 C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Mantenimientos.frmMantenimientoAseoPersonal.resources
 C:\Users\anibal\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Mantenimientos.frmMantenimientoLimpieza.resources
+C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Acerca_de.FrmAcercaDe.resources
+C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Reporte.ReporteGeneral.resources

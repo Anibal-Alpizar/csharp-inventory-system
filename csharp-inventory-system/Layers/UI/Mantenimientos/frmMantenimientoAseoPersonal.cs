@@ -1,6 +1,8 @@
 ﻿using csharp_inventory_system.Interfaces.Bodega;
 using csharp_inventory_system.Layers.BLL.Bodega;
 using csharp_inventory_system.Layers.Entities;
+using csharp_inventory_system.Layers.UI.Acerca_de;
+using csharp_inventory_system.Layers.UI.Reporte;
 using csharp_inventory_system.Util;
 using log4net;
 using System;
@@ -348,6 +350,42 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
         private void pMenu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ReporteGeneral ofrmReporteGeneral;
+            try
+            {
+                ofrmReporteGeneral = new ReporteGeneral();
+                ofrmReporteGeneral.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FrmAcercaDe ofrmAcercaDe;
+            try
+            {
+                ofrmAcercaDe = new FrmAcercaDe();
+                ofrmAcercaDe.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
