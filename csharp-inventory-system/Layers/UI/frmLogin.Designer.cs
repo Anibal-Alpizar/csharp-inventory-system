@@ -421,6 +421,7 @@
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.sttBarraInferior.ResumeLayout(false);
             this.sttBarraInferior.PerformLayout();

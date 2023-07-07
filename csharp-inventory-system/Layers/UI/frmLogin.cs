@@ -64,7 +64,7 @@ namespace csharp_inventory_system.Layers.UI
                     bool respuesta = await EfectoConexion();
                     _MyLogControlEventos.InfoFormat("Entaplicación :{0}" /*Settings.Default.Nombre*/ );
                     this.DialogResult = DialogResult.OK;
-                    MessageBox.Show("Bienvenida Tia Kattia");
+                    MessageBox.Show("Bienvenida Sra. Kattia Herrera");
                     frmPrincipal frm = new frmPrincipal();
                     frm.Show();
                     this.Hide();
@@ -154,6 +154,11 @@ namespace csharp_inventory_system.Layers.UI
         private void btnAceptar_MouseLeave(object sender, EventArgs e)
         {
             btnAceptar.ForeColor = Color.Black;
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
