@@ -419,11 +419,77 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ReporteGeneral ofrmReporteGeneral;
+            if (!plnReportesMnu.Visible)
+            {
+                plnReportesMnu.Visible = true;
+            }
+            else
+            {
+                plnReportesMnu.Visible = false;
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            ReporteAlimentos ofrmAcercaDe;
             try
             {
-                ofrmReporteGeneral = new ReporteGeneral();
-                ofrmReporteGeneral.Show();
+                ofrmAcercaDe = new ReporteAlimentos();
+                ofrmAcercaDe.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            ReporteAseoPersonal oReporteAseoPersonal;
+            try
+            {
+                oReporteAseoPersonal = new ReporteAseoPersonal();
+                oReporteAseoPersonal.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            ReporteLimpieza oReporteLimpieza;
+            try
+            {
+                oReporteLimpieza = new ReporteLimpieza();
+                oReporteLimpieza.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnReporteGeneral_Click(object sender, EventArgs e)
+        {
+            ReporteGeneral ofrmAcercaDe;
+            try
+            {
+                ofrmAcercaDe = new ReporteGeneral();
+                ofrmAcercaDe.Show();
                 this.Hide();
             }
             catch (Exception er)

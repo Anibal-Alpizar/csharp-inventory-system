@@ -103,7 +103,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSetProductos.Designer.cs">
+    <Compile Include="Layers\UI\Reporte\DataSetProductos.cs">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reporte\DataSetProductos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetProductos.xsd</DependentUpon>
@@ -167,11 +170,29 @@
     <Compile Include="Layers\UI\Mantenimientos\frmMantenimientoLimpieza.Designer.cs">
       <DependentUpon>frmMantenimientoLimpieza.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteGeneral.cs">
+    <Compile Include="Layers\UI\Reporte\ReporteAlimentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteGeneral.Designer.cs">
+    <Compile Include="Layers\UI\Reporte\ReporteAlimentos.Designer.cs">
+      <DependentUpon>ReporteAlimentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reporte\ReporteAseoPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reporte\ReporteAseoPersonal.Designer.cs">
+      <DependentUpon>ReporteAseoPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reporte\ReporteGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reporte\ReporteGeneral.Designer.cs">
       <DependentUpon>ReporteGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reporte\ReporteLimpieza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reporte\ReporteLimpieza.Designer.cs">
+      <DependentUpon>ReporteLimpieza.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,9 +219,21 @@
     <EmbeddedResource Include="Layers\UI\Mantenimientos\frmMantenimientoLimpieza.resx">
       <DependentUpon>frmMantenimientoLimpieza.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="ReporteGeneral.resx">
+    <EmbeddedResource Include="Layers\UI\Reporte\InformeReporteAlimentos.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reporte\InformeReporteAseoPersonal.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reporte\InformeReporteLimpieza.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reporte\Report1.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reporte\ReporteAlimentos.resx">
+      <DependentUpon>ReporteAlimentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reporte\ReporteAseoPersonal.resx">
+      <DependentUpon>ReporteAseoPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reporte\ReporteGeneral.resx">
       <DependentUpon>ReporteGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reporte\ReporteLimpieza.resx">
+      <DependentUpon>ReporteLimpieza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -212,15 +245,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DataSetProductos.xsc">
+    <None Include="Layers\UI\Reporte\DataSetProductos.xsc">
       <DependentUpon>DataSetProductos.xsd</DependentUpon>
     </None>
-    <None Include="DataSetProductos.xsd">
+    <None Include="Layers\UI\Reporte\DataSetProductos.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetProductos.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSetProductos.xss">
+    <None Include="Layers\UI\Reporte\DataSetProductos.xss">
       <DependentUpon>DataSetProductos.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -260,8 +293,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Layers\UI\Reporte\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

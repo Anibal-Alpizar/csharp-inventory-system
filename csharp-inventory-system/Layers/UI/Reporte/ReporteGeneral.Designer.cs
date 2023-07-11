@@ -30,7 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteGeneral));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.bodegaProductoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetProductos = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductos();
+            this.bodegaProductoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetProductosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -42,27 +46,53 @@
             this.panelDerecho = new System.Windows.Forms.Panel();
             this.panelAbajo = new System.Windows.Forms.Panel();
             this.panelCentral = new System.Windows.Forms.Panel();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.plnReportesMnu = new System.Windows.Forms.Panel();
+            this.btnReporteGeneral = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.pInventarios = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dataSetProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetProductos = new csharp_inventory_system.DataSetProductos();
             this.BodegaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bodegaProductoTableAdapter1 = new csharp_inventory_system.DataSetProductosTableAdapters.BodegaProductoTableAdapter();
-            this.dataSetProductosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bodegaProductoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bodegaProductoTableAdapter1 = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.BodegaProductoTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaProductoBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaProductoBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductosBindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelCentral.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.plnReportesMnu.SuspendLayout();
             this.pInventarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProductosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BodegaProductoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductosBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProductoBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bodegaProductoBindingSource2
+            // 
+            this.bodegaProductoBindingSource2.DataMember = "BodegaProducto";
+            this.bodegaProductoBindingSource2.DataSource = this.dataSetProductos;
+            // 
+            // dataSetProductos
+            // 
+            this.dataSetProductos.DataSetName = "DataSetProductos";
+            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bodegaProductoBindingSource1
+            // 
+            this.bodegaProductoBindingSource1.DataMember = "BodegaProducto";
+            this.bodegaProductoBindingSource1.DataSource = this.dataSetProductosBindingSource1;
+            // 
+            // dataSetProductosBindingSource1
+            // 
+            this.dataSetProductosBindingSource1.DataSource = this.dataSetProductos;
+            this.dataSetProductosBindingSource1.Position = 0;
             // 
             // panel1
             // 
@@ -141,6 +171,7 @@
             this.button4.TabIndex = 8;
             this.button4.Text = "Reportes";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -197,27 +228,94 @@
             // panelCentral
             // 
             this.panelCentral.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panelCentral.Controls.Add(this.panel2);
             this.panelCentral.Controls.Add(this.reportViewer1);
-            this.panelCentral.Controls.Add(this.pInventarios);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(5, 40);
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(960, 425);
             this.panelCentral.TabIndex = 4;
             // 
-            // reportViewer1
+            // panel2
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.bodegaProductoBindingSource1;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "csharp_inventory_system.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(960, 425);
-            this.reportViewer1.TabIndex = 2;
-            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.plnReportesMnu);
+            this.panel2.Controls.Add(this.pInventarios);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(960, 130);
+            this.panel2.TabIndex = 3;
+            // 
+            // plnReportesMnu
+            // 
+            this.plnReportesMnu.BackColor = System.Drawing.Color.Teal;
+            this.plnReportesMnu.Controls.Add(this.btnReporteGeneral);
+            this.plnReportesMnu.Controls.Add(this.button9);
+            this.plnReportesMnu.Controls.Add(this.button10);
+            this.plnReportesMnu.Location = new System.Drawing.Point(528, 1);
+            this.plnReportesMnu.Name = "plnReportesMnu";
+            this.plnReportesMnu.Size = new System.Drawing.Size(140, 126);
+            this.plnReportesMnu.TabIndex = 4;
+            this.plnReportesMnu.Visible = false;
+            // 
+            // btnReporteGeneral
+            // 
+            this.btnReporteGeneral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReporteGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporteGeneral.FlatAppearance.BorderSize = 0;
+            this.btnReporteGeneral.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.btnReporteGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteGeneral.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteGeneral.ForeColor = System.Drawing.SystemColors.Menu;
+            this.btnReporteGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReporteGeneral.Location = new System.Drawing.Point(0, 84);
+            this.btnReporteGeneral.Name = "btnReporteGeneral";
+            this.btnReporteGeneral.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnReporteGeneral.Size = new System.Drawing.Size(140, 40);
+            this.btnReporteGeneral.TabIndex = 7;
+            this.btnReporteGeneral.Text = "Limpieza";
+            this.btnReporteGeneral.UseVisualStyleBackColor = true;
+            this.btnReporteGeneral.Click += new System.EventHandler(this.btnReporteGeneral_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button9.Location = new System.Drawing.Point(0, 39);
+            this.button9.Name = "button9";
+            this.button9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button9.Size = new System.Drawing.Size(140, 40);
+            this.button9.TabIndex = 6;
+            this.button9.Text = "Alimentos";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button10.Location = new System.Drawing.Point(0, 3);
+            this.button10.Name = "button10";
+            this.button10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button10.Size = new System.Drawing.Size(140, 40);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "Aseo  ";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // pInventarios
             // 
@@ -225,10 +323,10 @@
             this.pInventarios.Controls.Add(this.button8);
             this.pInventarios.Controls.Add(this.button7);
             this.pInventarios.Controls.Add(this.button6);
-            this.pInventarios.Location = new System.Drawing.Point(300, 3);
+            this.pInventarios.Location = new System.Drawing.Point(300, 0);
             this.pInventarios.Name = "pInventarios";
             this.pInventarios.Size = new System.Drawing.Size(140, 129);
-            this.pInventarios.TabIndex = 1;
+            this.pInventarios.TabIndex = 3;
             this.pInventarios.Visible = false;
             // 
             // button8
@@ -248,7 +346,7 @@
             this.button8.TabIndex = 6;
             this.button8.Text = "Limpieza ";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
             // button7
             // 
@@ -267,7 +365,7 @@
             this.button7.TabIndex = 5;
             this.button7.Text = "Aseo  ";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // button6
             // 
@@ -286,17 +384,44 @@
             this.button6.TabIndex = 4;
             this.button6.Text = "Alimentos";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Window;
+            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
+            this.btnBuscar.FlatAppearance.BorderSize = 2;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.Cyan;
+            this.btnBuscar.Location = new System.Drawing.Point(38, 45);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(122, 34);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Generar Reporte";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
+            // 
+            // reportViewer1
+            // 
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.bodegaProductoBindingSource2;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "csharp_inventory_system.Layers.UI.Reporte.Report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 136);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(960, 289);
+            this.reportViewer1.TabIndex = 2;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // dataSetProductosBindingSource
             // 
             this.dataSetProductosBindingSource.DataSource = this.dataSetProductos;
             this.dataSetProductosBindingSource.Position = 0;
-            // 
-            // dataSetProductos
-            // 
-            this.dataSetProductos.DataSetName = "DataSetProductos";
-            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // BodegaProductoBindingSource
             // 
@@ -306,16 +431,6 @@
             // bodegaProductoTableAdapter1
             // 
             this.bodegaProductoTableAdapter1.ClearBeforeFill = true;
-            // 
-            // dataSetProductosBindingSource1
-            // 
-            this.dataSetProductosBindingSource1.DataSource = this.dataSetProductos;
-            this.dataSetProductosBindingSource1.Position = 0;
-            // 
-            // bodegaProductoBindingSource1
-            // 
-            this.bodegaProductoBindingSource1.DataMember = "BodegaProducto";
-            this.bodegaProductoBindingSource1.DataSource = this.dataSetProductosBindingSource1;
             // 
             // ReporteGeneral
             // 
@@ -332,15 +447,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReporteGeneral";
             this.Load += new System.EventHandler(this.ReporteGeneral_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaProductoBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaProductoBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductosBindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelCentral.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.plnReportesMnu.ResumeLayout(false);
             this.pInventarios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProductosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BodegaProductoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductosBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProductoBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,10 +475,6 @@
         private System.Windows.Forms.Panel panelDerecho;
         private System.Windows.Forms.Panel panelAbajo;
         private System.Windows.Forms.Panel panelCentral;
-        private System.Windows.Forms.Panel pInventarios;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource dataSetProductosBindingSource;
@@ -369,5 +483,16 @@
         private DataSetProductosTableAdapters.BodegaProductoTableAdapter bodegaProductoTableAdapter1;
         private System.Windows.Forms.BindingSource dataSetProductosBindingSource1;
         private System.Windows.Forms.BindingSource bodegaProductoBindingSource1;
+        private System.Windows.Forms.BindingSource bodegaProductoBindingSource2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Panel pInventarios;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel plnReportesMnu;
+        private System.Windows.Forms.Button btnReporteGeneral;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }

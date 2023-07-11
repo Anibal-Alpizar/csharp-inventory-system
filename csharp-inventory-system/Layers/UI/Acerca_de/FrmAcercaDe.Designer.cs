@@ -44,10 +44,22 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtVersion = new System.Windows.Forms.TextBox();
+            this.txtAutor1 = new System.Windows.Forms.TextBox();
+            this.txtAutor2 = new System.Windows.Forms.TextBox();
+            this.plnReportesMnu = new System.Windows.Forms.Panel();
+            this.btnReporteGeneral = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelCentral.SuspendLayout();
             this.pInventarios.SuspendLayout();
+            this.plnReportesMnu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -182,13 +194,21 @@
             // 
             // panelCentral
             // 
-            this.panelCentral.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panelCentral.BackColor = System.Drawing.Color.Linen;
+            this.panelCentral.Controls.Add(this.plnReportesMnu);
+            this.panelCentral.Controls.Add(this.txtAutor2);
+            this.panelCentral.Controls.Add(this.txtAutor1);
+            this.panelCentral.Controls.Add(this.txtVersion);
+            this.panelCentral.Controls.Add(this.panel3);
+            this.panelCentral.Controls.Add(this.txtTitulo);
+            this.panelCentral.Controls.Add(this.txtDescripcion);
             this.panelCentral.Controls.Add(this.pInventarios);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCentral.Location = new System.Drawing.Point(5, 40);
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(960, 425);
             this.panelCentral.TabIndex = 5;
+            this.panelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCentral_Paint);
             // 
             // pInventarios
             // 
@@ -196,7 +216,7 @@
             this.pInventarios.Controls.Add(this.button8);
             this.pInventarios.Controls.Add(this.button7);
             this.pInventarios.Controls.Add(this.button6);
-            this.pInventarios.Location = new System.Drawing.Point(300, 3);
+            this.pInventarios.Location = new System.Drawing.Point(300, 0);
             this.pInventarios.Name = "pInventarios";
             this.pInventarios.Size = new System.Drawing.Size(140, 129);
             this.pInventarios.TabIndex = 1;
@@ -219,6 +239,7 @@
             this.button8.TabIndex = 6;
             this.button8.Text = "Limpieza ";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
             // button7
             // 
@@ -258,6 +279,143 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(164, 191);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(642, 164);
+            this.txtDescripcion.TabIndex = 2;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
+            // 
+            // txtTitulo
+            // 
+            this.txtTitulo.Location = new System.Drawing.Point(352, 58);
+            this.txtTitulo.Multiline = true;
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(267, 98);
+            this.txtTitulo.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Location = new System.Drawing.Point(760, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 141);
+            this.panel3.TabIndex = 4;
+            // 
+            // txtVersion
+            // 
+            this.txtVersion.Location = new System.Drawing.Point(3, 402);
+            this.txtVersion.Name = "txtVersion";
+            this.txtVersion.Size = new System.Drawing.Size(100, 20);
+            this.txtVersion.TabIndex = 5;
+            // 
+            // txtAutor1
+            // 
+            this.txtAutor1.Location = new System.Drawing.Point(872, 376);
+            this.txtAutor1.Name = "txtAutor1";
+            this.txtAutor1.Size = new System.Drawing.Size(85, 20);
+            this.txtAutor1.TabIndex = 6;
+            // 
+            // txtAutor2
+            // 
+            this.txtAutor2.Location = new System.Drawing.Point(872, 401);
+            this.txtAutor2.Name = "txtAutor2";
+            this.txtAutor2.Size = new System.Drawing.Size(85, 20);
+            this.txtAutor2.TabIndex = 7;
+            // 
+            // plnReportesMnu
+            // 
+            this.plnReportesMnu.BackColor = System.Drawing.Color.Teal;
+            this.plnReportesMnu.Controls.Add(this.btnReporteGeneral);
+            this.plnReportesMnu.Controls.Add(this.button9);
+            this.plnReportesMnu.Controls.Add(this.button10);
+            this.plnReportesMnu.Controls.Add(this.button11);
+            this.plnReportesMnu.Location = new System.Drawing.Point(528, 0);
+            this.plnReportesMnu.Name = "plnReportesMnu";
+            this.plnReportesMnu.Size = new System.Drawing.Size(140, 161);
+            this.plnReportesMnu.TabIndex = 8;
+            this.plnReportesMnu.Visible = false;
+            // 
+            // btnReporteGeneral
+            // 
+            this.btnReporteGeneral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReporteGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporteGeneral.FlatAppearance.BorderSize = 0;
+            this.btnReporteGeneral.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.btnReporteGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteGeneral.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteGeneral.ForeColor = System.Drawing.SystemColors.Menu;
+            this.btnReporteGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReporteGeneral.Location = new System.Drawing.Point(-3, 118);
+            this.btnReporteGeneral.Name = "btnReporteGeneral";
+            this.btnReporteGeneral.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnReporteGeneral.Size = new System.Drawing.Size(140, 40);
+            this.btnReporteGeneral.TabIndex = 7;
+            this.btnReporteGeneral.Text = "General";
+            this.btnReporteGeneral.UseVisualStyleBackColor = true;
+            this.btnReporteGeneral.Click += new System.EventHandler(this.btnReporteGeneral_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button9.Location = new System.Drawing.Point(-3, 80);
+            this.button9.Name = "button9";
+            this.button9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button9.Size = new System.Drawing.Size(140, 40);
+            this.button9.TabIndex = 6;
+            this.button9.Text = "Limpieza ";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button10.Location = new System.Drawing.Point(-3, 40);
+            this.button10.Name = "button10";
+            this.button10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button10.Size = new System.Drawing.Size(140, 40);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "Aseo  ";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button11
+            // 
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button11.Location = new System.Drawing.Point(-3, 0);
+            this.button11.Name = "button11";
+            this.button11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button11.Size = new System.Drawing.Size(140, 40);
+            this.button11.TabIndex = 4;
+            this.button11.Text = "Alimentos";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // FrmAcercaDe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,10 +430,13 @@
             this.Name = "FrmAcercaDe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAcercaDe";
+            this.Load += new System.EventHandler(this.FrmAcercaDe_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelCentral.ResumeLayout(false);
+            this.panelCentral.PerformLayout();
             this.pInventarios.ResumeLayout(false);
+            this.plnReportesMnu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -297,5 +458,16 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.TextBox txtTitulo;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtVersion;
+        private System.Windows.Forms.TextBox txtAutor2;
+        private System.Windows.Forms.TextBox txtAutor1;
+        private System.Windows.Forms.Panel plnReportesMnu;
+        private System.Windows.Forms.Button btnReporteGeneral;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

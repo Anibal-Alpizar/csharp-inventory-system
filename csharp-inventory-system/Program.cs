@@ -1,4 +1,5 @@
 ﻿using csharp_inventory_system.Layers.UI;
+using csharp_inventory_system.Layers.UI.Acerca_de;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace csharp_inventory_system
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            //  Application.Run(new frmLogin());
+            Application.Run(new FrmAcercaDe());
            // Application.Run(new frmPrincipal());
         }
     }

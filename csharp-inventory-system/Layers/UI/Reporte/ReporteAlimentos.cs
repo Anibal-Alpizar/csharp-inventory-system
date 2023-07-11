@@ -1,5 +1,5 @@
-﻿using csharp_inventory_system.Layers.UI.Mantenimientos;
-using csharp_inventory_system.Layers.UI.Reporte;
+﻿using csharp_inventory_system.Layers.UI.Acerca_de;
+using csharp_inventory_system.Layers.UI.Mantenimientos;
 using csharp_inventory_system.Util;
 using log4net;
 using System;
@@ -13,18 +13,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace csharp_inventory_system.Layers.UI.Acerca_de
+namespace csharp_inventory_system.Layers.UI.Reporte
 {
-    public partial class FrmAcercaDe : Form
+    public partial class ReporteAlimentos : Form
     {
         private static readonly ILog _MyLogControlEventos = log4net.LogManager.GetLogger("MyControlEventos");
-
-        public FrmAcercaDe()
+        public ReporteAlimentos()
         {
             InitializeComponent();
         }
-         Panel p = new Panel();
+        Panel p = new Panel();
+
+        private void ReporteAlimentos_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dataSetProductos.BodegaProducto1' Puede moverla o quitarla según sea necesario.
+           // this.bodegaProducto1TableAdapter.Fill(this.dataSetProductos.BodegaProducto1);
+
+
+
+
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dataSetProductos.BodegaProducto' Puede moverla o quitarla según sea necesario.
+            this.bodegaProducto1TableAdapter.Fill(this.dataSetProductos1.BodegaProducto1);
+            this.reportViewer1.RefreshReport();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
         {
             if (!pInventarios.Visible)
             {
@@ -54,25 +91,31 @@ namespace csharp_inventory_system.Layers.UI.Acerca_de
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-            if (!plnReportesMnu.Visible)
+            FrmAcercaDe ofrmAcercaDe;
+            try
             {
-                plnReportesMnu.Visible = true;
+                ofrmAcercaDe = new FrmAcercaDe();
+                ofrmAcercaDe.Show();
+                this.Hide();
             }
-            else
+            catch (Exception er)
             {
-                plnReportesMnu.Visible = false;
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            frmMantenimientoAlimentos ofrmMantenimientoAlimentos;
+            frmMantenimientoAlimentos ofrmMantenimientosAlimentos;
             try
             {
-                ofrmMantenimientoAlimentos = new frmMantenimientoAlimentos();
-                ofrmMantenimientoAlimentos.Show();
+                ofrmMantenimientosAlimentos = new frmMantenimientoAlimentos();
+                ofrmMantenimientosAlimentos.Show();
                 this.Hide();
             }
             catch (Exception er)
@@ -104,59 +147,11 @@ namespace csharp_inventory_system.Layers.UI.Acerca_de
 
         private void button8_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void FrmAcercaDe_Load(object sender, EventArgs e)
-        {
-            //Panel de Inventarios delante del txt Título
-            pInventarios.BringToFront();
-
-
-
-            // Configurar el título y la información del programa
-            txtTitulo.Text = "Sistema de Control de Inventario " +
-                             "Hogar el Buen Samaritano";
-            txtDescripcion.Text = "El Hogar El Buen Samaritano nació del Corazón Misericordioso de Dios, fue fundado el 2 de agosto de 1993 e inspirado con el fin de acoger a las personas que viven en las calles de Alajuela, en situación de indigencia: aquellos que no sólo no tienen nada, ni a nadie, sino que tampoco se tienen ya a sí mismos." +
-               " Nuestro sistema de control de inventario ofrece una amplia gama de características y herramientas para facilitar la gestión y seguimiento de sus productos. Desde el registro inicial de artículos hasta el seguimiento de movimientos y actualizaciones, nuestra plataforma está diseñada para adaptarse a las necesidades de su negocio.";
-            txtVersion.Text = "Versión BETA 1.0";
-            txtAutor1.Text = "Anibal Alpizar";
-            txtAutor2.Text = "Carlo Bonilla";
-            // Configurar la apariencia de los controles
-            txtDescripcion.Font = new Font("Arial", 10, FontStyle.Regular);
-            txtTitulo.Font = new Font("Arial", 16, FontStyle.Bold);
-            txtVersion.Font = new Font("Arial", 8, FontStyle.Italic);
-            txtAutor1.Font = new Font("Arial", 8, FontStyle.Regular);
-            txtAutor2.Font = new Font("Arial", 8, FontStyle.Regular);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelCentral_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtDescripcion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            ReporteAlimentos ofrmAcercaDe;
+            frmMantenimientoLimpieza ofrmMantenimientoLimpieza;
             try
             {
-                ofrmAcercaDe = new ReporteAlimentos();
-                ofrmAcercaDe.Show();
+                ofrmMantenimientoLimpieza = new frmMantenimientoLimpieza();
+                ofrmMantenimientoLimpieza.Show();
                 this.Hide();
             }
             catch (Exception er)
@@ -206,11 +201,11 @@ namespace csharp_inventory_system.Layers.UI.Acerca_de
 
         private void btnReporteGeneral_Click(object sender, EventArgs e)
         {
-            ReporteGeneral ofrmAcercaDe;
+            ReporteGeneral oReporteGeneral;
             try
             {
-                ofrmAcercaDe = new ReporteGeneral();
-                ofrmAcercaDe.Show();
+                oReporteGeneral = new ReporteGeneral();
+                oReporteGeneral.Show();
                 this.Hide();
             }
             catch (Exception er)
@@ -222,22 +217,26 @@ namespace csharp_inventory_system.Layers.UI.Acerca_de
             }
         }
 
-        private void button8_Click_1(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            frmMantenimientoLimpieza ofrmMantenimientoLimpieza;
-            try
+            if (!plnReportesMnu.Visible)
             {
-                ofrmMantenimientoLimpieza = new frmMantenimientoLimpieza();
-                ofrmMantenimientoLimpieza.Show();
-                this.Hide();
+                plnReportesMnu.Visible = true;
             }
-            catch (Exception er)
+            else
             {
-                StringBuilder msg = new StringBuilder();
-                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
-                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
-                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                plnReportesMnu.Visible = false;
             }
+        }
+
+        private void btnBuscar_MouseEnter(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.Black;
+        }
+
+        private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.Black;
         }
     }
 }

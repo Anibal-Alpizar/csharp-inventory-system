@@ -230,3 +230,6 @@ C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debug
 C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debug\zh-HANS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\bin\Debug\zh-HANT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Reporte.ReporteAlimentos.resources
+C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Reporte.ReporteLimpieza.resources
+C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\obj\Debug\csharp_inventory_system.Layers.UI.Reporte.ReporteAseoPersonal.resources
