@@ -211,15 +211,19 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
 
         public async Task<BodegaProducto> UpdateProductoAseoPersonal(BodegaProducto pBodegaProducto)
         {
-            string sql = @"UPDATE BodegaProducto SET TipoBodega = @TipoBodega, Nombre = @Nombre, UnidadMedida = @UnidadMedida, InventarioInicial = @InventarioInicial, Fecha = @Fecha WHERE Nombre = @Nombre";
+            string sql = @"UPDATE BodegaProducto SET TipoBodega = @TipoBodega, Nombre = @Nombre, UnidadMedida = @UnidadMedida, Precio = @Precio, Fecha = @Fecha, InventarioInicial = @InventarioInicial, CantidadEntradas = @CantidadEntrada, CantidadSalidas = @CantidadSalida, CantidadFinal = @CantidadFinal   WHERE Nombre = @Nombre";
             SqlCommand cmd = new SqlCommand();
             try
             {
                 cmd.Parameters.AddWithValue("@TipoBodega", pBodegaProducto.TipoBodega);
                 cmd.Parameters.AddWithValue("@Nombre", pBodegaProducto.Nombre);
                 cmd.Parameters.AddWithValue("@UnidadMedida", pBodegaProducto.UnidadMedida);
-                cmd.Parameters.AddWithValue("@InventarioInicial", pBodegaProducto.InventarioInicial);
+                cmd.Parameters.AddWithValue("@Precio", pBodegaProducto.Precio);
                 cmd.Parameters.AddWithValue("@Fecha", pBodegaProducto.Fecha);
+                cmd.Parameters.AddWithValue("@InventarioInicial", pBodegaProducto.InventarioInicial);
+                cmd.Parameters.AddWithValue("@CantidadEntrada", pBodegaProducto.CantidadEntradas);
+                cmd.Parameters.AddWithValue("@CantidadSalida", pBodegaProducto.CantidadSalidas);
+                cmd.Parameters.AddWithValue("@CantidadFinal", pBodegaProducto.InventarioFinal);
                 cmd.CommandText = sql;
                 cmd.CommandType = CommandType.Text;
                 using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))

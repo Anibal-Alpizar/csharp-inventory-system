@@ -91,11 +91,22 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             this.txtPrecioUnitario.Clear();
             this.txtEntrante.Clear();
             this.txtSaliente.Clear();
+            this.txtInventarioInicial.Clear();
+            this.txtNuevasSalidas.Text = "0";
+            this.txtNuevasEntradas.Text = "0";
+           
+
 
             this.txtProducto.Enabled = false;
             this.txtPrecioUnitario.Enabled = false;
-            this.txtEntrante.Enabled = false;
-            this.txtSaliente.Enabled = false;
+            this.txtEntrante.Visible = false;
+            this.txtSaliente.Visible = false;
+            this.lblCantidadEntradas.Visible = false;
+            this.lblCantidadSalidas.Visible = false;
+            this.txtNuevasSalidas.Enabled = false;
+            this.txtNuevasEntradas.Enabled = false;
+            this.dtpFechaIngreso.Enabled = false;
+            this.txtInventarioInicial.Enabled = false;
 
             btnAceptar.Enabled = false;
             btnCancelar.Enabled = false;
@@ -108,8 +119,14 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 case EstadoMantenimiento.Nuevo:
                     this.txtProducto.Enabled = true;
                     this.txtPrecioUnitario.Enabled = true;
-                    this.txtEntrante.Enabled = true;
-                    this.txtSaliente.Enabled = true;
+                    this.txtEntrante.Text = "0";
+                    this.txtSaliente.Text = "0";
+                    this.lblCantidadEntradas.Visible = false;
+                    this.lblCantidadSalidas.Visible = false;
+                    this.txtNuevasSalidas.Enabled = true;
+                    this.txtNuevasEntradas.Enabled = true;
+                    this.txtInventarioInicial.Enabled = true;
+                    this.dtpFechaIngreso.Enabled=true;
                     this.cmbUnidadMedida.Enabled = true;
                     this.btnAceptar.Enabled = true;
                     this.btnCancelar.Enabled = true;
@@ -119,8 +136,14 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 case EstadoMantenimiento.Editar:
                     this.txtProducto.Enabled = false;
                     this.txtPrecioUnitario.Enabled = true;
-                    this.txtEntrante.Enabled = true;
-                    this.txtSaliente.Enabled = true;
+                    this.txtEntrante.Enabled = false;
+                    this.txtSaliente.Enabled = false;
+                    this.lblCantidadEntradas.Visible = false;
+                    this.lblCantidadSalidas.Visible = false;
+                    this.txtNuevasSalidas.Enabled = true;
+                    this.txtNuevasEntradas.Enabled = true;
+                    this.txtInventarioInicial.Enabled = true;
+                    this.dtpFechaIngreso.Enabled = true;
                     this.cmbUnidadMedida.Enabled = true;
                     this.btnAceptar.Enabled = true;
                     this.btnCancelar.Enabled = true;
@@ -189,11 +212,12 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.Nombre = this.txtProducto.Text;
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
-                oBodegaProducto.Fecha = DateTime.Now;
-                oBodegaProducto.InventarioInicial = int.Parse(this.txtEntrante.Text);
-                oBodegaProducto.CantidadEntradas = int.Parse(this.txtEntrante.Text);
-                oBodegaProducto.CantidadSalidas = int.Parse(this.txtSaliente.Text);
+                oBodegaProducto.Fecha = DateTime.Parse(this.dtpFechaIngreso.Text);
+                oBodegaProducto.InventarioInicial = int.Parse(this.txtInventarioInicial.Text);
+                oBodegaProducto.CantidadEntradas =int.Parse(this.txtNuevasEntradas.Text) + int.Parse(this.txtEntrante.Text);
+                oBodegaProducto.CantidadSalidas = int.Parse(this.txtNuevasSalidas.Text)  + int.Parse(this.txtSaliente.Text);
                 oBodegaProducto.InventarioFinal = 0;
+              
 
                 oBodegaProducto = await _IBLLBodegaProducto.SaveBodegaLimpieza(oBodegaProducto);
 
@@ -219,7 +243,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             DataRowView selectedRow = (DataRowView)cmbProductos.SelectedItem;
             string nombreProducto = selectedRow["Nombre"].ToString();
             string connectionString = "Data Source=localhost;Initial Catalog=inventariodb;User ID=sa;Password=123456";
-            string query = $"SELECT (InventarioInicial - CantidadSalidas) AS CantidadDisponible FROM BodegaProducto WHERE TipoBodega='Limpieza' AND Nombre=@nombreProducto";
+            string query = $"SELECT ( (InventarioInicial + CantidadEntradas) - CantidadSalidas) AS CantidadDisponible FROM BodegaProducto WHERE TipoBodega='Limpieza' AND Nombre=@nombreProducto";
 
             //(InventarioInicial + CantidadEntradas - CantidadSalidas)
             //InventarioInicial es el valor inicial del inventario para el producto en la bodega.
@@ -295,6 +319,8 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     cmbProductos.SelectedIndex = cmbProductos.FindString(oBodegaProducto.IdBodegaProducto.ToString());
                     this.txtPrecioUnitario.Text = oBodegaProducto.Precio.ToString();
                     this.txtEntrante.Text = oBodegaProducto.CantidadEntradas.ToString();
+                    this.txtInventarioInicial.Text= oBodegaProducto.InventarioInicial.ToString();
+                    this.txtSaliente.Text= oBodegaProducto.CantidadSalidas.ToString();
                     this.dtpFechaIngreso.Value = oBodegaProducto.Fecha;
                 }
                 else

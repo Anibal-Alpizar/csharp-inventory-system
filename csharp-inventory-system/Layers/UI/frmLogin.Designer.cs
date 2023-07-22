@@ -267,6 +267,7 @@
             this.linkLabel2.TabIndex = 14;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Crear Cuenta Nueva";
+            this.linkLabel2.Visible = false;
             // 
             // linkLabel1
             // 
@@ -280,6 +281,7 @@
             this.linkLabel1.TabIndex = 13;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Olvidó Contraseña";
+            this.linkLabel1.Visible = false;
             // 
             // pictureBox2
             // 
@@ -308,6 +310,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(345, 24);
             this.panel7.TabIndex = 10;
+            this.panel7.Visible = false;
             // 
             // label5
             // 
@@ -320,6 +323,7 @@
             this.label5.Size = new System.Drawing.Size(152, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Contraseña Incorrecto ";
+            this.label5.Visible = false;
             // 
             // panel8
             // 
@@ -356,6 +360,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(345, 24);
             this.panel5.TabIndex = 10;
+            this.panel5.Visible = false;
             // 
             // label4
             // 
@@ -368,6 +373,7 @@
             this.label4.Size = new System.Drawing.Size(128, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "Usuario Incorrecto ";
+            this.label4.Visible = false;
             // 
             // panel2
             // 
