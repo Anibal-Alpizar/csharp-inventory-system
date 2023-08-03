@@ -18,5 +18,6 @@ namespace csharp_inventory_system.Layers.Entities
         public int CantidadEntradas { get; set; }
         public int CantidadSalidas { get; set; }
         public int InventarioFinal { get; set; }
+        public string TipoEntrada { get; set; }
     }
 }

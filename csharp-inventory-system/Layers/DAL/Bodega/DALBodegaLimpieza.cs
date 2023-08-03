@@ -168,8 +168,8 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
         {
             BodegaProducto oBodegaProducto = null;
             SqlCommand cmd = new SqlCommand();
-            string sql = @"INSERT INTO BodegaProducto (TipoBodega, Nombre, UnidadMedida, Precio, Fecha ,InventarioInicial, CantidadEntradas, CantidadSalidas, CantidadFinal)
-                            VALUES (@TipoBodega, @Nombre, @UnidadMedida, @Precio , @Fecha,@InventarioInicial, @CantidadEntrada, @CantidadSalida, @CantidadFinal)";
+            string sql = @"INSERT INTO BodegaProducto (TipoBodega, Nombre, UnidadMedida, Precio, Fecha ,InventarioInicial, CantidadEntradas, CantidadSalidas, CantidadFinal, TipoEntrada)
+                            VALUES (@TipoBodega, @Nombre, @UnidadMedida, @Precio , @Fecha,@InventarioInicial, @CantidadEntrada, @CantidadSalida, @CantidadFinal, @TipoEntrada)";
             try
             {
                 cmd.Parameters.AddWithValue("@TipoBodega", pBodegaProducto.TipoBodega);
@@ -181,6 +181,7 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
                 cmd.Parameters.AddWithValue("@CantidadEntrada", pBodegaProducto.CantidadEntradas);
                 cmd.Parameters.AddWithValue("@CantidadSalida", pBodegaProducto.CantidadSalidas);
                 cmd.Parameters.AddWithValue("@CantidadFinal", pBodegaProducto.InventarioFinal);
+                cmd.Parameters.AddWithValue("@TipoEntrada", pBodegaProducto.TipoEntrada);
 
                 cmd.CommandText = sql;
                 cmd.CommandType = CommandType.Text;
@@ -218,7 +219,7 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
 
         public async Task<BodegaProducto> UpdateProductoLimpieza(BodegaProducto pBodegaProducto)
         {
-            string sql = @"UPDATE BodegaProducto SET TipoBodega = @TipoBodega, Nombre = @Nombre, UnidadMedida = @UnidadMedida, Precio = @Precio, Fecha = @Fecha, InventarioInicial = @InventarioInicial, CantidadEntradas = @CantidadEntrada, CantidadSalidas = @CantidadSalida, CantidadFinal = @CantidadFinal
+            string sql = @"UPDATE BodegaProducto SET TipoBodega = @TipoBodega, Nombre = @Nombre, UnidadMedida = @UnidadMedida, Precio = @Precio, Fecha = @Fecha, InventarioInicial = @InventarioInicial, CantidadEntradas = @CantidadEntrada, CantidadSalidas = @CantidadSalida, CantidadFinal = @CantidadFinal, TipoEntrada = @TipoEntrada
                             WHERE TipoBodega = 'Limpieza' AND Nombre = @Nombre";
             int rows = 0;
             SqlCommand cmd = new SqlCommand();
@@ -234,6 +235,7 @@ namespace csharp_inventory_system.Layers.DAL.Bodega
                 cmd.Parameters.AddWithValue("@CantidadEntrada", pBodegaProducto.CantidadEntradas);
                 cmd.Parameters.AddWithValue("@CantidadSalida", pBodegaProducto.CantidadSalidas);
                 cmd.Parameters.AddWithValue("@CantidadFinal", pBodegaProducto.InventarioFinal);
+                cmd.Parameters.AddWithValue("@TipoEntrada", pBodegaProducto.TipoEntrada);
                 cmd.CommandText = sql;
                 cmd.CommandType = CommandType.Text;
 

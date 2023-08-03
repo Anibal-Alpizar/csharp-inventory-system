@@ -107,6 +107,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             btnAceptar.Enabled = false;
             btnCancelar.Enabled = false;
             this.cmbUnidadMedida.Enabled = false;
+            this.cboTipoEntrada.Enabled = false;
 
             if (cmbUnidadMedida.Items.Count > 0) this.cmbUnidadMedida.SelectedIndex = 0;
 
@@ -124,6 +125,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.txtInventarioInicial.Enabled = true;
                     this.dtpFechaIngreso.Enabled = true;
                     this.cmbUnidadMedida.Enabled = true;
+                    this.cboTipoEntrada.Enabled = true;
                     this.btnAceptar.Enabled = true;
                     this.btnCancelar.Enabled = true;
                     txtProducto.Focus();
@@ -141,6 +143,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.txtInventarioInicial.Enabled = true;
                     this.dtpFechaIngreso.Enabled = true;
                     this.cmbUnidadMedida.Enabled = true;
+                    this.cboTipoEntrada.Enabled = true;
                     this.btnAceptar.Enabled = true;
                     this.btnCancelar.Enabled = true;
                     txtPrecioUnitario.Focus();
@@ -218,6 +221,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.TipoBodega = txtAlimentos.Text;
                 oBodegaProducto.Nombre = this.txtProducto.Text;
                 oBodegaProducto.UnidadMedida = cmbUnidadMedida.SelectedItem.ToString();
+                oBodegaProducto.TipoEntrada = cboTipoEntrada.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
                 oBodegaProducto.Fecha = DateTime.Parse(this.dtpFechaIngreso.Text);
                 oBodegaProducto.InventarioInicial = int.Parse(this.txtInventarioInicial.Text);
@@ -339,6 +343,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.txtAlimentos.Text = oBodegaProducto.TipoBodega;
                     this.txtProducto.Text = oBodegaProducto.Nombre;
                     cmbProductos.SelectedIndex = cmbProductos.FindString(oBodegaProducto.IdBodegaProducto.ToString());
+                    cboTipoEntrada.SelectedIndex = cmbProductos.FindString(oBodegaProducto.IdBodegaProducto.ToString());
                     this.txtPrecioUnitario.Text = oBodegaProducto.Precio.ToString();
                     this.txtEntrante.Text = oBodegaProducto.CantidadEntradas.ToString();
                     this.txtSaliente.Text = oBodegaProducto.CantidadSalidas.ToString();
