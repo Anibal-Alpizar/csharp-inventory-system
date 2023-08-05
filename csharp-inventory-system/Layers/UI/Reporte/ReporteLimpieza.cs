@@ -27,8 +27,8 @@ namespace csharp_inventory_system.Layers.UI.Reporte
 
         private void ReporteLimpieza_Load(object sender, EventArgs e)
         {
-
-            
+            // TODO: This line of code loads data into the 'dataSetProductos.BodegaProducto5' table. You can move, or remove it, as needed.
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -220,6 +220,12 @@ namespace csharp_inventory_system.Layers.UI.Reporte
         private void btnBuscar_MouseLeave(object sender, EventArgs e)
         {
             btnBuscar.ForeColor = Color.Black;
+        }
+
+        private void btnBuscar2_Click(object sender, EventArgs e)
+        {
+            this.bodegaProducto5TableAdapter.Fill(this.dataSetProductos.BodegaProducto5);
+            this.reportViewer2.RefreshReport();
         }
     }
 }

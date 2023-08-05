@@ -223,15 +223,18 @@
     <EmbeddedResource Include="Layers\UI\Reporte\InformeReporteAseoPersonal.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\InformeReporteLimpieza.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\Report1.rdlc" />
+    <EmbeddedResource Include="Layers\UI\Reporte\ReporteAlimentos.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\ReporteAlimentos.resx">
       <DependentUpon>ReporteAlimentos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reporte\ReporteAseoPersonal.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\ReporteAseoPersonal.resx">
       <DependentUpon>ReporteAseoPersonal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layers\UI\Reporte\ReporteGeneral.resx">
       <DependentUpon>ReporteGeneral.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reporte\ReporteLimpieza.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\ReporteLimpieza.resx">
       <DependentUpon>ReporteLimpieza.cs</DependentUpon>
     </EmbeddedResource>

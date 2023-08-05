@@ -26,12 +26,19 @@ namespace csharp_inventory_system.Layers.UI.Reporte
 
         private void ReporteAlimentos_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSetProductos.BodegaProducto1' table. You can move, or remove it, as needed.
+            this.bodegaProducto1TableAdapter.Fill(this.dataSetProductos.BodegaProducto1);
+            // TODO: This line of code loads data into the 'dataSetProductos.BodegaProducto1' table. You can move, or remove it, as needed.
+            // this.bodegaProducto1TableAdapter.Fill(this.dataSetProductos.BodegaProducto1);
+            // TODO: This line of code loads data into the 'dataSetProductos.BodegaProducto' table. You can move, or remove it, as needed.
+            //  this.bodegaProductoTableAdapter.Fill(this.dataSetProductos.BodegaProducto);
             // TODO: esta línea de código carga datos en la tabla 'dataSetProductos.BodegaProducto1' Puede moverla o quitarla según sea necesario.
-           // this.bodegaProducto1TableAdapter.Fill(this.dataSetProductos.BodegaProducto1);
+            // this.bodegaProducto1TableAdapter.Fill(this.dataSetProductos.BodegaProducto1);
 
 
 
 
+            //  this.reportViewer2.RefreshReport();
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)
@@ -235,6 +242,23 @@ namespace csharp_inventory_system.Layers.UI.Reporte
         }
 
         private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.Black;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dataSetProductos.BodegaProducto' Puede moverla o quitarla según sea necesario.
+            this.bodegaProducto4TableAdapter1.Fill(this.dataSetProductos1.BodegaProducto4);
+            this.reportViewer2.RefreshReport();
+        }
+
+        private void btnBuscar2_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar.ForeColor = Color.Black;
+        }
+
+        private void btnBuscar2_MouseEnter(object sender, EventArgs e)
         {
             btnBuscar.ForeColor = Color.Black;
         }

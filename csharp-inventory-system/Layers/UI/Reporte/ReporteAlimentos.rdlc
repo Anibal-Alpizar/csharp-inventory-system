@@ -99,7 +99,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Fecha</Value>
+                              <Value>Inventario Inicial</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -130,7 +130,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Inventario Inicial</Value>
+                              <Value>Inventario Final</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -161,7 +161,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Inventario Final</Value>
+                              <Value>Precio</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -185,21 +185,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox4">
+                    <Textbox Name="Textbox11">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Precio</Value>
+                              <Value>Tipo Entrada</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -281,36 +281,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Fecha">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Fecha.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Fecha</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="InventarioInicial">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -341,7 +311,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox10">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -355,7 +325,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox10</rd:DefaultName>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -399,6 +369,36 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="TipoEntrada">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!TipoEntrada.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>TipoEntrada</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
@@ -419,13 +419,13 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Detalles" />
+              <Group Name="Details" />
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>1.18745cm</Top>
-        <Left>0.59766cm</Left>
+        <Top>0.60537cm</Top>
+        <Left>0.28787cm</Left>
         <Height>1.2cm</Height>
         <Width>15cm</Width>
         <Style>
@@ -434,7 +434,7 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox2">
+      <Textbox Name="Textbox4">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
@@ -448,9 +448,9 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>2.82194cm</Top>
-        <Left>10.59766cm</Left>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>2.24cm</Top>
+        <Left>7.78787cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>1</ZIndex>
@@ -464,7 +464,7 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox13">
+      <Textbox Name="Textbox6">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
@@ -478,9 +478,9 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>2.82194cm</Top>
-        <Left>13.09766cm</Left>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>2.24cm</Top>
+        <Left>10.28787cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -498,21 +498,21 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.67259in</Width>
+  <Width>6.5in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox11">
+        <Textbox Name="Textbox12">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reporte de Aseo Personal</Value>
+                  <Value>Reporte de Alimentos</Value>
                   <Style>
                     <FontSize>20pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -524,7 +524,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
           <Top>0.75833cm</Top>
-          <Left>3.63692cm</Left>
+          <Left>3.55984cm</Left>
           <Height>1.02333cm</Height>
           <Width>9.39146cm</Width>
           <Style>
@@ -542,7 +542,7 @@
           <Value>descarga</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.26727cm</Top>
-          <Left>0.59766cm</Left>
+          <Left>0.52058cm</Left>
           <Height>2.00546cm</Height>
           <Width>2.26729cm</Width>
           <ZIndex>1</ZIndex>
@@ -564,7 +564,7 @@
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox12">
+        <Textbox Name="Textbox13">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -621,7 +621,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>4602e0b2-c20b-4ef0-bd28-21b79da4ad25</rd:DataSourceID>
+      <rd:DataSourceID>fbcb92b1-49d0-4575-9bba-b0fbf1da2130</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -663,6 +663,10 @@
           <DataField>CantidadSalidas</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="TipoEntrada">
+          <DataField>TipoEntrada</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="CantidadFinal">
           <DataField>CantidadFinal</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -671,10 +675,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetProductos</rd:DataSetName>
         <rd:SchemaPath>C:\Users\ale-b\Desktop\csharp-inventory-system\csharp-inventory-system\Layers\UI\Reporte\DataSetProductos.xsd</rd:SchemaPath>
-        <rd:TableName>BodegaProducto3</rd:TableName>
+        <rd:TableName>BodegaProducto</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>BodegaProducto3TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>BodegaProductoTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -691,5 +695,5 @@ KndtUytdAyVMKxzkEaM89s7bYmJW4PU/oxL/ANcuO/Smjr7ZCKuoAKBzzg5znc8/CbdY9jhSS9T1h39b
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>fdbd9075-6ae8-4440-baf3-73c3ebb65c01</rd:ReportID>
+  <rd:ReportID>baa13750-8dac-4102-9762-81e269789934</rd:ReportID>
 </Report>

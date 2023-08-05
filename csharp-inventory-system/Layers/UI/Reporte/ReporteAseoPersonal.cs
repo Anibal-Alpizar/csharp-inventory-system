@@ -26,7 +26,8 @@ namespace csharp_inventory_system.Layers.UI.Reporte
         Panel p = new Panel();
         private void ReporteAseoPersonal_Load(object sender, EventArgs e)
         {
-
+            // TODO: This line of code loads data into the 'dataSetProductos.BodegaProducto6' table. You can move, or remove it, as needed.
+            
         }
 
 
@@ -218,6 +219,13 @@ namespace csharp_inventory_system.Layers.UI.Reporte
         private void btnBuscar_MouseLeave(object sender, EventArgs e)
         {
             btnBuscar.ForeColor = Color.Black;
+        }
+
+        private void btnBuscar2_Click(object sender, EventArgs e)
+        {
+            this.bodegaProducto6TableAdapter.Fill(this.dataSetProductos.BodegaProducto6);
+
+            this.reportViewer2.RefreshReport();
         }
     }
 }
