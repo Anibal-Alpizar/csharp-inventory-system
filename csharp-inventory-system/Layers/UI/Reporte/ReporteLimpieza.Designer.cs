@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteLimpieza));
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.bodegaProducto5BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetProductos = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductos();
+            this.bodegaProducto2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pMenu = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -56,25 +59,38 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.bodegaProducto2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetProductos = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductos();
             this.bodegaProducto2TableAdapter1 = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.BodegaProducto2TableAdapter();
             this.BodegaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodegaProducto5BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodegaProducto5TableAdapter = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.BodegaProducto5TableAdapter();
-            this.bodegaProducto5BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.button11 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto5BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto2BindingSource)).BeginInit();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.plnReportesMnu.SuspendLayout();
             this.pInventarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto2BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BodegaProductoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto5BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto5BindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bodegaProducto5BindingSource1
+            // 
+            this.bodegaProducto5BindingSource1.DataMember = "BodegaProducto5";
+            this.bodegaProducto5BindingSource1.DataSource = this.dataSetProductos;
+            // 
+            // dataSetProductos
+            // 
+            this.dataSetProductos.DataSetName = "DataSetProductos";
+            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bodegaProducto2BindingSource
+            // 
+            this.bodegaProducto2BindingSource.DataMember = "BodegaProducto2";
+            this.bodegaProducto2BindingSource.DataSource = this.dataSetProductos;
             // 
             // pMenu
             // 
@@ -236,10 +252,10 @@
             reportDataSource1.Value = this.bodegaProducto5BindingSource1;
             this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "csharp_inventory_system.Layers.UI.Reporte.ReporteLimpieza.rdlc";
-            this.reportViewer2.Location = new System.Drawing.Point(768, 160);
+            this.reportViewer2.Location = new System.Drawing.Point(768, 216);
             this.reportViewer2.Name = "reportViewer2";
             this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(734, 554);
+            this.reportViewer2.Size = new System.Drawing.Size(734, 498);
             this.reportViewer2.TabIndex = 2;
             // 
             // reportViewer1
@@ -248,11 +264,11 @@
             reportDataSource2.Value = this.bodegaProducto2BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "csharp_inventory_system.Layers.UI.Reporte.InformeReporteLimpieza.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 160);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 216);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(761, 556);
+            this.reportViewer1.Size = new System.Drawing.Size(761, 500);
             this.reportViewer1.TabIndex = 1;
             // 
             // panel5
@@ -266,7 +282,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1505, 160);
+            this.panel5.Size = new System.Drawing.Size(1505, 216);
             this.panel5.TabIndex = 0;
             // 
             // btnBuscar2
@@ -289,13 +305,14 @@
             // plnReportesMnu
             // 
             this.plnReportesMnu.BackColor = System.Drawing.Color.Teal;
+            this.plnReportesMnu.Controls.Add(this.button11);
             this.plnReportesMnu.Controls.Add(this.btnReporteGeneral);
             this.plnReportesMnu.Controls.Add(this.button9);
             this.plnReportesMnu.Controls.Add(this.button10);
             this.plnReportesMnu.Location = new System.Drawing.Point(667, 1);
             this.plnReportesMnu.Margin = new System.Windows.Forms.Padding(4);
             this.plnReportesMnu.Name = "plnReportesMnu";
-            this.plnReportesMnu.Size = new System.Drawing.Size(187, 155);
+            this.plnReportesMnu.Size = new System.Drawing.Size(187, 207);
             this.plnReportesMnu.TabIndex = 3;
             this.plnReportesMnu.Visible = false;
             // 
@@ -451,16 +468,6 @@
             this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
             this.btnBuscar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
-            // bodegaProducto2BindingSource
-            // 
-            this.bodegaProducto2BindingSource.DataMember = "BodegaProducto2";
-            this.bodegaProducto2BindingSource.DataSource = this.dataSetProductos;
-            // 
-            // dataSetProductos
-            // 
-            this.dataSetProductos.DataSetName = "DataSetProductos";
-            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bodegaProducto2TableAdapter1
             // 
             this.bodegaProducto2TableAdapter1.ClearBeforeFill = true;
@@ -479,10 +486,24 @@
             // 
             this.bodegaProducto5TableAdapter.ClearBeforeFill = true;
             // 
-            // bodegaProducto5BindingSource1
+            // button11
             // 
-            this.bodegaProducto5BindingSource1.DataMember = "BodegaProducto5";
-            this.bodegaProducto5BindingSource1.DataSource = this.dataSetProductos;
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button11.Location = new System.Drawing.Point(-1, 154);
+            this.button11.Margin = new System.Windows.Forms.Padding(4);
+            this.button11.Name = "button11";
+            this.button11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button11.Size = new System.Drawing.Size(187, 49);
+            this.button11.TabIndex = 8;
+            this.button11.Text = "Por Fecha";
+            this.button11.UseVisualStyleBackColor = true;
             // 
             // ReporteLimpieza
             // 
@@ -500,17 +521,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReporteLimpieza";
             this.Load += new System.EventHandler(this.ReporteLimpieza_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto5BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto2BindingSource)).EndInit();
             this.pMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.plnReportesMnu.ResumeLayout(false);
             this.pInventarios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto2BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BodegaProductoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto5BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto5BindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -548,5 +569,6 @@
         private DataSetProductosTableAdapters.BodegaProducto5TableAdapter bodegaProducto5TableAdapter;
         private System.Windows.Forms.Button btnBuscar2;
         private System.Windows.Forms.BindingSource bodegaProducto5BindingSource1;
+        private System.Windows.Forms.Button button11;
     }
 }

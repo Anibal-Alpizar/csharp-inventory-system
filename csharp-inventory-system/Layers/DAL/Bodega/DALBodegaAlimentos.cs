@@ -81,7 +81,7 @@ namespace csharp_inventory_system.Layers.DAL
                         {
                             TipoBodega = dr["TipoBodega"].ToString(),
                             Nombre = dr["Nombre"].ToString(),
-                            InventarioInicial = int.Parse(dr["InventarioInicial"].ToString()),
+                            InventarioInicial = double.Parse(dr["InventarioInicial"].ToString()),
                             UnidadMedida = dr["UnidadMedida"].ToString(),
                             Precio = double.Parse(dr["Precio"].ToString()),
                             CantidadEntradas = int.Parse(dr["CantidadEntradas"].ToString()),
@@ -137,7 +137,7 @@ namespace csharp_inventory_system.Layers.DAL
                     {
                         TipoBodega = dr["TipoBodega"].ToString(),
                         Nombre = dr["Nombre"].ToString(),
-                        InventarioInicial = int.Parse(dr["InventarioInicial"].ToString()),
+                        InventarioInicial = double.Parse(dr["InventarioInicial"].ToString()),
                         UnidadMedida = dr["UnidadMedida"].ToString(),
                         Fecha = DateTime.Parse(dr["Fecha"].ToString()),
                     };

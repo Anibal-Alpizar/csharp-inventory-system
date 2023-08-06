@@ -15,52 +15,35 @@ using System.Windows.Forms;
 
 namespace csharp_inventory_system.Layers.UI.Reporte
 {
-    public partial class ReporteGeneral : Form
+    public partial class ReportePorFechas : Form
     {
-
         private static readonly ILog _MyLogControlEventos = log4net.LogManager.GetLogger("MyControlEventos");
-        public ReporteGeneral()
+        public ReportePorFechas()
         {
             InitializeComponent();
         }
 
-        Panel p = new Panel();
+        public DateTime Fecha1 { get; set; }
+        public DateTime Fecha2 { get; set; }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ReportePorFechas_Load(object sender, EventArgs e)
         {
+            //this.rango_FechaTableAdapter.Fill(this.dataSetProductos.Rango_Fecha, Fecha1, Fecha2);
+           // this.reportViewer1.RefreshReport();
+        }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            // this.bodegaProducto3TableAdapter1.Fill(this.dataSetProductos.BodegaProducto3);
+            DateTime Fecha1 = dtpFecha1.Value;
+            DateTime Fecha2 = dtpFecha2.Value;
+            this.rango_FechaTableAdapter.Fill(this.dataSetProductos.Rango_Fecha, Fecha1, Fecha2);
+            this.reportViewer1.RefreshReport();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            if (!pInventarios.Visible)
-            {
-                pInventarios.Visible = true;
-            }
-            else
-            {
-                pInventarios.Visible = false;
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -78,6 +61,30 @@ namespace csharp_inventory_system.Layers.UI.Reporte
                 msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
                 _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!pInventarios.Visible)
+            {
+                pInventarios.Visible = true;
+            }
+            else
+            {
+                pInventarios.Visible = false;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!plnReportesMnu.Visible)
+            {
+                plnReportesMnu.Visible = true;
+            }
+            else
+            {
+                plnReportesMnu.Visible = false;
             }
         }
 
@@ -99,35 +106,7 @@ namespace csharp_inventory_system.Layers.UI.Reporte
             }
         }
 
-        private void ReporteGeneral_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dataSetProductos.BodegaProducto7' table. You can move, or remove it, as needed.
-           
-        }
-
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (!plnReportesMnu.Visible)
-            {
-                plnReportesMnu.Visible = true;
-            }
-            else
-            {
-                plnReportesMnu.Visible = false;
-            }
-        }
-
-        private void button6_Click_1(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             frmMantenimientoAlimentos ofrmMantenimientosAlimentos;
             try
@@ -145,7 +124,7 @@ namespace csharp_inventory_system.Layers.UI.Reporte
             }
         }
 
-        private void button7_Click_1(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
             frmMantenimientoAseoPersonal ofrmMantenimientoAseoPersonal;
             try
@@ -163,7 +142,7 @@ namespace csharp_inventory_system.Layers.UI.Reporte
             }
         }
 
-        private void button8_Click_1(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
             frmMantenimientoLimpieza ofrmMantenimientoLimpieza;
             try
@@ -201,24 +180,6 @@ namespace csharp_inventory_system.Layers.UI.Reporte
 
         private void button9_Click(object sender, EventArgs e)
         {
-            ReporteAlimentos oReporteAlimentos;
-            try
-            {
-                oReporteAlimentos = new ReporteAlimentos();
-                oReporteAlimentos.Show();
-                this.Hide();
-            }
-            catch (Exception er)
-            {
-                StringBuilder msg = new StringBuilder();
-                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
-                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
-                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnReporteGeneral_Click(object sender, EventArgs e)
-        {
             ReporteLimpieza oReporteLimpieza;
             try
             {
@@ -235,28 +196,40 @@ namespace csharp_inventory_system.Layers.UI.Reporte
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnReporteGeneral_Click(object sender, EventArgs e)
         {
-            this.bodegaProductoTableAdapter1.Fill(dataSetProductos.BodegaProducto);
-            this.reportViewer1.RefreshReport();
+            ReporteGeneral oReporteGeneral;
+            try
+            {
+                oReporteGeneral = new ReporteGeneral();
+                oReporteGeneral.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnBuscar_MouseEnter(object sender, EventArgs e)
+        private void button11_Click(object sender, EventArgs e)
         {
-            btnBuscar.ForeColor = Color.Black;
-        }
-
-        private void btnBuscar_MouseLeave(object sender, EventArgs e)
-        {
-            btnBuscar.ForeColor = Color.Black;
-        }
-
-        private void btnBuscar2_Click(object sender, EventArgs e)
-        {
-            this.bodegaProducto7TableAdapter.Fill(this.dataSetProductos.BodegaProducto7);
-
-
-            this.reportViewer2.RefreshReport();
+            ReporteAlimentos oReporteAlimentos;
+            try
+            {
+                oReporteAlimentos = new ReporteAlimentos();
+                oReporteAlimentos.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

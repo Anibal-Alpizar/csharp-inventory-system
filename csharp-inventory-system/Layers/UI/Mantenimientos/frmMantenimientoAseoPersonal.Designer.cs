@@ -94,6 +94,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tspPrincipal.SuspendLayout();
@@ -346,7 +347,8 @@
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column7});
+            this.Column7,
+            this.TipoEntrada});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(218)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -362,7 +364,7 @@
             this.dgvDatos.RowHeadersVisible = false;
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 40;
-            this.dgvDatos.Size = new System.Drawing.Size(1279, 635);
+            this.dgvDatos.Size = new System.Drawing.Size(1215, 635);
             this.dgvDatos.TabIndex = 23;
             // 
             // panel5
@@ -395,10 +397,10 @@
             this.panel5.Controls.Add(this.cmbUnidadMedida);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.ForeColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(1279, 0);
+            this.panel5.Location = new System.Drawing.Point(1217, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(560, 638);
+            this.panel5.Size = new System.Drawing.Size(617, 659);
             this.panel5.TabIndex = 22;
             // 
             // lblTipoEntrada
@@ -495,10 +497,10 @@
             this.panel6.Controls.Add(this.cmbProductos);
             this.panel6.Controls.Add(this.txtResultado);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 455);
+            this.panel6.Location = new System.Drawing.Point(0, 476);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(560, 183);
+            this.panel6.Size = new System.Drawing.Size(617, 183);
             this.panel6.TabIndex = 19;
             // 
             // label5
@@ -942,6 +944,14 @@
             this.Column7.Name = "Column7";
             this.Column7.Width = 125;
             // 
+            // TipoEntrada
+            // 
+            this.TipoEntrada.DataPropertyName = "TipoEntrada";
+            this.TipoEntrada.HeaderText = "TipoEntrada";
+            this.TipoEntrada.MinimumWidth = 6;
+            this.TipoEntrada.Name = "TipoEntrada";
+            this.TipoEntrada.Width = 125;
+            // 
             // frmMantenimientoAseoPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1042,5 +1052,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoEntrada;
     }
 }

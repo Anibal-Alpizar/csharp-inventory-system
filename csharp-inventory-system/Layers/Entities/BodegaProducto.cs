@@ -14,7 +14,7 @@ namespace csharp_inventory_system.Layers.Entities
         public string UnidadMedida { get; set; }
         public double Precio{ get; set; }
         public DateTime Fecha { get; set; }
-        public int InventarioInicial { get; set; }
+        public double InventarioInicial { get; set; }
         public int CantidadEntradas { get; set; }
         public int CantidadSalidas { get; set; }
         public int InventarioFinal { get; set; }

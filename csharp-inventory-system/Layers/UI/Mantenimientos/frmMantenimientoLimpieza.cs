@@ -115,6 +115,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
             this.cboTipoEntrada.Enabled = false;
 
             if (cmbUnidadMedida.Items.Count > 0) this.cmbUnidadMedida.SelectedIndex = 0;
+            if (cboTipoEntrada.Items.Count > 0) this.cboTipoEntrada.SelectedIndex = 0;
 
             switch (estado)
             {
@@ -220,7 +221,7 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 oBodegaProducto.TipoEntrada = cboTipoEntrada.SelectedItem.ToString();
                 oBodegaProducto.Precio = double.Parse(this.txtPrecioUnitario.Text);
                 oBodegaProducto.Fecha = DateTime.Parse(this.dtpFechaSalida.Text);
-                oBodegaProducto.InventarioInicial = int.Parse(this.txtInventarioInicial.Text);
+                oBodegaProducto.InventarioInicial = double.Parse(this.txtInventarioInicial.Text);
                 oBodegaProducto.CantidadEntradas =int.Parse(this.txtNuevasEntradas.Text) + int.Parse(this.txtEntrante.Text);
                 oBodegaProducto.CantidadSalidas = int.Parse(this.txtNuevasSalidas.Text)  + int.Parse(this.txtSaliente.Text);
                 oBodegaProducto.InventarioFinal = 0;
@@ -323,8 +324,8 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                     this.CambiarEstado(EstadoMantenimiento.Editar);
                     this.txtAlimentos.Text = oBodegaProducto.TipoBodega;
                     this.txtProducto.Text = oBodegaProducto.Nombre;
-                    cmbProductos.SelectedIndex = cmbProductos.FindString(oBodegaProducto.IdBodegaProducto.ToString());
-                    cboTipoEntrada.SelectedIndex = cboTipoEntrada.FindString(oBodegaProducto.IdBodegaProducto.ToString());
+                    cmbUnidadMedida.SelectedItem = oBodegaProducto.UnidadMedida;
+                    cboTipoEntrada.SelectedItem = oBodegaProducto.TipoEntrada;
                     this.txtPrecioUnitario.Text = oBodegaProducto.Precio.ToString();
                     this.txtEntrante.Text = oBodegaProducto.CantidadEntradas.ToString();
                     this.txtInventarioInicial.Text= oBodegaProducto.InventarioInicial.ToString();

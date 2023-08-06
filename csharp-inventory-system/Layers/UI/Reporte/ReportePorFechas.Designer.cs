@@ -1,6 +1,6 @@
 ﻿namespace csharp_inventory_system.Layers.UI.Reporte
 {
-    partial class ReporteAseoPersonal
+    partial class ReportePorFechas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporteAseoPersonal));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.bodegaProducto6BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetProductos = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductos();
-            this.bodegaProducto3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportePorFechas));
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource13 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.pMenu = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -46,11 +42,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnBuscar2 = new System.Windows.Forms.Button();
+            this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha1 = new System.Windows.Forms.DateTimePicker();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.plnReportesMnu = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.btnReporteGeneral = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -58,38 +56,22 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.bodegaProducto3TableAdapter1 = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.BodegaProducto3TableAdapter();
-            this.bodegaProducto1TableAdapter1 = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.BodegaProducto1TableAdapter();
-            this.BodegaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bodegaProducto6TableAdapter = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.BodegaProducto6TableAdapter();
-            this.button11 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto6BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto3BindingSource)).BeginInit();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.lblHasta = new System.Windows.Forms.Label();
+            this.dataSetProductos = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductos();
+            this.rangoFechaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rango_FechaTableAdapter = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.Rango_FechaTableAdapter();
+            this.rangoFechaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.plnReportesMnu.SuspendLayout();
             this.pInventarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BodegaProductoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bodegaProducto6BindingSource
-            // 
-            this.bodegaProducto6BindingSource.DataMember = "BodegaProducto6";
-            this.bodegaProducto6BindingSource.DataSource = this.dataSetProductos;
-            // 
-            // dataSetProductos
-            // 
-            this.dataSetProductos.DataSetName = "DataSetProductos";
-            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bodegaProducto3BindingSource
-            // 
-            this.bodegaProducto3BindingSource.DataMember = "BodegaProducto3";
-            this.bodegaProducto3BindingSource.DataSource = this.dataSetProductos;
             // 
             // pMenu
             // 
@@ -121,7 +103,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "Acerca De";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button3
             // 
@@ -207,7 +189,6 @@
             this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 49);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(7, 720);
             this.panel1.TabIndex = 5;
@@ -217,7 +198,6 @@
             this.panel2.BackColor = System.Drawing.Color.Teal;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(7, 763);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1512, 6);
             this.panel2.TabIndex = 6;
@@ -227,7 +207,6 @@
             this.panel3.BackColor = System.Drawing.Color.Teal;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(1512, 49);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(7, 714);
             this.panel3.TabIndex = 7;
@@ -235,71 +214,79 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel4.Controls.Add(this.reportViewer2);
             this.panel4.Controls.Add(this.reportViewer1);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(7, 49);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1505, 714);
             this.panel4.TabIndex = 8;
             // 
-            // reportViewer2
-            // 
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.bodegaProducto6BindingSource;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer2.LocalReport.ReportEmbeddedResource = "csharp_inventory_system.Layers.UI.Reporte.ReporteAseoPersonal.rdlc";
-            this.reportViewer2.Location = new System.Drawing.Point(772, 217);
-            this.reportViewer2.Name = "reportViewer2";
-            this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(733, 500);
-            this.reportViewer2.TabIndex = 2;
-            // 
             // reportViewer1
             // 
-            reportDataSource4.Name = "DataSet1";
-            reportDataSource4.Value = this.bodegaProducto3BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "csharp_inventory_system.Layers.UI.Reporte.InformeReporteAseoPersonal.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 217);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource13.Name = "DataSet1";
+            reportDataSource13.Value = this.rangoFechaBindingSource1;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource13);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "csharp_inventory_system.Layers.UI.Reporte.InformePorFechas.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 216);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(765, 499);
+            this.reportViewer1.Size = new System.Drawing.Size(1505, 498);
             this.reportViewer1.TabIndex = 1;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.btnBuscar2);
+            this.panel5.Controls.Add(this.lblHasta);
+            this.panel5.Controls.Add(this.lblDesde);
+            this.panel5.Controls.Add(this.dtpFecha2);
+            this.panel5.Controls.Add(this.dtpFecha1);
+            this.panel5.Controls.Add(this.btnBuscar);
             this.panel5.Controls.Add(this.plnReportesMnu);
             this.panel5.Controls.Add(this.pInventarios);
-            this.panel5.Controls.Add(this.btnBuscar);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1505, 216);
             this.panel5.TabIndex = 0;
             // 
-            // btnBuscar2
+            // dtpFecha2
             // 
-            this.btnBuscar2.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.btnBuscar2.FlatAppearance.BorderSize = 2;
-            this.btnBuscar2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnBuscar2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
-            this.btnBuscar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar2.ForeColor = System.Drawing.Color.Cyan;
-            this.btnBuscar2.Location = new System.Drawing.Point(931, 69);
-            this.btnBuscar2.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar2.Name = "btnBuscar2";
-            this.btnBuscar2.Size = new System.Drawing.Size(218, 42);
-            this.btnBuscar2.TabIndex = 5;
-            this.btnBuscar2.Text = "Generar Reporte Donación";
-            this.btnBuscar2.UseVisualStyleBackColor = true;
-            this.btnBuscar2.Click += new System.EventHandler(this.btnBuscar2_Click);
+            this.dtpFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha2.Location = new System.Drawing.Point(27, 98);
+            this.dtpFecha2.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFecha2.Name = "dtpFecha2";
+            this.dtpFecha2.Size = new System.Drawing.Size(323, 26);
+            this.dtpFecha2.TabIndex = 9;
+            this.dtpFecha2.Value = new System.DateTime(2023, 4, 1, 0, 0, 0, 0);
+            // 
+            // dtpFecha1
+            // 
+            this.dtpFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha1.Location = new System.Drawing.Point(27, 38);
+            this.dtpFecha1.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFecha1.Name = "dtpFecha1";
+            this.dtpFecha1.Size = new System.Drawing.Size(323, 26);
+            this.dtpFecha1.TabIndex = 8;
+            this.dtpFecha1.Value = new System.DateTime(2023, 4, 1, 0, 0, 0, 0);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
+            this.btnBuscar.FlatAppearance.BorderSize = 2;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.Cyan;
+            this.btnBuscar.Location = new System.Drawing.Point(72, 154);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(133, 42);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "Generar Reporte";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // plnReportesMnu
             // 
@@ -308,12 +295,32 @@
             this.plnReportesMnu.Controls.Add(this.btnReporteGeneral);
             this.plnReportesMnu.Controls.Add(this.button9);
             this.plnReportesMnu.Controls.Add(this.button10);
-            this.plnReportesMnu.Location = new System.Drawing.Point(667, 1);
+            this.plnReportesMnu.Location = new System.Drawing.Point(666, 0);
             this.plnReportesMnu.Margin = new System.Windows.Forms.Padding(4);
             this.plnReportesMnu.Name = "plnReportesMnu";
-            this.plnReportesMnu.Size = new System.Drawing.Size(187, 197);
+            this.plnReportesMnu.Size = new System.Drawing.Size(187, 207);
             this.plnReportesMnu.TabIndex = 4;
             this.plnReportesMnu.Visible = false;
+            // 
+            // button11
+            // 
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button11.Location = new System.Drawing.Point(-1, 154);
+            this.button11.Margin = new System.Windows.Forms.Padding(4);
+            this.button11.Name = "button11";
+            this.button11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button11.Size = new System.Drawing.Size(187, 49);
+            this.button11.TabIndex = 8;
+            this.button11.Text = "Alimentos";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // btnReporteGeneral
             // 
@@ -325,7 +332,7 @@
             this.btnReporteGeneral.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteGeneral.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnReporteGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReporteGeneral.Location = new System.Drawing.Point(0, 95);
+            this.btnReporteGeneral.Location = new System.Drawing.Point(0, 103);
             this.btnReporteGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.btnReporteGeneral.Name = "btnReporteGeneral";
             this.btnReporteGeneral.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -345,13 +352,13 @@
             this.button9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.Menu;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.Location = new System.Drawing.Point(0, 47);
+            this.button9.Location = new System.Drawing.Point(0, 48);
             this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button9.Size = new System.Drawing.Size(187, 49);
             this.button9.TabIndex = 6;
-            this.button9.Text = "Limpieza ";
+            this.button9.Text = "Limpieza";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -371,7 +378,7 @@
             this.button10.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button10.Size = new System.Drawing.Size(187, 49);
             this.button10.TabIndex = 5;
-            this.button10.Text = "Alimentos";
+            this.button10.Text = "Aseo  ";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
@@ -381,7 +388,7 @@
             this.pInventarios.Controls.Add(this.button8);
             this.pInventarios.Controls.Add(this.button7);
             this.pInventarios.Controls.Add(this.button6);
-            this.pInventarios.Location = new System.Drawing.Point(363, 1);
+            this.pInventarios.Location = new System.Drawing.Point(362, 0);
             this.pInventarios.Margin = new System.Windows.Forms.Padding(4);
             this.pInventarios.Name = "pInventarios";
             this.pInventarios.Size = new System.Drawing.Size(187, 159);
@@ -448,62 +455,44 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // btnBuscar
+            // lblDesde
             // 
-            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.btnBuscar.FlatAppearance.BorderSize = 2;
-            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.Cyan;
-            this.btnBuscar.Location = new System.Drawing.Point(31, 18);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(139, 42);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Generar Reporte";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
-            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(24, 18);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(48, 16);
+            this.lblDesde.TabIndex = 10;
+            this.lblDesde.Text = "Desde";
             // 
-            // bodegaProducto3TableAdapter1
+            // lblHasta
             // 
-            this.bodegaProducto3TableAdapter1.ClearBeforeFill = true;
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(27, 75);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(43, 16);
+            this.lblHasta.TabIndex = 11;
+            this.lblHasta.Text = "Hasta";
             // 
-            // bodegaProducto1TableAdapter1
+            // dataSetProductos
             // 
-            this.bodegaProducto1TableAdapter1.ClearBeforeFill = true;
+            this.dataSetProductos.DataSetName = "DataSetProductos";
+            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // BodegaProductoBindingSource
+            // rangoFechaBindingSource
             // 
-            this.BodegaProductoBindingSource.DataMember = "BodegaProducto";
-            this.BodegaProductoBindingSource.DataSource = this.dataSetProductos;
+            this.rangoFechaBindingSource.DataMember = "Rango_Fecha";
+            this.rangoFechaBindingSource.DataSource = this.dataSetProductos;
             // 
-            // bodegaProducto6TableAdapter
+            // rango_FechaTableAdapter
             // 
-            this.bodegaProducto6TableAdapter.ClearBeforeFill = true;
+            this.rango_FechaTableAdapter.ClearBeforeFill = true;
             // 
-            // button11
+            // rangoFechaBindingSource1
             // 
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.SystemColors.Menu;
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button11.Location = new System.Drawing.Point(0, 138);
-            this.button11.Margin = new System.Windows.Forms.Padding(4);
-            this.button11.Name = "button11";
-            this.button11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button11.Size = new System.Drawing.Size(187, 49);
-            this.button11.TabIndex = 8;
-            this.button11.Text = "Por fecha";
-            this.button11.UseVisualStyleBackColor = true;
+            this.rangoFechaBindingSource1.DataMember = "Rango_Fecha";
+            this.rangoFechaBindingSource1.DataSource = this.dataSetProductos;
             // 
-            // ReporteAseoPersonal
+            // ReportePorFechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -514,21 +503,19 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ReporteAseoPersonal";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReporteAseoPersonal";
-            this.Load += new System.EventHandler(this.ReporteAseoPersonal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto6BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto3BindingSource)).EndInit();
+            this.Name = "ReportePorFechas";
+            this.Text = "ReportePorFechas";
+            this.Load += new System.EventHandler(this.ReportePorFechas_Load);
             this.pMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.plnReportesMnu.ResumeLayout(false);
             this.pInventarios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BodegaProductoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,25 +534,24 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel pInventarios;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel plnReportesMnu;
+        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button btnReporteGeneral;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.BindingSource bodegaProducto3BindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DateTimePicker dtpFecha2;
+        private System.Windows.Forms.DateTimePicker dtpFecha1;
+        private System.Windows.Forms.Label lblHasta;
+        private System.Windows.Forms.Label lblDesde;
         private DataSetProductos dataSetProductos;
-        private DataSetProductosTableAdapters.BodegaProducto3TableAdapter bodegaProducto3TableAdapter1;
-        private DataSetProductosTableAdapters.BodegaProducto1TableAdapter bodegaProducto1TableAdapter1;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
-        private System.Windows.Forms.BindingSource BodegaProductoBindingSource;
-        private System.Windows.Forms.BindingSource bodegaProducto6BindingSource;
-        private DataSetProductosTableAdapters.BodegaProducto6TableAdapter bodegaProducto6TableAdapter;
-        private System.Windows.Forms.Button btnBuscar2;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.BindingSource rangoFechaBindingSource;
+        private DataSetProductosTableAdapters.Rango_FechaTableAdapter rango_FechaTableAdapter;
+        private System.Windows.Forms.BindingSource rangoFechaBindingSource1;
     }
 }

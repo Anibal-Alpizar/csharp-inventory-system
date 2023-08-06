@@ -194,6 +194,12 @@
     <Compile Include="Layers\UI\Reporte\ReporteLimpieza.Designer.cs">
       <DependentUpon>ReporteLimpieza.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layers\UI\Reporte\ReportePorFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reporte\ReportePorFechas.Designer.cs">
+      <DependentUpon>ReportePorFechas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -219,6 +225,7 @@
     <EmbeddedResource Include="Layers\UI\Mantenimientos\frmMantenimientoLimpieza.resx">
       <DependentUpon>frmMantenimientoLimpieza.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reporte\InformePorFechas.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\InformeReporteAlimentos.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\InformeReporteAseoPersonal.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\InformeReporteLimpieza.rdlc" />
@@ -231,12 +238,16 @@
     <EmbeddedResource Include="Layers\UI\Reporte\ReporteAseoPersonal.resx">
       <DependentUpon>ReporteAseoPersonal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reporte\ReporteGeneral.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\ReporteGeneral.resx">
       <DependentUpon>ReporteGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layers\UI\Reporte\ReporteLimpieza.rdlc" />
     <EmbeddedResource Include="Layers\UI\Reporte\ReporteLimpieza.resx">
       <DependentUpon>ReporteLimpieza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reporte\ReportePorFechas.resx">
+      <DependentUpon>ReportePorFechas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
