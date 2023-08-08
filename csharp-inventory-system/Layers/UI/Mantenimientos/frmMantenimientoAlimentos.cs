@@ -564,5 +564,23 @@ namespace csharp_inventory_system.Layers.UI.Mantenimientos
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            ReportePorFechas ofrmReportePorfechas;
+            try
+            {
+                ofrmReportePorfechas = new ReportePorFechas();
+                ofrmReportePorfechas.Show();
+                this.Hide();
+            }
+            catch (Exception er)
+            {
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat(UtilError.CreateGenericErrorExceptionDetail(MethodBase.GetCurrentMethod(), er));
+                _MyLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

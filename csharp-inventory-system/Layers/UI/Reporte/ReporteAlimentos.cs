@@ -255,12 +255,12 @@ namespace csharp_inventory_system.Layers.UI.Reporte
 
         private void btnBuscar2_MouseLeave(object sender, EventArgs e)
         {
-            btnBuscar.ForeColor = Color.Black;
+            btnBuscar2.ForeColor = Color.Black;
         }
 
         private void btnBuscar2_MouseEnter(object sender, EventArgs e)
         {
-            btnBuscar.ForeColor = Color.Black;
+            btnBuscar2.ForeColor = Color.Black;
         }
     }
 }

@@ -227,5 +227,15 @@ namespace csharp_inventory_system.Layers.UI.Reporte
 
             this.reportViewer2.RefreshReport();
         }
+
+        private void btnBuscar2_MouseEnter(object sender, EventArgs e)
+        {
+            btnBuscar2.ForeColor = Color.Black;
+        }
+
+        private void btnBuscar2_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar2.ForeColor= Color.Black;
+        }
     }
 }

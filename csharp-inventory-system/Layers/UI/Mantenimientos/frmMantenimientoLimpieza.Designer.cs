@@ -95,6 +95,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tspPrincipal.SuspendLayout();
@@ -869,6 +870,7 @@
             // plnReportesMnu
             // 
             this.plnReportesMnu.BackColor = System.Drawing.Color.Teal;
+            this.plnReportesMnu.Controls.Add(this.button8);
             this.plnReportesMnu.Controls.Add(this.btnReporteGeneral);
             this.plnReportesMnu.Controls.Add(this.button9);
             this.plnReportesMnu.Controls.Add(this.button10);
@@ -876,7 +878,7 @@
             this.plnReportesMnu.Location = new System.Drawing.Point(697, 49);
             this.plnReportesMnu.Margin = new System.Windows.Forms.Padding(4);
             this.plnReportesMnu.Name = "plnReportesMnu";
-            this.plnReportesMnu.Size = new System.Drawing.Size(187, 198);
+            this.plnReportesMnu.Size = new System.Drawing.Size(187, 243);
             this.plnReportesMnu.TabIndex = 24;
             this.plnReportesMnu.Visible = false;
             // 
@@ -959,6 +961,26 @@
             this.button11.Text = "Alimentos";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button8.Location = new System.Drawing.Point(-4, 190);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
+            this.button8.Name = "button8";
+            this.button8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button8.Size = new System.Drawing.Size(187, 49);
+            this.button8.TabIndex = 8;
+            this.button8.Text = "Por Fecha";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // frmMantenimientoLimpieza
             // 
@@ -1061,5 +1083,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoEntrada;
+        private System.Windows.Forms.Button button8;
     }
 }

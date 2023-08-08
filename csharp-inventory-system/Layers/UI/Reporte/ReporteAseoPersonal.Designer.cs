@@ -51,6 +51,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnBuscar2 = new System.Windows.Forms.Button();
             this.plnReportesMnu = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
             this.btnReporteGeneral = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -63,7 +64,6 @@
             this.bodegaProducto1TableAdapter1 = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.BodegaProducto1TableAdapter();
             this.BodegaProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bodegaProducto6TableAdapter = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.BodegaProducto6TableAdapter();
-            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto6BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bodegaProducto3BindingSource)).BeginInit();
@@ -300,6 +300,8 @@
             this.btnBuscar2.Text = "Generar Reporte Donación";
             this.btnBuscar2.UseVisualStyleBackColor = true;
             this.btnBuscar2.Click += new System.EventHandler(this.btnBuscar2_Click);
+            this.btnBuscar2.MouseEnter += new System.EventHandler(this.btnBuscar2_MouseEnter);
+            this.btnBuscar2.MouseLeave += new System.EventHandler(this.btnBuscar2_MouseLeave);
             // 
             // plnReportesMnu
             // 
@@ -314,6 +316,25 @@
             this.plnReportesMnu.Size = new System.Drawing.Size(187, 197);
             this.plnReportesMnu.TabIndex = 4;
             this.plnReportesMnu.Visible = false;
+            // 
+            // button11
+            // 
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.SystemColors.Menu;
+            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button11.Location = new System.Drawing.Point(0, 138);
+            this.button11.Margin = new System.Windows.Forms.Padding(4);
+            this.button11.Name = "button11";
+            this.button11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button11.Size = new System.Drawing.Size(187, 49);
+            this.button11.TabIndex = 8;
+            this.button11.Text = "Por fecha";
+            this.button11.UseVisualStyleBackColor = true;
             // 
             // btnReporteGeneral
             // 
@@ -483,25 +504,6 @@
             // bodegaProducto6TableAdapter
             // 
             this.bodegaProducto6TableAdapter.ClearBeforeFill = true;
-            // 
-            // button11
-            // 
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.SystemColors.Menu;
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button11.Location = new System.Drawing.Point(0, 138);
-            this.button11.Margin = new System.Windows.Forms.Padding(4);
-            this.button11.Name = "button11";
-            this.button11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button11.Size = new System.Drawing.Size(187, 49);
-            this.button11.TabIndex = 8;
-            this.button11.Text = "Por fecha";
-            this.button11.UseVisualStyleBackColor = true;
             // 
             // ReporteAseoPersonal
             // 

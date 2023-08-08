@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportePorFechas));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource13 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.rangoFechaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetProductos = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductos();
             this.pMenu = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,6 +46,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblHasta = new System.Windows.Forms.Label();
+            this.lblDesde = new System.Windows.Forms.Label();
             this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
             this.dtpFecha1 = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -56,22 +60,28 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.lblDesde = new System.Windows.Forms.Label();
-            this.lblHasta = new System.Windows.Forms.Label();
-            this.dataSetProductos = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductos();
             this.rangoFechaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rango_FechaTableAdapter = new csharp_inventory_system.Layers.UI.Reporte.DataSetProductosTableAdapters.Rango_FechaTableAdapter();
-            this.rangoFechaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.plnReportesMnu.SuspendLayout();
             this.pInventarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // rangoFechaBindingSource1
+            // 
+            this.rangoFechaBindingSource1.DataMember = "Rango_Fecha";
+            this.rangoFechaBindingSource1.DataSource = this.dataSetProductos;
+            // 
+            // dataSetProductos
+            // 
+            this.dataSetProductos.DataSetName = "DataSetProductos";
+            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pMenu
             // 
@@ -225,9 +235,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource13.Name = "DataSet1";
-            reportDataSource13.Value = this.rangoFechaBindingSource1;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource13);
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.rangoFechaBindingSource1;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "csharp_inventory_system.Layers.UI.Reporte.InformePorFechas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 216);
             this.reportViewer1.Name = "reportViewer1";
@@ -250,6 +260,24 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1505, 216);
             this.panel5.TabIndex = 0;
+            // 
+            // lblHasta
+            // 
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(27, 75);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(43, 16);
+            this.lblHasta.TabIndex = 11;
+            this.lblHasta.Text = "Hasta";
+            // 
+            // lblDesde
+            // 
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(24, 18);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(48, 16);
+            this.lblDesde.TabIndex = 10;
+            this.lblDesde.Text = "Desde";
             // 
             // dtpFecha2
             // 
@@ -287,6 +315,8 @@
             this.btnBuscar.Text = "Generar Reporte";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // plnReportesMnu
             // 
@@ -455,29 +485,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // lblDesde
-            // 
-            this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(24, 18);
-            this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(48, 16);
-            this.lblDesde.TabIndex = 10;
-            this.lblDesde.Text = "Desde";
-            // 
-            // lblHasta
-            // 
-            this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(27, 75);
-            this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(43, 16);
-            this.lblHasta.TabIndex = 11;
-            this.lblHasta.Text = "Hasta";
-            // 
-            // dataSetProductos
-            // 
-            this.dataSetProductos.DataSetName = "DataSetProductos";
-            this.dataSetProductos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // rangoFechaBindingSource
             // 
             this.rangoFechaBindingSource.DataMember = "Rango_Fecha";
@@ -486,11 +493,6 @@
             // rango_FechaTableAdapter
             // 
             this.rango_FechaTableAdapter.ClearBeforeFill = true;
-            // 
-            // rangoFechaBindingSource1
-            // 
-            this.rangoFechaBindingSource1.DataMember = "Rango_Fecha";
-            this.rangoFechaBindingSource1.DataSource = this.dataSetProductos;
             // 
             // ReportePorFechas
             // 
@@ -506,6 +508,8 @@
             this.Name = "ReportePorFechas";
             this.Text = "ReportePorFechas";
             this.Load += new System.EventHandler(this.ReportePorFechas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
             this.pMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -513,9 +517,7 @@
             this.panel5.PerformLayout();
             this.plnReportesMnu.ResumeLayout(false);
             this.pInventarios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rangoFechaBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
